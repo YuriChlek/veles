@@ -1,0 +1,24 @@
+.admin-login {
+    &-wrapper {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        width: 100%;
+    }
+
+    &-form {
+        width: 300px;
+        padding: 20px;
+    }
+
+    &-title {
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
+
+    &-row {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
