@@ -1,0 +1,54 @@
+services:
+  nginx-proxy:
+    container_name: veles_proxy
+    image: nginx:stable
+    environment:
+      - DEFAULT_HOST=http://veles.local
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8080:5050"
+      - "8081:5051"
+    restart: always
+    depends_on:
+      - pgadmin
+    networks:
+      - veles-db
+
+  postgres:
+    container_name: veles_postgres
+    image: postgres:14-alpine
+    restart: always
+    ports:
+      - "${DB_PORT}:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DATABASE}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - veles-db
+
+  pgadmin:
+    container_name: veles_pgadmin4
+    image: dpage/pgadmin4:6.17
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_LISTEN_PORT: 80
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - veles-db
+
+volumes:
+  postgres_data:
+  pgadmin-data:
+
+networks:
+  veles-db:
+    driver: bridge
