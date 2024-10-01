@@ -20,7 +20,7 @@ const Login: React.FC = ({ searchParams }: { searchParams: Message }): React.JSX
                     <Input
                         type="password"
                         name="password"
-                        placeholder="Your password"
+                        placeholder="Password"
                         required
                     />
                 </div>
