@@ -1,4 +1,4 @@
-export type ConnectionType = {
+export type Connection_type = {
     user: string,
     password: string,
     host: string,

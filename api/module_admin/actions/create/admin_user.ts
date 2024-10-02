@@ -1,10 +1,11 @@
-import dbConnection from "../../module_db/actions/new_connection";
-import {AdminUser} from "../interfaces/admin_user";
-import adminUserIsCreated from "./check_is_create_admin_user";
+import dbConnection from "../../../module_db/actions/create/new_connection";
+import {AdminUser} from "../../interfaces/admin_user";
+import verifyAdminUserIsCreated from "../verify/admin_user_is_created";
+import {ADMIN_USER_DB} from "../../../module_db/constants/db_constants";
 
 const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
     const query = `
-            INSERT INTO admin_users (admin_id, login, password, email, first_name, last_name, role)
+            INSERT INTO ${ADMIN_USER_DB} (admin_id, login, password, email, first_name, last_name, role)
             VALUES ($1, $2, $3, $4, $5, $6, $7)
             ;
         `;
@@ -20,7 +21,7 @@ const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
     ];
 
     try {
-        const userIsCreated = await adminUserIsCreated(userOptions.login);
+        const userIsCreated = await verifyAdminUserIsCreated(userOptions.login);
 
         if (!userIsCreated) {
             await dbConnection.query(query, values);

@@ -1,9 +1,9 @@
-import dbConnection from "../../module_db/actions/new_connection";
+import dbConnection from "../../../module_db/actions/create/new_connection";
+import {ADMIN_USER_DB} from "../../../module_db/constants/db_constants";
 
 const createAdminUserTable = async (): Promise<void> => {
-    const tableName: string = 'admin_users'
     const createAdminTableQuery: string = `
-        CREATE TABLE IF NOT EXISTS ${tableName} (
+        CREATE TABLE IF NOT EXISTS ${ADMIN_USER_DB} (
             id SERIAL PRIMARY KEY,
             admin_id VARCHAR(40),
             login VARCHAR(128),

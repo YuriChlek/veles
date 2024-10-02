@@ -1,10 +1,10 @@
 import dotenv from 'dotenv';
 import {Client} from 'pg';
-import {ConnectionType} from "../types/ConnectionType";
+import {Connection_type} from "../../types/connection_type";
 
 dotenv.config();
 
-const connectionOptions: ConnectionType = {
+const connectionOptions: Connection_type = {
     user: process.env.DB_USER || '',
     password: process.env.DB_PASSWORD || '',
     host: process.env.DB_HOST || '',

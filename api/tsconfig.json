@@ -7,7 +7,7 @@
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true // для однозначного регістру імен файлів
+        "forceConsistentCasingInFileNames": true
     },
     "include": ["*/**/*.ts"],
     "exclude": ["node_modules"]

@@ -32,7 +32,7 @@ services:
 
   pgadmin:
     container_name: veles_pgadmin4
-    image: dpage/pgadmin4:6.17
+    image: dpage/pgadmin4:8.12
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com

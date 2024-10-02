@@ -1,8 +1,8 @@
-import createAdminUser from "../actions/create_admin_user";
+import createAdminUser from "../actions/create/admin_user";
 import {AdminUser} from "../interfaces/admin_user";
 import {v4 as uuidv4} from "uuid";
 
-const newAdminUser = async (): Promise<void> => {
+(async (): Promise<void> => {
     const args: Array<string> = process.argv.slice(2);
     const userData: Record<string, string> = args.reduce((acc, item) => {
         const [key, value] = item.split('=');
@@ -34,8 +34,4 @@ const newAdminUser = async (): Promise<void> => {
         console.error('Unable to create user because the fields login, password, and email are required.');
         process.exit(1);
     }
-}
-
-(async () => {
-    await newAdminUser();
 })();

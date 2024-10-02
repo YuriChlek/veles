@@ -1,6 +1,6 @@
-import dbConnection from "../../module_db/actions/new_connection";
+import dbConnection from "../create/new_connection";
 
-const hasTable = async (tableName: string): Promise<boolean> => {
+const verifyHasTable = async (tableName: string): Promise<boolean> => {
     const query = `
     SELECT EXISTS (
       SELECT FROM information_schema.tables 
@@ -16,9 +16,10 @@ const hasTable = async (tableName: string): Promise<boolean> => {
         return exists;
     } catch (error) {
         console.error(error);
+
         return false;
     }
 
 }
 
-export default hasTable;
+export default verifyHasTable;
