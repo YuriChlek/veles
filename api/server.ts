@@ -1,19 +1,30 @@
-import express from 'express';
-import * as dotenv from 'dotenv';
-import createEnvRedisSecretKey from "./module_env/create/env_redis_secret_key";
+import express, { Request, Response, NextFunction } from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import createTokenEnvSecretKey from "./module_env/create/env_token_secret_key";
+import {TOKEN_SECRET_KEY, API_PORT} from "../constants/env/env_constants";
+import loginAdminHandler from "./module_admin/graphql/login/admin_login_handler";
 
-dotenv.config();
+(async (): Promise<void> => {
+    if (!TOKEN_SECRET_KEY) {
+        createTokenEnvSecretKey();
+    }
 
-if (!process.env.REDIS_SECRET_KEY) {
-    createEnvRedisSecretKey();
-}
+    const corsOptions = {
+        origin: 'http://localhost:3000',
+        methods: ['GET', 'POST'],
+        credentials: true
+    }
+    const PORT: string = API_PORT || '5000';
+    const app = express();
+    app.use(cookieParser()); //???
+    app.use(cors(corsOptions));
 
-const PORT: string = process.env.API_PORT || '5000';
+    /* Винести створення  graphql у окрему функцію */
+    app.post('/graphql/admin_login', (req: Request, res: Response, next: NextFunction) => {
+        return loginAdminHandler(req as Request, res as Response, next as NextFunction);
+    });
+    /* ------------------------------------------- */
 
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send(`Server Connected to http://localhost:${PORT}`);
-})
-
-app.listen(PORT, () => console.log(`Server Connected to http://localhost:${PORT}`));
+    app.listen(PORT, () => console.log(`Server Connected to http://localhost:${PORT}`));
+})()

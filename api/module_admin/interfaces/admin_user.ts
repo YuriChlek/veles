@@ -1,12 +1,17 @@
 export interface BaseAdminUser {
+    admin_id: string;
     login: string,
-    password: string,
     email: string,
     first_name?: string,
     last_name?: string,
+    role?: "admin"
 }
 
 export interface AdminUser extends BaseAdminUser{
-    admin_id: string;
-    role?: "admin"
+    password: string,
+}
+
+export interface AdminAuthPayload {
+    user: BaseAdminUser
+    token: string
 }

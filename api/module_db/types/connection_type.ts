@@ -5,8 +5,6 @@ export type Connection_type = {
     port?: number,
     database?: string,
     connectionString?: string,
-    ssl?: any,
-    types?: any,
     statement_timeout?: number,
     query_timeout?: number,
     lock_timeout?: number,

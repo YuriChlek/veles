@@ -1,9 +1,10 @@
 import React from "react";
 
-const  Dashboard = (): React.JSX.Element => {
+const Dashboard = (): React.JSX.Element => {
+
     return (
         <div>
-            Hello from admin dashboard
+            Hello from admin dashboard 2
         </div>
     );
 }

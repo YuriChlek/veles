@@ -1,20 +1,19 @@
 "use client";
 
 import * as React from "react";
-import * as LabelPrimitive from "@radix-ui/react-label";
 import clsx from 'clsx';
-import styles from './label.module.scss'
+import styles from './label.module.scss';
 
-const Label = React.forwardRef<
-  React.ElementRef<typeof LabelPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <LabelPrimitive.Root
-    ref={ref}
-    className={clsx(styles['control-label'], className)}
-    {...props}
-  />
+const Label = React.forwardRef<HTMLLabelElement, React.LabelHTMLAttributes<HTMLLabelElement>>(({ className, ...props }, ref) => (
+    <label
+        className={clsx(styles['control-label'], className)}
+        {...props}
+        ref={ref}
+    >
+      {props.children}
+    </label>
 ));
-Label.displayName = LabelPrimitive.Root.displayName;
+
+Label.displayName = 'Label';
 
 export { Label };

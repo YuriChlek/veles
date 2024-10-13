@@ -24,7 +24,6 @@ import {v4 as uuidv4} from "uuid";
 
         try {
             await createAdminUser(options);
-
             process.exit(0);
         } catch (error) {
             console.error(error);

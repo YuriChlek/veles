@@ -1,9 +1,39 @@
-.control-input {
-    border: 1px solid hsl(0, 0, 89%);
-    border-radius: 5px;
-    box-sizing: border-box;
-    display: inline-block;
-    font-size: 0.875rem;
-    line-height: 1.55;
-    padding: 8px 12px;
+.control {
+    &-wrapper {
+        display: inline-block;
+        position: relative;
+    }
+
+    &-input {
+        border: 1px solid hsl(0, 0, 89%);
+        border-radius: 5px;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 0.875rem;
+        line-height: 1.55;
+        padding: 8px 12px;
+        width: 100%;
+
+        &[datatype="password"] {
+            padding-right: 30px;
+        }
+    }
+
+    &-show_pass {
+        width: 25px;
+        height: 18px;
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background: none;
+    }
+
+    &-icon {
+        width: 25px;
+        height: 18px;
+    }
 }
