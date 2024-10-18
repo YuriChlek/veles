@@ -4,11 +4,9 @@ const AboutUs: React.FC = (): React.JSX.Element => {
     console.log();
 
     return (
-        <div>
-            <main>
-                Hello from Product
-            </main>
-        </div>
+        <main>
+            Hello from Product
+        </main>
     );
 }
 

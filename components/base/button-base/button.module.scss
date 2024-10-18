@@ -1,6 +1,6 @@
 .base-button {
-    background: hsl(0, 0, 9%);
-    border: 1px solid hsl(0, 0, 9%);
+    background: $button_background;
+    border: 1px solid $button_border-black;
     border-radius: 5px;
     color: hsl(0, 0, 100%);
     display: inline-block;

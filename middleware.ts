@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server';
-import { verifyAdminToken } from "./utils/admin/verifyAdminToken";
+import { verifyAdminToken } from "./utils/admin/verify-admin-token/verifyAdminToken";
 
 export async function middleware(request: NextRequest) {
     const {pathname} = new URL(request.url);
@@ -7,15 +7,15 @@ export async function middleware(request: NextRequest) {
     if (pathname.includes('admin')) {
         const tokenIsVerify = await verifyAdminToken(request);
 
-        if (pathname.includes('dashboard') && !tokenIsVerify) {
+        if (!pathname.includes('panel') && tokenIsVerify) {
+            return NextResponse.redirect(new URL('/admin/panel/dashboard', request.url));
+        } else if (pathname === '/admin/panel' && tokenIsVerify) {
+            return NextResponse.redirect(new URL('/admin/panel/dashboard', request.url));
+        } else if (pathname.includes('panel') && !tokenIsVerify) {
             return NextResponse.redirect(new URL('/admin/login', request.url));
-        }
-
-        if (pathname.includes('login') && tokenIsVerify) {
-            return NextResponse.redirect(new URL('/admin/dashboard', request.url));
-        }
-
-        if (!pathname.includes('login') && !tokenIsVerify) {
+        } else if (pathname.includes('login') && tokenIsVerify) {
+            return NextResponse.redirect(new URL('/admin/panel/dashboard', request.url));
+        } else if (!pathname.includes('login') && !tokenIsVerify) {
             return NextResponse.redirect(new URL('/admin/login', request.url));
         }
     }

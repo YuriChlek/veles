@@ -1,0 +1,11 @@
+type Query {
+    token: String
+}
+
+type Mutation {
+    verifyToken(token: String!): VerifyPayload
+}
+
+type VerifyPayload {
+    verify: Boolean
+}

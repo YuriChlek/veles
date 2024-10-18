@@ -1,0 +1,48 @@
+.menu {
+    width: 102px;
+    position: fixed;
+    padding: 20px 10px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-right: 2px solid $admin_menu_border-color;
+    z-index: 1210;
+    background: #f5f5f5;
+
+    &-item {
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+
+        &-wrapper {
+            padding: 5px 10px;
+            margin: 0 -10px 5px;
+
+            & > * {
+                color: $admin_menu_font-color;
+            }
+
+            &:hover {
+                background: white;
+
+                & > * {
+                    color: $admin_menu_font-color-hover;
+                }
+            }
+        }
+    }
+}
+
+.active {
+    margin: 0 -10px 5px -10px;
+    background: white;
+
+    & > * {
+        color: $admin_menu_font-color-hover;
+    }
+}

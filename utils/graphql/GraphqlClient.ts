@@ -1,6 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { API_HOST, API_PORT } from "@/constants/env/env_constants";
-import { GraphQLRequestInterface, GraphQLResponseInterface } from './interfaces'
+import { GraphQLRequestInterface, GraphQLResponseInterface } from '@/interfaces/admin/graphql/interfaces'
 
 const GraphqlRequest = async <T>(request: GraphQLRequestInterface, queryUrl: string): Promise<GraphQLResponseInterface<T>> => {
     const GRAPHQL_ENDPOINT = `${API_HOST}:${API_PORT}/graphql/${queryUrl}`;

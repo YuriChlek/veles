@@ -1,26 +1,21 @@
 "use client";
 
 import React from "react";
+//import {useDispatch} from "react-redux";
 import { print } from "graphql"
+import { useRouter } from 'next/navigation';
 import { Label } from "../../base/label/label";
 import { Input } from "../../base/input/input";
 import SubmitButton from "../../base/submit-button";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
 import { AdminLogin as ADMIN_LOGIN_MUTATION } from "@/components/admin/login-form/login-mutation.graphql";
 import styles from './lofin.form.module.scss'
-import {BaseAdminUser} from "@/api/module_admin/interfaces/admin_user";
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-
-interface LoginResponse {
-    login: {
-        token: string;
-        user: BaseAdminUser
-    };
-}
+import {LoginResponse} from "@/interfaces/admin/login/interfaces";
+//import {setAdminUser} from "@/state/slices/adminUser";
 
 const AdminLoginForm: React.FC = () => {
     const router = useRouter();
+    //const dispatch = useDispatch();
 
     const signInHandler = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -40,10 +35,11 @@ const AdminLoginForm: React.FC = () => {
                 return error;
             }
 
-            const token = response.data.data.login.token;
+            const {user, token} = response.data.data.login;
 
             if (token && typeof token === 'string') {
-                await router.push('/admin/dashboard');
+                //dispatch(setAdminUser({ user, token }));
+                await router.push('/admin/panel/dashboard');
             }
         } catch (error) {
             console.error('Login error:', error);

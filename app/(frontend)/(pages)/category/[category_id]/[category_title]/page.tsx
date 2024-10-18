@@ -11,11 +11,9 @@ const Category:React.FC<CategoryProps> = ({params}): React.JSX.Element => {
     console.log(params)
 
     return (
-        <div>
-            <main>
-                Hello from Category
-            </main>
-        </div>
+        <main>
+            Hello from Category
+        </main>
     );
 }
 

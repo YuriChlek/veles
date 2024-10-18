@@ -11,11 +11,9 @@ const Product: React.FC<ProductProps> = ({params}): React.JSX.Element => {
     console.log(params)
 
     return (
-        <div>
-            <main>
-                Hello from Product
-            </main>
-        </div>
+        <main>
+            Product page
+        </main>
     );
 }
 

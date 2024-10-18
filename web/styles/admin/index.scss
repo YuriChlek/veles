@@ -1,2 +1,6 @@
-@import "../bace/variables";
-@import "../bace/global";
+/* Base */
+@import "../base/variables";
+@import "../base/global";
+
+/* Admin */
+@import "./global";

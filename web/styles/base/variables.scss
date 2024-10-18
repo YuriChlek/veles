@@ -3,5 +3,9 @@ $background_color: #ffffff;
 $foreground_color: #171717;
 
 /* button-base */
-$button_background: #171717;
+$button_background: hsl(0, 0, 9%);
 $button_color: #ffffff;
+$button_border-black: hsl(0, 0, 9%);
+
+/* borders */
+$header_border-color: hsl(0, 0, 9%);
