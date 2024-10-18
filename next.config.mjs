@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+import path from "node:path";
+
 const nextConfig = {
     webpack: (config) => {
         config.module.rules.push({
@@ -10,6 +12,12 @@ const nextConfig = {
         });
 
         return config;
+    },
+    sassOptions: {
+        includePaths: [path.join(__dirname, 'web/styles')],
+        additionalData: `
+            @import "base/variables.scss";
+        `,
     }
 };
 
