@@ -7,7 +7,7 @@ export interface BaseAdminUser {
     role?: "admin" | ""
 }
 
-export interface AdminUser extends BaseAdminUser{
+export interface AdminUser extends BaseAdminUser {
     password: string,
 }
 

@@ -22,7 +22,7 @@ const RootLayout = ({
 }>) => {
     const locale = "en"
     return (
-        <html lang={locale}>
+        <html lang={locale} style={{"fontSize": "62.5%"}}>
         <body className={roboto.className} data-attr="test">
             {children}
         </body>

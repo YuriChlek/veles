@@ -1,10 +1,10 @@
-import {configureStore} from "@reduxjs/toolkit";
-import adminReducer from './slices/adminUser'
+import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 
-let store = configureStore({
-    reducer: {
-        admin: adminReducer
-    }
-})
+import AdminUserSlice from './slices/adminUser';
 
-export default store;
+const useStore = create((set) => ({
+    ...AdminUserSlice(set)
+}));
+
+export default useStore;

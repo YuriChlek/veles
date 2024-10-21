@@ -32,12 +32,12 @@ const AdminPanelMenu: React.FC = () => {
                     {item.linkHref ? (
                         <Link onClick={toggleDrawer(item.id)} className={styles["menu-item"]} href={item.linkHref} >
                             <DynamicReactIcon iconName={item.icon} />
-                            {item.itemText}
+                            <span className={styles["menu-item-text"]}>{item.itemText}</span>
                         </Link>
                     ) : (
                         <button className={styles["menu-item"]} onClick={toggleDrawer(item.id)}>
                             <DynamicReactIcon iconName={item.icon} />
-                            {item.itemText}
+                            <span className={styles["menu-item-text"]}>{item.itemText}</span>
                         </button>
                     )}
                     {item.children.length > 0 &&

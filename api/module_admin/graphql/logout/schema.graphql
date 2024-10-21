@@ -1,0 +1,11 @@
+type Query {
+    _empty: String
+}
+
+type Mutation {
+    adminLogout: LogoutPayload
+}
+
+type LogoutPayload {
+    logout: Boolean!
+}

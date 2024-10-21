@@ -17,9 +17,10 @@ import adminGraphqlRouter from "./module_admin/controllers/admin_graphql_control
     }
     const PORT: string = API_PORT || '5000';
     const app = express();
+
     app.use(cookieParser()); //???
     app.use(cors(corsOptions));
-
+    /* Graphql routers */
     app.use(adminGraphqlRouter);
 
     app.listen(PORT, () => console.log(`Server Connected to http://localhost:${PORT}`));

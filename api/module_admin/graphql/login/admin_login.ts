@@ -28,14 +28,14 @@ const create_admin_login_schema = async () => {
                     return new Error('Username or password is incorrect.');
                 }
 
-                const token = jwt.sign(user, secret_key, { expiresIn: '3d' });
+                const token = jwt.sign({admin_id: user.admin_id}, secret_key, { expiresIn: '3d' });
 
                 context.res.cookie('adminToken', token, {
                     httpOnly: true,
-                    secure: false,
-                    maxAge: 3 * 24 * 60 * 60 * 100000,
+                    secure: true,
+                    maxAge: 3 * 24 * 60 * 60 * 1000,
                     sameSite: 'lax',
-                    path: '/'
+                    path: '/admin/'
                 });
 
                 return {

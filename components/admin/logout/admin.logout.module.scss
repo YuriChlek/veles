@@ -1,0 +1,14 @@
+.admin-logout {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    &-icon {
+        width: 23px;
+        height: 23px;
+
+        &:hover {
+            color: #CC0000;
+        }
+    }
+}

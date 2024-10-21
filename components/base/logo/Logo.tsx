@@ -9,7 +9,6 @@ interface logoProps {
 }
 
 export const Logo: React.FC = ({width, height, className}: logoProps): React.JSX.Element => {
-    console.log(className)
     return (
         <>
             <Image src={logo}

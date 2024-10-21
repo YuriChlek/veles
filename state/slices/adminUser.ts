@@ -1,38 +1,31 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { StoreAdminUser } from "../interfaces/interfaces";
+import { create } from 'zustand';
+import { AdminUserState, AdminActions } from "@/state/interfaces/adminUser/interfaces";
 
-const initialState: StoreAdminUser = {
-    user: {
-        admin_id: '',
-        login: '',
-        email: '',
-        first_name: '',
-        last_name: '',
-        role: ''
+const useAdminUserStore = create<AdminUserState & AdminActions>((set) => ({
+    adminUser: {
+        login: "",
     },
-    token: ''
-}
+    setAdminUser: (newUser) => {
+        set((state) => {
+            const updatedUser = { ...state.adminUser, ...newUser };
 
-const adminUserSlice = createSlice({
-    name: 'adminUser',
-    initialState: initialState,
-    reducers: {
-        setAdminUser: (state, action: PayloadAction<StoreAdminUser>) => {
-            return { ...action.payload };
-        },
-        setAdminData: (state, action: PayloadAction<StoreAdminUser>) => {
-            return {...state, user: action.payload}
-        },
-        setAdminToken: (state, action: PayloadAction<StoreAdminUser>) => {
-            return {...state, token: action.payload}
+            if (typeof window !== 'undefined') {
+                localStorage.setItem('test', JSON.stringify(updatedUser)); // Збереження в localStorage
+            }
+
+            return { adminUser: updatedUser };
+        });
+    },
+    getAdminUser: () => {
+        if (typeof window !== 'undefined') {
+            const userData = localStorage.getItem('test');
+
+            if (userData) {
+                const parsedData: AdminUser = JSON.parse(userData);
+                set({ adminUser: { ...parsedData } });
+            }
         }
     }
-})
+}));
 
-export const {
-    setAdminUser,
-    setAdminData,
-    setAdminToken
-} = adminUserSlice.actions;
-
-export default adminUserSlice.reducer;
+export default useAdminUserStore;

@@ -1,3 +1,22 @@
-.header {
-    padding: 10px 20px;
+.admin {
+    &-panel-header {
+        padding: 40px 30px 10px 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-logout-wrapper {
+        display: flex;
+    }
+
+    &-customer {
+        display: inline-block;
+        font-size: 1.6rem;
+        padding: 5px 15px;
+
+        &-wrapper {
+            display: flex;
+            align-items: center;
+        }
+    }
 }

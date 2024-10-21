@@ -27,7 +27,6 @@ const create_verify_token_schema = async () => {
 
                     return { verify: false };
                 } catch (err) {
-                    console.error('Error querying the database:', err);
                     return { verify: false };
                 }
             }
