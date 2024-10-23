@@ -8,8 +8,6 @@ interface ProductProps {
 }
 
 const Product: React.FC<ProductProps> = ({params}): React.JSX.Element => {
-    console.log(params)
-
     return (
         <main>
             Product page

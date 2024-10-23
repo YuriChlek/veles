@@ -5,7 +5,7 @@ import { print } from "graphql"
 import { useRouter } from 'next/navigation';
 import { Label } from "../../base/label/label";
 import { Input } from "../../base/input/input";
-import SubmitButton from "../../base/submit-button";
+import SubmitButton from "../../base/submit-button/submit-button";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
 import { AdminLogin as ADMIN_LOGIN_MUTATION } from "@/components/admin/login-form/login-mutation.graphql";
 import styles from './lofin.form.module.scss'
@@ -50,25 +50,25 @@ const AdminLoginForm: React.FC = () => {
         <form className={styles['admin-login-form']} onSubmit={signInHandler}>
             <h2 className={styles['admin-login-title']}>Sign in</h2>
             <div className={styles['admin-login-row']}>
-                <Label htmlFor="username">Username</Label>
+                <Label htmlFor="username">{__("Username")}</Label>
                 <Input
                     type="text"
                     name="username"
-                    placeholder="Username"
+                    placeholder={__("Username")}
                     required
                 />
             </div>
             <div className={styles['admin-login-row']}>
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{__("Password")}</Label>
                 <Input
                     type="password"
                     name="password"
-                    placeholder="Password"
+                    placeholder={__("Password")}
                     required
                 />
             </div>
-            <SubmitButton type="submit" pendingText="Signing In...">
-                Sign in
+            <SubmitButton type="submit" pendingText={__("Signing In...")}>
+                {__("Sign in")}
             </SubmitButton>
         </form>
     );

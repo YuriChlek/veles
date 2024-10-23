@@ -52,7 +52,7 @@ export const adminMenuRouting: Array<AdminMenuTopItem> = [
         id: 'menu-admin-settings',
         icon: 'AiOutlineSetting ',
         itemText: 'Settings',
-        linkHref: '#',
+        linkHref: '/admin/panel/settings',
         children: []
     }
 ];

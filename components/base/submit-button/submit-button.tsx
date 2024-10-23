@@ -1,6 +1,6 @@
 "use client";
 
-import {Button} from "@/components/base/button-base/button";
+import {Button} from "../button-base/button";
 import React, {type ComponentProps} from "react";
 import {useFormStatus} from "react-dom";
 

@@ -3,7 +3,7 @@
 import React, {lazy} from "react";
 import {useState} from "react";
 import Link from 'next/link'
-import AdminPanelLogo from "@/components/admin/logo/AdminPanelLogo";
+import Logo from "@/components/base/logo/Logo";
 import styles from './admin.panel.menu.module.scss'
 import {adminMenuRouting} from "@/utils/admin/adminMenuRouting";
 import {AdminMenuTopItem} from "@/interfaces/admin/menu/adminMenu";
@@ -26,7 +26,7 @@ const AdminPanelMenu: React.FC = () => {
 
     return (
         <nav className={styles.menu}>
-            <AdminPanelLogo/>
+            <Logo/>
             {adminMenuRouting.map((item: AdminMenuTopItem) => (
                 <div className={clsx(styles["menu-item-wrapper"], {[styles.active]: item.id === openItemId})} key={item.itemText}>
                     {item.linkHref ? (

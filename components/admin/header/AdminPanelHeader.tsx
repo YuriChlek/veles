@@ -16,9 +16,9 @@ const AdminPanelHeader: React.FC = () => {
 
     return (
         <header className={styles["admin-panel-header"]}>
-            <h1 className="admin-panel-title">Dashboard</h1>
+            <h1 className="admin-panel-title">{__("Page title")}</h1>
             <div className={styles["admin-customer-wrapper"]}>
-                <span className={styles["admin-customer"]} >{adminUser.login}</span>
+                <span className={styles["admin-customer"]} >{__(adminUser.login)}</span>
                 <Logout className={"test"} />
             </div>
         </header>

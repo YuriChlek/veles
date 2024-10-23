@@ -4,8 +4,11 @@ import cookieParser from 'cookie-parser';
 import createTokenEnvSecretKey from "./module_env/create/env_token_secret_key";
 import {TOKEN_SECRET_KEY, API_PORT} from "../constants/env/env_constants";
 import adminGraphqlRouter from "./module_admin/controllers/admin_graphql_controller";
+import create_translations from "./module_translations/actions/create_translations";
 
 (async (): Promise<void> => {
+    await create_translations();
+
     if (!TOKEN_SECRET_KEY) {
         createTokenEnvSecretKey();
     }
