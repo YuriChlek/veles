@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 import { Drawer, List, ListItem } from '@mui/material';
 import {AdminMenuItem, AdminMenuItemProps} from "@/interfaces/admin/menu/adminMenu";
+import _t from "@/utils/translations/translation.ts";
 
 const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({
     id,
@@ -43,7 +44,7 @@ const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({
                 {items.map((item: AdminMenuItem, index: number) => (
                     <ListItem key={`${index}_${item.id}`}>
                         <Link onClick={closeDrawer(false)} href={item.linkHref}>
-                            {item.itemText}
+                            {_t(item.itemText)}
                         </Link>
                     </ListItem>
                 ))}

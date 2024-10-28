@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/app/(frontend)/page.module.scss";
 import '@/web/styles/frontend/index.scss'
-import FrontendHeader from "@/components/frontend/header/Header";
+import FrontendHeader from "@/components/frontend/header/Header.tsx";
 
 const FrontendRootLayout = ({
                         children,

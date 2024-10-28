@@ -4,7 +4,7 @@ import styles from './admin.panel.footer.module.scss'
 const AdminPanelFooter: React.FC = () => {
     return (
         <footer className={styles.footer}>
-            {__("ADMIN PANEL FOOTER")}
+            ADMIN PANEL FOOTER
         </footer>
     )
 }

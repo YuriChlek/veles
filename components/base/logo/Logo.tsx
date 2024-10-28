@@ -1,7 +1,7 @@
 import React from "react";
-import clsx from 'clsx';
 import Image from "next/image";
 import Link from "next/link";
+import _t from "@/utils/translations/translation.ts"
 import styles from "./logo.module.scss";
 
 interface logoProps {
@@ -20,7 +20,7 @@ const Logo: React.FC = ({width, height}: logoProps): React.JSX.Element => {
                     src="/images/logo.png"
                     width={logoWidth}
                     height={logoHeight}
-                    alt={__("Veles logo")}
+                    alt={_t("Veles logo")}
                     priority
                 />
             </Link>

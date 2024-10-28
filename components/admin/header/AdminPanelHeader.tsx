@@ -4,6 +4,7 @@ import React, {useEffect} from "react";
 import styles from './admin.panel.header.module.scss'
 import useAdminUserStore from "@/state/slices/adminUser";
 import Logout from "@/components/admin/logout/Logout";
+import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactIcon.tsx";
 
 const AdminPanelHeader: React.FC = () => {
     const {adminUser, getAdminUser} = useAdminUserStore();
@@ -16,10 +17,12 @@ const AdminPanelHeader: React.FC = () => {
 
     return (
         <header className={styles["admin-panel-header"]}>
-            <h1 className="admin-panel-title">{__("Page title")}</h1>
+            <h1 className="admin-panel-title">Page title</h1>
             <div className={styles["admin-customer-wrapper"]}>
-                <span className={styles["admin-customer"]} >{__(adminUser.login)}</span>
-                <Logout className={"test"} />
+                <span className={styles["admin-customer"]} >{/*adminUser.login*/}
+                    <DynamicReactIcon iconName={"GoPersonFill"} />
+                </span>
+                <Logout />
             </div>
         </header>
     )

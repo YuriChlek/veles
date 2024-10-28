@@ -11,6 +11,7 @@ import { AdminLogin as ADMIN_LOGIN_MUTATION } from "@/components/admin/login-for
 import styles from './lofin.form.module.scss'
 import {LoginResponse} from "@/interfaces/admin/login/interfaces";
 import useAdminUserStore from "@/state/slices/adminUser";
+import _t from "@/utils/translations/translation.ts";
 
 const AdminLoginForm: React.FC = () => {
     const router = useRouter();
@@ -50,25 +51,25 @@ const AdminLoginForm: React.FC = () => {
         <form className={styles['admin-login-form']} onSubmit={signInHandler}>
             <h2 className={styles['admin-login-title']}>Sign in</h2>
             <div className={styles['admin-login-row']}>
-                <Label htmlFor="username">{__("Username")}</Label>
+                <Label htmlFor="username">{_t("Username")}</Label>
                 <Input
                     type="text"
                     name="username"
-                    placeholder={__("Username")}
+                    placeholder={_t("Username")}
                     required
                 />
             </div>
             <div className={styles['admin-login-row']}>
-                <Label htmlFor="password">{__("Password")}</Label>
+                <Label htmlFor="password">{"Password"}</Label>
                 <Input
                     type="password"
                     name="password"
-                    placeholder={__("Password")}
+                    placeholder={_t("Password")}
                     required
                 />
             </div>
-            <SubmitButton type="submit" pendingText={__("Signing In...")}>
-                {__("Sign in")}
+            <SubmitButton type="submit" pendingText={_t("Signing In...")}>
+                {"Sign in"}
             </SubmitButton>
         </form>
     );
