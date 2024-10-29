@@ -1,8 +1,6 @@
 .base-button {
-    background: $button_background;
-    border: 1px solid $button_border-black;
     border-radius: 5px;
-    color: hsl(0, 0, 100%);
+    color: $button_color;
     display: inline-block;
     font-size: 1.4rem;
     font-weight: 500;
@@ -10,4 +8,15 @@
     padding: 10px 16px;
     width: 100%;
     cursor: pointer;
+
+    &-blue {
+        background: $button_primary_background;
+        border: none;
+        max-width: 200px;
+    }
+
+    &-black {
+        background: $button_background;
+        border: 1px solid $button_border-black;
+    }
 }

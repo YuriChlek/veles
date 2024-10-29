@@ -1,13 +1,15 @@
 "use client";
 
+import React from "react";
 import { useRouter } from 'next/navigation';
 import DynamicReactIcon from "../../base/dynamic-react-icon/DynamicReactIcon";
 import styles from "./admin.logout.module.scss"
 import { AdminLogout as ADMIN_LOGIN_MUTATION } from "@/components/admin/logout/logout-mutation.graphql";
 import { print } from "graphql/index";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
+import _t from "@/utils/translations/translation.ts"
 
-const Logout = () => {
+const AdminLogout: React.FC = () => {
     const router = useRouter();
 
     const logoutHandler = async () => {
@@ -37,9 +39,12 @@ const Logout = () => {
     }
     return (
         <button className={styles["admin-logout"]} onClick={logoutHandler}>
+            <span className={styles["admin-logout-article"]}>
+                {_t("Logout")}
+            </span>
             <DynamicReactIcon iconName="AiOutlineLogout" className={styles["admin-logout-icon"]}/>
         </button>
     )
 }
 
-export default Logout;
+export default AdminLogout;

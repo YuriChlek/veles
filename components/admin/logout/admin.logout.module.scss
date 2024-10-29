@@ -2,13 +2,16 @@
     border: none;
     background: none;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
 
     &-icon {
-        width: 23px;
-        height: 23px;
+        width: 15px;
+        height: 15px;
+    }
 
-        &:hover {
-            color: #CC0000;
-        }
+    &-article {
+        padding-right: 10px;
     }
 }

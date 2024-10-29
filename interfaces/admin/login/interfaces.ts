@@ -1,4 +1,4 @@
-import {BaseAdminUser} from "../../../api/module_admin/interfaces/admin_user";
+import {BaseAdminUser} from "@/api/module_admin/interfaces/admin_user.ts";
 
 export interface LoginResponse {
     login: {

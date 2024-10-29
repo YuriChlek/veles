@@ -3,13 +3,13 @@
 import React from "react";
 import { print } from "graphql"
 import { useRouter } from 'next/navigation';
-import { Label } from "../../base/label/label";
-import { Input } from "../../base/input/input";
-import SubmitButton from "../../base/submit-button/submit-button";
+import Label from "../../base/label/Label.tsx";
+import Input from "../../base/input/Input.tsx";
+import SubmitButton from "../../base/submit-button/SubmitButton.tsx";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
 import { AdminLogin as ADMIN_LOGIN_MUTATION } from "@/components/admin/login-form/login-mutation.graphql";
 import styles from './lofin.form.module.scss'
-import {LoginResponse} from "@/interfaces/admin/login/interfaces";
+import type {LoginResponse} from "@/interfaces/admin/login/interfaces";
 import useAdminUserStore from "@/state/slices/adminUser";
 import _t from "@/utils/translations/translation.ts";
 

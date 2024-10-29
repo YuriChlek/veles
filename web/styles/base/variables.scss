@@ -1,11 +1,28 @@
+/* base colors */
+$color-black: #171717;
+$color-white: #ffffff;
+$color-azure-blue: #1976d2;
+$color-opacity-black: #0000001E;
+$color-gray: #f5f5f5;
+
 /* global */
-$background_color: #ffffff;
-$foreground_color: #171717;
+$background_color: $color-white;
+$foreground_color: $color-black;
 
 /* button-base */
-$button_background: hsl(0, 0, 9%);
-$button_color: #ffffff;
-$button_border-black: hsl(0, 0, 9%);
+$button_background: $color-black;
+$button_color: $color-white;
+$button_border-black: $color-black;
+
+/* button-primary */
+$button_primary_background: $color-azure-blue;
+$button_primary_color: $color-white;
 
 /* borders */
-$header_border-color: hsl(0, 0, 9%);
+$header_border-color: $color-black;
+$border_divider_color: $color-azure-blue;
+$admin_border_color: $color-opacity-black;
+
+/* Backgrounds */
+$admin_nav_background: $color-gray;
+$table_header_background: $color-gray;

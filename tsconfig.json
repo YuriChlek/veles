@@ -39,7 +39,8 @@
   "include": [
     "next-env.d.ts",
     "app",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "./**/*.graphql"
   ],
   "exclude": [
     "node_modules"

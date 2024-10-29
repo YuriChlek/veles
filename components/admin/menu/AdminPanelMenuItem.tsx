@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Drawer, List, ListItem } from '@mui/material';
 import {AdminMenuItem, AdminMenuItemProps} from "@/interfaces/admin/menu/adminMenu";
 import _t from "@/utils/translations/translation.ts";
+import styles from "./admin.panel.menu.module.scss"
 
 const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({
     id,
@@ -32,13 +33,7 @@ const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({
             anchor="left"
             open={open}
             onClose={closeDrawer(false)}
-            sx={{
-                '& .MuiDrawer-paper': {
-                    marginLeft: '102px',
-                    padding: '20px 20px',
-                    minWidth: '200px'
-                },
-            }}
+            classes={{ paper: styles["drawer-paper"] }}
         >
             <List>
                 {items.map((item: AdminMenuItem, index: number) => (
