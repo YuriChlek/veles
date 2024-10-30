@@ -17,8 +17,6 @@ export const verifyAdminToken = async (request: NextRequest): Promise<boolean | 
     try {
         const response = await GraphqlRequest<VerifyAdminToken>({query, variables: {token}}, 'admin_verify_token');
 
-        console.log(response.data)
-
         if (Object.keys(response.data).includes('errors')) {
             const error = response.data.errors[0].message;
             console.log(error);
