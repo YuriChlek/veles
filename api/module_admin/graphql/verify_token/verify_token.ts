@@ -6,7 +6,6 @@ import { loadSchema } from '@graphql-tools/load';
 import {__API_DIR} from "../../../../constants/path/path_constants";
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
 import {TOKEN_SECRET_KEY} from "../../../../constants/env/env_constants";
-import {JwtPayload} from "jsonwebtoken";
 import {DecodedAdminToken} from "../../types/admin_user";
 
 const create_verify_token_schema = async () => {

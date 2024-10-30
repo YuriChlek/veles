@@ -8,16 +8,22 @@ export interface ButtonProps
     blueColor?: boolean;
 }
 
-const Button: React.FC = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({className, blueColor, ...props}, ref) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ className, blueColor, ...props }, ref) => {
         return (
             <button
-                className={clsx(styles['base-button'], blueColor ? styles['base-button-blue'] : styles['base-button-black'], className)}
+                className={clsx(
+                    styles['base-button'],
+                    blueColor ? styles['base-button-blue'] : styles['base-button-black'],
+                    className
+                )}
                 ref={ref}
                 {...props}
             />
         );
-    },
+    }
 );
+
+Button.displayName = 'Button';
 
 export default Button;

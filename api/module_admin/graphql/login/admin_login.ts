@@ -1,6 +1,6 @@
 import { join } from 'node:path';
 import jwt from 'jsonwebtoken';
-import { GraphQLSchema } from 'graphql';
+import { GraphQLSchema } from 'graphql'
 import { addResolversToSchema } from '@graphql-tools/schema';
 import { loadSchema } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
