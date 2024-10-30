@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import styles from './label.module.scss';
 
 export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-    className: string
+    className?: string
 }
 
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(({ className, ...props }, ref) => (

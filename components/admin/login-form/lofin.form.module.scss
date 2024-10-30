@@ -1,11 +1,12 @@
 .admin-login {
     &-form {
-        width: 300px;
+        width: 340px;
         padding: 20px;
+        box-sizing: border-box;
     }
 
     &-title {
-        font-weight: 300;
+        font-weight: 340;
         margin-bottom: 20px;
         font-size: 3rem;
     }

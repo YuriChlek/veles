@@ -1,25 +1,27 @@
 "use client";
 
+import React from "react";
 import Button from "../button-base/Button.tsx";
-import React, {type ComponentProps} from "react";
 import {useFormStatus} from "react-dom";
+import type {ButtonProps} from "../button-base/Button.tsx";
 
-type Props = ComponentProps<typeof Button> & {
+export interface SubmitButtonProps extends ButtonProps {
     pendingText?: string;
-};
-
-const SubmitButton: React.FC = ({
-                                    children,
-                                    pendingText = "Submitting...",
-                                    ...props
-                                }: Props) => {
-    const {pending} = useFormStatus();
-
-    return (
-        <Button type="submit" aria-disabled={pending} {...props}>
-            {pending ? pendingText : children}
-        </Button>
-    );
 }
+
+const SubmitButton = React.forwardRef<HTMLButtonElement, SubmitButtonProps>(
+    ({
+         children,
+         pendingText = "Submitting...",
+         ...props
+     }, ref) => {
+        const {pending} = useFormStatus();
+
+        return (
+            <Button type="submit" aria-disabled={pending} ref={ref} {...props}>
+                {pending ? pendingText : children}
+            </Button>
+        );
+    });
 
 export default SubmitButton;

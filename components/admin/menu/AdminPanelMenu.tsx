@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Logo from "@/components/base/logo/Logo";
 import styles from './admin.panel.menu.module.scss'
 import {adminMenuRouting} from "@/components/admin/menu/routing/adminMenuRouting.ts";
-import {AdminMenuTopItem} from "@/interfaces/admin/menu/adminMenu";
+import type {AdminMenuTopItem} from "@/interfaces/admin/menu/adminMenu";
 import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactIcon";
 import clsx from "clsx";
 import _t from "@/utils/translations/translation.ts";

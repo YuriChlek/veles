@@ -10,7 +10,7 @@ export interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-    ({className, type, ...props}) => {
+    ({className, type, ...props}, ref) => {
         const [inputType ,setInputType] = useState(type);
 
         const showPass = () => {
@@ -28,6 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 <input
                     type={inputType}
                     className={clsx(styles['control-input'], className)}
+                    ref={ref}
                     {...props}
                 />
                 {

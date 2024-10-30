@@ -9,10 +9,11 @@ import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactI
 import {setUserLocale, getUserLocale} from "@/utils/translations/locale.ts";
 import _t from "@/utils/translations/translation.ts"
 import styles from "./language.switcher.module.scss";
+import type {Locale} from "@/i18n/config.ts";
 
 const locales = {
-    en: {label: "English"},
-    de: {label: "German"},
+    "en": {label: "English"},
+    "de": {label: "German"},
 };
 
 const LanguageSwitcher: React.FC = () => {
@@ -26,7 +27,7 @@ const LanguageSwitcher: React.FC = () => {
         }
     }, []);
 
-    const handleChange = (locale: string) => {
+    const handleChange = (locale: Locale) => {
         setUserLocale(locale);
         setDrawerOpen(false);
     };
@@ -64,7 +65,7 @@ const LanguageSwitcher: React.FC = () => {
                     {Object.keys(locales).map((key) => (
                         <MenuItem
                             key={key}
-                            onClick={() => handleChange(key)}
+                            onClick={() => handleChange(key as Locale)}
                             sx={{
                                 display: "flex",
                                 alignItems: "center",
@@ -75,7 +76,7 @@ const LanguageSwitcher: React.FC = () => {
                                 }
                             }}
                         >
-                            {_t(locales[key].label)}
+                            {_t(locales[key as keyof typeof locales].label)}
                         </MenuItem>
                     ))}
                 </List>

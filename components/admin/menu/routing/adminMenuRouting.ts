@@ -1,4 +1,4 @@
-import {AdminMenuTopItem} from "../../../../interfaces/admin/menu/adminMenu";
+import type {AdminMenuTopItem} from "@/interfaces/admin/menu/adminMenu";
 
 export const adminMenuRouting: Array<AdminMenuTopItem> = [
     {

@@ -6,11 +6,11 @@ interface TabPanelProps {
     children?: React.ReactNode;
     index: number | string;
     value: number | string;
-    key?: number | string
+    key?: number | string;
 }
 
-const AdminSettingsTabPanel:React.FC = (props: TabPanelProps) => {
-    const {children, value, index, ...attributes} = props;
+const AdminSettingsTabPanel: React.FC<TabPanelProps> = (props) => {
+    const { children, value, index, ...attributes } = props;
 
     return (
         <div
@@ -22,12 +22,12 @@ const AdminSettingsTabPanel:React.FC = (props: TabPanelProps) => {
             className={styles["admin-tab-content"]}
         >
             {value === index && (
-                <Box sx={{p: 3}}>
+                <Box sx={{ p: 3 }}>
                     {children}
                 </Box>
             )}
         </div>
     );
-}
+};
 
-export default AdminSettingsTabPanel
+export default AdminSettingsTabPanel;

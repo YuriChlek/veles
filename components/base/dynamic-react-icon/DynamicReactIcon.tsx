@@ -6,7 +6,7 @@ import * as CiIcons from "react-icons/ci";
 import * as GoIcons  from "react-icons/go";
 import * as IoIcons  from "react-icons/io";
 import styles from './font.icons.module.scss'
-import {FontIconProps} from "@/interfaces/admin/font-icons/interfaces";
+import type {FontIconProps} from "@/interfaces/admin/font-icons/interfaces";
 import clsx from "clsx";
 
 const DynamicReactIcon: React.FC<FontIconProps> = ({ iconName, className }) => {

@@ -4,6 +4,6 @@ export interface GraphQLRequestInterface {
 }
 
 export interface GraphQLResponseInterface<T> {
-    data: T;
-    errors?: Array<{ message: string }>;
+    data: T,
+    errors?: Array<{message: string}>
 }

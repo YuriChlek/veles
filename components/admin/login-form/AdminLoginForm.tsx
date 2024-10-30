@@ -1,17 +1,18 @@
 "use client";
 
 import React from "react";
-import { print } from "graphql"
+import { print } from "graphql";
 import { useRouter } from 'next/navigation';
 import Label from "../../base/label/Label.tsx";
 import Input from "../../base/input/Input.tsx";
 import SubmitButton from "../../base/submit-button/SubmitButton.tsx";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
-import { AdminLogin as ADMIN_LOGIN_MUTATION } from "@/components/admin/login-form/login-mutation.graphql";
-import styles from './lofin.form.module.scss'
-import type {LoginResponse} from "@/interfaces/admin/login/interfaces";
+import {ADMIN_LOGIN_MUTATION} from "@/components/admin/login-form/login-mutation.graphql.ts";
+import type { LoginResponse } from "@/interfaces/admin/login/interfaces";
 import useAdminUserStore from "@/state/slices/adminUser";
 import _t from "@/utils/translations/translation.ts";
+import styles from './lofin.form.module.scss';
+import type {GraphQLResponseInterface} from "@/interfaces/admin/graphql/interfaces.ts";
 
 const AdminLoginForm: React.FC = () => {
     const router = useRouter();
@@ -27,19 +28,23 @@ const AdminLoginForm: React.FC = () => {
         const query = print(ADMIN_LOGIN_MUTATION);
 
         try {
-            const response = await GraphqlRequest<LoginResponse>({ query, variables: { login: username, password }}, 'admin_login');
+            const response = await GraphqlRequest<LoginResponse>(
+                { query, variables: { login: username, password } },
+                'admin_login'
+            );
 
-            if (Object.keys(response.data).includes('errors')) {
-                const error = response.data.errors[0].message;
+            const loginData = response.data as GraphQLResponseInterface<LoginResponse>;
+
+            if ("errors" in loginData && loginData.errors && loginData.errors.length > 0) {
+                const error = loginData.errors[0].message;
                 console.log(error);
-
                 return error;
             }
 
-            const { user, token } = response.data.data.login;
+            const { user, token } = loginData.data.login;
 
-            if (token && typeof token === 'string' && Object.keys(user).length) {
-                setAdminUser({login: user.login});
+            if (token && Object.keys(user).length && "login" in user) {
+                setAdminUser({ login: user.login });
                 await router.push('/admin/panel/dashboard');
             }
         } catch (error) {
@@ -69,7 +74,7 @@ const AdminLoginForm: React.FC = () => {
                 />
             </div>
             <SubmitButton type="submit" pendingText={_t("Signing In...")}>
-                {"Sign in"}
+                {_t("Sign in")}
             </SubmitButton>
         </form>
     );

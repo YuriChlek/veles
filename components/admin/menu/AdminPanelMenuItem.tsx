@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 import { Drawer, List, ListItem } from '@mui/material';
-import {AdminMenuItem, AdminMenuItemProps} from "@/interfaces/admin/menu/adminMenu";
+import type {AdminMenuItem, AdminMenuItemProps} from "@/interfaces/admin/menu/adminMenu";
 import _t from "@/utils/translations/translation.ts";
 import styles from "./admin.panel.menu.module.scss"
 

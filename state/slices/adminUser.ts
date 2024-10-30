@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { AdminUserState, AdminActions } from "@/state/interfaces/adminUser/interfaces";
+import type { AdminUserState, AdminActions } from "@/state/interfaces/adminUser/interfaces";
 
 const useAdminUserStore = create<AdminUserState & AdminActions>((set) => ({
     adminUser: {
@@ -21,7 +21,7 @@ const useAdminUserStore = create<AdminUserState & AdminActions>((set) => ({
             const userData = localStorage.getItem('test');
 
             if (userData) {
-                const parsedData: AdminUser = JSON.parse(userData);
+                const parsedData = JSON.parse(userData);
                 set({ adminUser: { ...parsedData } });
             }
         }
