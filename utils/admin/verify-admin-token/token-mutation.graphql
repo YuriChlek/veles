@@ -1,5 +1,0 @@
-mutation VerifyAdminToken($token: String!) {
-    verifyToken(token: $token) {
-        verify
-    }
-}

@@ -1,4 +1,4 @@
-import {AdminMenuTopItem} from "@/interfaces/admin/menu/adminMenu";
+import type {AdminMenuTopItem} from "@/interfaces/admin/menu/adminMenu";
 
 export const adminMenuRouting: Array<AdminMenuTopItem> = [
     {
@@ -52,7 +52,7 @@ export const adminMenuRouting: Array<AdminMenuTopItem> = [
         id: 'menu-admin-settings',
         icon: 'AiOutlineSetting ',
         itemText: 'Settings',
-        linkHref: '#',
+        linkHref: '/admin/panel/settings',
         children: []
     }
 ];

@@ -4,7 +4,7 @@ const AboutUs: React.FC = (): React.JSX.Element => {
 
     return (
         <main>
-            Hello from Product
+            <h2>Hello from About us</h2>
         </main>
     );
 }

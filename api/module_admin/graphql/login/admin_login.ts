@@ -1,6 +1,6 @@
 import { join } from 'node:path';
 import jwt from 'jsonwebtoken';
-import { GraphQLSchema } from 'graphql';
+import { GraphQLSchema } from 'graphql'
 import { addResolversToSchema } from '@graphql-tools/schema';
 import { loadSchema } from '@graphql-tools/load';
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
@@ -28,7 +28,7 @@ const create_admin_login_schema = async () => {
                     return new Error('Username or password is incorrect.');
                 }
 
-                const token = jwt.sign({admin_id: user.admin_id}, secret_key, { expiresIn: '3d' });
+                const token = jwt.sign({admin_id: user.admin_id, role: user.role}, secret_key, { expiresIn: '3d' });
 
                 context.res.cookie('adminToken', token, {
                     httpOnly: true,

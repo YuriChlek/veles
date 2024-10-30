@@ -11,16 +11,16 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
     ({className, type, ...props}, ref) => {
-        let [inputType ,setInputType] = useState(type);
+        const [inputType ,setInputType] = useState(type);
 
         const showPass = () => {
-            setInputType(() => {
-                if (inputType === 'password') {
-                    return 'text';
-                }
+            if (inputType === 'password') {
+                return setInputType('text');
+            }
 
-                return type;
-            });
+            if (inputType === 'text') {
+                return setInputType('password');
+            }
         }
 
         return (
@@ -28,7 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 <input
                     type={inputType}
                     className={clsx(styles['control-input'], className)}
-                    datatype={type}
+                    ref={ref}
                     {...props}
                 />
                 {
@@ -46,6 +46,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
 );
 
-Input.displayName = "Input";
+Input.displayName = 'Input';
 
-export {Input};
+export default Input

@@ -1,5 +1,0 @@
-mutation AdminLogout {
-    adminLogout {
-        logout
-    }
-}

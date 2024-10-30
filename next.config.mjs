@@ -2,20 +2,20 @@
 
 import path from "node:path";
 import { fileURLToPath } from 'node:url';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const nextConfig = {
-    webpack: (config) => {
+    webpack: (config, options) => {
         config.module.rules.push({
             test: /\.(graphql|gql)$/,
             exclude: /node_modules/,
-            use: {
-                loader: 'graphql-tag/loader',
-            },
+            use: 'graphql-tag/loader',
         });
-
         return config;
     },
     sassOptions: {
@@ -27,4 +27,4 @@ const nextConfig = {
     }
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

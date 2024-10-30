@@ -1,10 +1,10 @@
 import {type NextRequest} from "next/server";
-import {VerifyAdminToken as VERIFY_ADMIN_TOKEN_MUTATION} from "../verify-admin-token/token-mutation.graphql"
+import {VERIFY_ADMIN_TOKEN_MUTATION} from "./verify-admin-token.graphql";
 import {print} from "graphql/index";
-import GraphqlRequest from "../../graphql/GraphqlClient";
-import {LoginResponse} from "../../../interfaces/admin/login/interfaces";
+import GraphqlRequest from "@/utils/graphql/GraphqlClient";
+import type {VerifyAdminToken} from "@/interfaces/admin/verify-token/interfases";
 
-export const verifyAdminToken = async (request: NextRequest): Promise<boolean> => {
+export const verifyAdminToken = async (request: NextRequest): Promise<boolean | string> => {
     const adminTokenCookies = request.cookies.get("adminToken");
 
     if (!adminTokenCookies) {
@@ -15,7 +15,9 @@ export const verifyAdminToken = async (request: NextRequest): Promise<boolean> =
     const query = print(VERIFY_ADMIN_TOKEN_MUTATION);
 
     try {
-        const response = await GraphqlRequest<LoginResponse>({query, variables: {token}}, 'admin_verify_token');
+        const response = await GraphqlRequest<VerifyAdminToken>({query, variables: {token}}, 'admin_verify_token');
+
+        console.log(response.data)
 
         if (Object.keys(response.data).includes('errors')) {
             const error = response.data.errors[0].message;
@@ -26,8 +28,8 @@ export const verifyAdminToken = async (request: NextRequest): Promise<boolean> =
 
         return response.data.data.verifyToken.verify;
 
-    } catch (err) {
-        console.log(err);
+    } catch (error: Error) {
+        console.log(error.message);
 
         return false;
     }

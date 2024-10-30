@@ -7,7 +7,7 @@
     bottom: 0;
     border-right: 2px solid $admin_menu_border-color;
     z-index: 1210;
-    background: #f5f5f5;
+    background: $admin_nav_background;
 
     &-item {
         display: flex;
@@ -44,6 +44,11 @@
             font-size: 1rem;
         }
     }
+
+    &-logo-wrapper {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
 }
 
 .active {
@@ -53,4 +58,10 @@
     & > * {
         color: $admin_menu_font-color-hover;
     }
+}
+
+.drawer-paper {
+    margin-left: 102px;
+    padding: 20px 20px;
+    min-width: 200px;
 }

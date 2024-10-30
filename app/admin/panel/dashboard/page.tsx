@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dashboard = (): React.JSX.Element => {
+const Dashboard: React.FC = (): React.JSX.Element => {
 
     return (
         <main className="admin-dashboard">

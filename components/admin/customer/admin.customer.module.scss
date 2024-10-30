@@ -1,0 +1,30 @@
+.admin {
+    &-logout-wrapper {
+        display: flex;
+    }
+
+    &-customer {
+        display: flex;
+        align-items: center;
+
+        &-article {
+            display: inline-block;
+            padding: 0 15px;
+            text-transform: none;
+        }
+
+        &-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        &-article {
+            font-size: 1.6rem;
+            color: #171717;
+        }
+    }
+
+    &-menu-paper {
+        margin-top: -4px;
+    }
+}
