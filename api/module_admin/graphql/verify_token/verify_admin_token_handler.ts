@@ -1,5 +1,5 @@
-import type { Request, Response, NextFunction } from 'express';
-import { createHandler } from 'graphql-http/lib/use/express';
+import type { Request, Response, NextFunction } from "express";
+import { createHandler } from "graphql-http/lib/use/express";
 import verify_token from "./verify_token";
 
 const verifyAdminTokenHandler = async (req: Request, res: Response, next: NextFunction) => {

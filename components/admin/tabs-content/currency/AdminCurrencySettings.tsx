@@ -3,11 +3,7 @@
 import React from "react";
 
 const AdminCurrencySettings: React.FC = () => {
-    return (
-        <>
-            Currency Settings
-        </>
-    )
-}
+    return <>Currency Settings</>;
+};
 
 export default AdminCurrencySettings;

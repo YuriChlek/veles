@@ -1,5 +1,3 @@
-const createEnvFile = () => {
-
-}
+const createEnvFile = () => {};
 
 export default createEnvFile;

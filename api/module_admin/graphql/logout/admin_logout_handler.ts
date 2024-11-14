@@ -1,5 +1,5 @@
-import type { Request, Response, NextFunction } from 'express';
-import { createHandler } from 'graphql-http/lib/use/express';
+import type { Request, Response, NextFunction } from "express";
+import { createHandler } from "graphql-http/lib/use/express";
 import admin_logout from "./admin_logout";
 
 const adminLogoutHandler = async (req: Request, res: Response, next: NextFunction) => {

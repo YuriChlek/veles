@@ -67,14 +67,12 @@ const AdminCustomer: React.FC = () => {
                             right: 0,
                             height: "7px",
                             backgroundColor: "#FFFFFF",
-                            display: open ? "block" : "none"
-                        }
-                }}
+                            display: open ? "block" : "none",
+                        },
+                    }}
                 >
                     <span className={styles["admin-customer"]}>
-                        <span className={styles["admin-customer-article"]}>
-                            {adminUser.login}
-                        </span>
+                        <span className={styles["admin-customer-article"]}>{adminUser.login}</span>
                         <DynamicReactIcon iconName={"GoPersonFill"} />
                     </span>
                 </Button>

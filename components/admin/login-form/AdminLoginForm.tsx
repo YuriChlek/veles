@@ -2,17 +2,17 @@
 
 import React from "react";
 import { print } from "graphql";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import Label from "../../base/label/Label.tsx";
 import Input from "../../base/input/Input.tsx";
 import SubmitButton from "../../base/submit-button/SubmitButton.tsx";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
-import {ADMIN_LOGIN_MUTATION} from "@/components/admin/login-form/login-mutation.graphql.ts";
+import { ADMIN_LOGIN_MUTATION } from "@/components/admin/login-form/login-mutation.graphql.ts";
 import type { LoginResponse } from "@/interfaces/admin/login/interfaces";
 import useAdminUserStore from "@/state/slices/adminUser";
 import _t from "@/utils/translations/translation.ts";
-import styles from './lofin.form.module.scss';
-import type {GraphQLResponseInterface} from "@/interfaces/admin/graphql/interfaces.ts";
+import styles from "./lofin.form.module.scss";
+import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
 
 const AdminLoginForm: React.FC = () => {
     const router = useRouter();
@@ -28,10 +28,7 @@ const AdminLoginForm: React.FC = () => {
         const query = print(ADMIN_LOGIN_MUTATION);
 
         try {
-            const response = await GraphqlRequest<LoginResponse>(
-                { query, variables: { login: username, password } },
-                'admin_login'
-            );
+            const response = await GraphqlRequest<LoginResponse>({ query, variables: { login: username, password } }, "admin_login");
 
             const loginData = response.data as GraphQLResponseInterface<LoginResponse>;
 
@@ -45,33 +42,23 @@ const AdminLoginForm: React.FC = () => {
 
             if (token && Object.keys(user).length && "login" in user) {
                 setAdminUser({ login: user.login });
-                await router.push('/admin/panel/dashboard');
+                await router.push("/admin/panel/dashboard");
             }
         } catch (error) {
-            console.error('Login error:', error);
+            console.error("Login error:", error);
         }
     };
 
     return (
-        <form className={styles['admin-login-form']} onSubmit={signInHandler}>
-            <h2 className={styles['admin-login-title']}>Sign in</h2>
-            <div className={styles['admin-login-row']}>
+        <form className={styles["admin-login-form"]} onSubmit={signInHandler}>
+            <h2 className={styles["admin-login-title"]}>Sign in</h2>
+            <div className={styles["admin-login-row"]}>
                 <Label htmlFor="username">{_t("Username")}</Label>
-                <Input
-                    type="text"
-                    name="username"
-                    placeholder={_t("Username")}
-                    required
-                />
+                <Input type="text" name="username" placeholder={_t("Username")} required />
             </div>
-            <div className={styles['admin-login-row']}>
+            <div className={styles["admin-login-row"]}>
                 <Label htmlFor="password">{"Password"}</Label>
-                <Input
-                    type="password"
-                    name="password"
-                    placeholder={_t("Password")}
-                    required
-                />
+                <Input type="password" name="password" placeholder={_t("Password")} required />
             </div>
             <SubmitButton type="submit" pendingText={_t("Signing In...")}>
                 {_t("Sign in")}

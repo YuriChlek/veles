@@ -1,5 +1,5 @@
 import dbConnection from "../../../module_db/actions/create/new_connection";
-import {ADMIN_USER_DB} from "../../../module_db/constants/db_constants";
+import { ADMIN_USER_DB } from "../../../module_db/constants/db_constants";
 
 const createAdminUserTable = async (): Promise<void> => {
     const createAdminTableQuery: string = `
@@ -17,8 +17,8 @@ const createAdminUserTable = async (): Promise<void> => {
     try {
         await dbConnection.query(createAdminTableQuery);
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
-}
+};
 
 export default createAdminUserTable;

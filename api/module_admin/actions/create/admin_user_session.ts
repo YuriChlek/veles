@@ -1,5 +1,3 @@
-const createAdminUserSession = () => {
-
-}
+const createAdminUserSession = () => {};
 
 export default createAdminUserSession;

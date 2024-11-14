@@ -1,10 +1,10 @@
-import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { create } from "zustand";
+import { devtools } from "zustand/middleware";
 
-import AdminUserSlice from './slices/adminUser';
+import AdminUserSlice from "./slices/adminUser";
 
 const useStore = create((set) => ({
-    ...AdminUserSlice(set)
+    ...AdminUserSlice(set),
 }));
 
 export default useStore;

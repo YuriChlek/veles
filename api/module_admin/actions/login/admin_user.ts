@@ -1,5 +1,3 @@
-const loginAdminUser = () => {
-
-}
+const loginAdminUser = () => {};
 
 export default loginAdminUser;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { AxiosError, AxiosResponse } from "axios";
 import { API_HOST, API_PORT } from "@/constants/env/env_constants";
-import type { GraphQLRequestInterface, GraphQLResponseInterface } from '@/interfaces/admin/graphql/interfaces';
+import type { GraphQLRequestInterface, GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces";
 
 const GraphqlRequest = async <T>(request: GraphQLRequestInterface, queryUrl: string): Promise<AxiosResponse<GraphQLResponseInterface<T>>> => {
     const GRAPHQL_ENDPOINT = `${API_HOST}:${API_PORT}/graphql/${queryUrl}`;
@@ -9,9 +9,9 @@ const GraphqlRequest = async <T>(request: GraphQLRequestInterface, queryUrl: str
     try {
         return await axios.post<GraphQLResponseInterface<T>>(GRAPHQL_ENDPOINT, request, {
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json",
             },
-            withCredentials: true
+            withCredentials: true,
         });
     } catch (error) {
         const axiosError = error as AxiosError;
