@@ -1,4 +1,5 @@
-import { Request, Response, NextFunction, Router } from 'express';
+import { Router } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import loginAdminHandler from "../graphql/login/admin_login_handler";
 import verifyAdminTokenHandler from "../graphql/verify_token/verify_admin_token_handler";
 import adminLogoutHandler from "../graphql/logout/admin_logout_handler";

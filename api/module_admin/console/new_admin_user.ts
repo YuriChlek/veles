@@ -1,5 +1,5 @@
 import createAdminUser from "../actions/create/admin_user";
-import {AdminUser} from "../interfaces/admin_user";
+import type {AdminUser} from "../interfaces/admin_user";
 import {v4 as uuidv4} from "uuid";
 
 (async (): Promise<void> => {

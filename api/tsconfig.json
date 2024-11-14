@@ -1,20 +1,15 @@
 {
+    "extends": "../tsconfig.json",
     "compilerOptions": {
-        "target": "ES6",
         "module": "commonjs",
-        "rootDir": "../",
-        "outDir": "./dist",
-        "baseUrl": "../",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        /*"paths": {
-            "@api*//*": [
-                ".*//*"
-            ]
-        },*/
-        "noEmit": true
+        "noImplicitAny": false,
+        "noUnusedLocals": false,
+        "removeComments": true,
+        "noLib": false,
+        "emitDecoratorMetadata": true,
+        "useUnknownInCatchVariables": false,
+        "sourceMap": true,
+        "allowJs": false
     },
     "include": ["**/*.ts"],
     "exclude": ["node_modules"]

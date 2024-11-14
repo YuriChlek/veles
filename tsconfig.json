@@ -4,10 +4,11 @@
     "useDefineForClassFields": true,
     "lib": [
       "ES2020",
-      "DOM",
-      "DOM.Iterable"
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "module": "ESNext",
+    "module": "esnext",
     "skipLibCheck": true,
     "moduleResolution": "node",
     "allowImportingTsExtensions": true,
@@ -23,7 +24,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "verbatimModuleSyntax": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "plugins": [
@@ -41,6 +41,7 @@
   "include": [
     "next-env.d.ts",
     "app",
+    "api",
     ".next/types/**/*.ts",
     "./**/*.graphql"
   ],
