@@ -1,10 +1,10 @@
 import { addResolversToSchema } from '@graphql-tools/schema';
-import {join} from 'node:path';
+import { join } from 'node:path';
 import { GraphQLSchema } from 'graphql';
 import { loadSchema } from '@graphql-tools/load';
-import {__API_DIR} from "../../../../constants/path/path_constants";
+import { __API_DIR } from "../../../../constants/path/path_constants";
 import { GraphQLFileLoader } from '@graphql-tools/graphql-file-loader';
-import {GraphQLContext} from "../../interfaces/graph_ql";
+import type { GraphQLContext } from "../../interfaces/graph_ql";
 
 const create_logout_admin_schema = async () => {
     const schema: GraphQLSchema = await loadSchema(join(__API_DIR, 'module_admin/graphql/logout/schema.graphql'), {
@@ -15,7 +15,7 @@ const create_logout_admin_schema = async () => {
 
     const resolvers = {
         Mutation: {
-            adminLogout: async (_: object, args: {}, context: GraphQLContext): Promise<{logout: Boolean}> => {
+            adminLogout: async (_: object, _args: {}, context: GraphQLContext): Promise<{logout: Boolean}> => {
                 context.res.clearCookie('adminToken', {
                     httpOnly: true,
                     secure: true,

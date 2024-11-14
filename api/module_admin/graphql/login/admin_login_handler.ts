@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import { createHandler } from 'graphql-http/lib/use/express';
 import admin_login from "../../../module_admin/graphql/login/admin_login";
 

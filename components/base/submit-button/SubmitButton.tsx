@@ -2,8 +2,8 @@
 
 import React from "react";
 import Button from "../button-base/Button.tsx";
-import {useFormStatus} from "react-dom";
-import type {ButtonProps} from "../button-base/Button.tsx";
+import { useFormStatus } from "react-dom";
+import type { ButtonProps } from "../button-base/Button.tsx";
 
 export interface SubmitButtonProps extends ButtonProps {
     pendingText?: string;
@@ -23,5 +23,7 @@ const SubmitButton = React.forwardRef<HTMLButtonElement, SubmitButtonProps>(
             </Button>
         );
     });
+
+SubmitButton.displayName = "SubmitButton";
 
 export default SubmitButton;
