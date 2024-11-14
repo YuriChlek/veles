@@ -3,13 +3,13 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev_api": "nodemon api/server.ts",
+        "dev_api": "nodemon -r tsconfig-paths/register api/server.ts",
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
         "lint": "eslint ./app ./components",
         "format": "prettier --write './**/*.{js,mjs,jsx,ts,tsx,css,scss,json}'",
-        "veles:create:admin:user": "ts-node api/module_admin/console/new_admin_user.ts",
+        "veles:create:admin:user": "ts-node -r tsconfig-paths/register api/module_admin/console/new_admin_user.ts",
         "veles:set:initial:settigs": "ts-node api/module_env/console/set_initial_settings.ts"
     },
     "dependencies": {
@@ -49,6 +49,7 @@
         "react-icons": "^5.3.0",
         "redis": "^4.7.0",
         "sass": "^1.80.1",
+        "tsconfig-paths": "^4.2.0",
         "type-graphql": "^2.0.0-rc.2",
         "uuid": "^10.0.0",
         "zustand": "^5.0.0"

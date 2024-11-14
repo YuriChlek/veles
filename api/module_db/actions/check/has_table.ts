@@ -1,4 +1,4 @@
-import dbConnection from "../create/new_connection";
+import dbConnection from "@api/module_db/actions/create/new_connection.ts";
 
 const verifyHasTable = async (tableName: string): Promise<boolean> => {
     const query = `

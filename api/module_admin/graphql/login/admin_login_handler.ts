@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
 import { createHandler } from "graphql-http/lib/use/express";
-import admin_login from "../../../module_admin/graphql/login/admin_login";
+import admin_login from "@api/module_admin/graphql/login/admin_login.ts";
 
 const loginAdminHandler = async (
     req: Request,

@@ -2,9 +2,9 @@ import { addResolversToSchema } from "@graphql-tools/schema";
 import { join } from "node:path";
 import { GraphQLSchema } from "graphql";
 import { loadSchema } from "@graphql-tools/load";
-import { __API_DIR } from "../../../../constants/path/path_constants";
+import { __API_DIR } from "@/constants/path/path_constants.ts";
 import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
-import type { GraphQLContext } from "../../interfaces/graph_ql";
+import type { GraphQLContext } from "@api/module_admin/interfaces/graph_ql.ts";
 
 const create_logout_admin_schema = async () => {
     const schema: GraphQLSchema = await loadSchema(

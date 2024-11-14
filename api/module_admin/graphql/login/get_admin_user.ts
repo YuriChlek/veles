@@ -1,6 +1,6 @@
-import dbConnection from "../../../module_db/actions/create/new_connection";
-import { ADMIN_USER_DB } from "../../../module_db/constants/db_constants";
-import type { AdminUser } from "../../interfaces/admin_user";
+import dbConnection from "@api/module_db/actions/create/new_connection";
+import { ADMIN_USER_DB } from "@api/module_db/constants/db_constants.ts";
+import type { AdminUser } from "@api/module_admin/interfaces/admin_user.ts";
 
 const getAdminUser = async (login: string): Promise<AdminUser> => {
     const query = `SELECT admin_id, login, password, email, first_name, last_name, role  

@@ -1,5 +1,5 @@
-import dbConnection from "../../../module_db/actions/create/new_connection";
-import { ADMIN_USER_DB } from "../../../module_db/constants/db_constants";
+import dbConnection from "@api/module_db/actions/create/new_connection";
+import { ADMIN_USER_DB } from "@api/module_db/constants/db_constants.ts";
 
 const createAdminUserTable = async (): Promise<void> => {
     const createAdminTableQuery: string = `

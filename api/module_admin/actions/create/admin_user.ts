@@ -1,8 +1,8 @@
 import * as argon2 from "argon2";
-import dbConnection from "../../../module_db/actions/create/new_connection";
-import type { AdminUser } from "../../interfaces/admin_user";
-import verifyAdminUserIsCreated from "../verify/admin_user_is_created";
-import { ADMIN_USER_DB } from "../../../module_db/constants/db_constants";
+import dbConnection from "@api/module_db/actions/create/new_connection.ts";
+import { AdminUser } from "@api/module_admin/interfaces/admin_user.ts";
+import verifyAdminUserIsCreated from "@api/module_admin/actions/verify/admin_user_is_created.ts";
+import { ADMIN_USER_DB } from "@/api/module_db/constants/db_constants.ts";
 
 const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
     const query = `

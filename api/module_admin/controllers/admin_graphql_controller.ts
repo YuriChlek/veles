@@ -1,8 +1,8 @@
 import { Router } from "express";
 import type { Request, Response, NextFunction } from "express";
-import loginAdminHandler from "../graphql/login/admin_login_handler";
-import verifyAdminTokenHandler from "../graphql/verify_token/verify_admin_token_handler";
-import adminLogoutHandler from "../graphql/logout/admin_logout_handler";
+import loginAdminHandler from "@api/module_admin/graphql/login/admin_login_handler.ts";
+import verifyAdminTokenHandler from "@api/module_admin/graphql/verify_token/verify_admin_token_handler.ts";
+import adminLogoutHandler from "@api/module_admin/graphql/logout/admin_logout_handler.ts";
 
 const adminGraphqlRouter = Router();
 

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { Client } from "pg";
-import type { ConnectionType } from "../../types/connection_type";
+import type { ConnectionType } from "@api/module_db/types/connection_type.ts";
 
 dotenv.config();
 

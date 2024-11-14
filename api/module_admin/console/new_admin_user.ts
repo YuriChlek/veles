@@ -1,6 +1,6 @@
-import createAdminUser from "../actions/create/admin_user";
-import type { AdminUser } from "../interfaces/admin_user";
 import { v4 as uuidv4 } from "uuid";
+import createAdminUser from "@api/module_admin/actions/create/admin_user.ts";
+import type { AdminUser } from "@api/module_admin/interfaces/admin_user.ts";
 
 (async (): Promise<void> => {
     const args: Array<string> = process.argv.slice(2);

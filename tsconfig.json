@@ -26,8 +26,10 @@
                 "name": "next"
             }
         ],
+        "baseUrl": ".",
         "paths": {
-            "@/*": ["./*"]
+            "@/*": ["./*"],
+            "@api/*": ["api/*"]
         },
         "incremental": true
     },

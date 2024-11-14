@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { __I18N_DIR } from "../../../constants/path/path_constants";
+import { __I18N_DIR } from "@/constants/path/path_constants.ts";
 import csv_to_json from "./csv_to_json";
 import set_translations_data from "./set_translations_data";
 

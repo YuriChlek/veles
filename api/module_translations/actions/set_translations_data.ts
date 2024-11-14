@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { __I18N_CACHE_DIR } from "../../../constants/path/path_constants";
+import { __I18N_CACHE_DIR } from "@/constants/path/path_constants.ts";
 
 const set_translations_data = async (
     data: Record<string, Record<string, Record<string, string>>>,
