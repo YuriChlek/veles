@@ -13,14 +13,24 @@ const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
 
     const password = await argon2.hash(userOptions.password);
 
-    const values = [userOptions.admin_id, userOptions.login, password, userOptions.email, userOptions.first_name, userOptions.last_name, userOptions.role];
+    const values = [
+        userOptions.admin_id,
+        userOptions.login,
+        password,
+        userOptions.email,
+        userOptions.first_name,
+        userOptions.last_name,
+        userOptions.role,
+    ];
 
     try {
         const userIsCreated = await verifyAdminUserIsCreated(userOptions.login);
 
         if (!userIsCreated) {
             await dbConnection.query(query, values);
-            console.log(`The ${userOptions.login} user has been successfully created.`);
+            console.log(
+                `The ${userOptions.login} user has been successfully created.`,
+            );
             return;
         }
 

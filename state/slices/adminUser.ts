@@ -1,5 +1,8 @@
 import { create } from "zustand";
-import type { AdminUserState, AdminActions } from "@/state/interfaces/adminUser/interfaces";
+import type {
+    AdminUserState,
+    AdminActions,
+} from "@/state/interfaces/adminUser/interfaces";
 
 const useAdminUserStore = create<AdminUserState & AdminActions>((set) => ({
     adminUser: {
@@ -10,7 +13,10 @@ const useAdminUserStore = create<AdminUserState & AdminActions>((set) => ({
             const updatedUser = { ...state.adminUser, ...newUser };
 
             if (typeof window !== "undefined") {
-                localStorage.setItem("adminUserName", JSON.stringify(updatedUser)); // Збереження в localStorage
+                localStorage.setItem(
+                    "adminUserName",
+                    JSON.stringify(updatedUser),
+                ); // Збереження в localStorage
             }
 
             return { adminUser: updatedUser };

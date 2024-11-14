@@ -13,7 +13,14 @@ const AdminSettingsTabPanel: React.FC<TabPanelProps> = (props) => {
     const { children, value, index, ...attributes } = props;
 
     return (
-        <div role="tabpanel" hidden={value !== index} id={`vertical-tabpanel-${index}`} aria-labelledby={`vertical-tab-${index}`} {...attributes} className={styles["admin-tab-content"]}>
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`vertical-tabpanel-${index}`}
+            aria-labelledby={`vertical-tab-${index}`}
+            {...attributes}
+            className={styles["admin-tab-content"]}
+        >
             {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
         </div>
     );

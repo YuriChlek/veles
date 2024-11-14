@@ -8,13 +8,19 @@ export async function middleware(request: NextRequest) {
         const tokenIsVerify = await verifyAdminToken(request);
 
         if (!pathname.includes("panel") && tokenIsVerify) {
-            return NextResponse.redirect(new URL("/admin/panel/dashboard", request.url));
+            return NextResponse.redirect(
+                new URL("/admin/panel/dashboard", request.url),
+            );
         } else if (pathname === "/admin/panel" && tokenIsVerify) {
-            return NextResponse.redirect(new URL("/admin/panel/dashboard", request.url));
+            return NextResponse.redirect(
+                new URL("/admin/panel/dashboard", request.url),
+            );
         } else if (pathname.includes("panel") && !tokenIsVerify) {
             return NextResponse.redirect(new URL("/admin/login", request.url));
         } else if (pathname.includes("login") && tokenIsVerify) {
-            return NextResponse.redirect(new URL("/admin/panel/dashboard", request.url));
+            return NextResponse.redirect(
+                new URL("/admin/panel/dashboard", request.url),
+            );
         } else if (!pathname.includes("login") && !tokenIsVerify) {
             return NextResponse.redirect(new URL("/admin/login", request.url));
         }

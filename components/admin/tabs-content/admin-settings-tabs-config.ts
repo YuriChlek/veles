@@ -1,4 +1,8 @@
-import { AdminCustomerSettings, AdminLanguagesSettings, AdminCurrencySettings } from "./admin-settings-tabs-registration";
+import {
+    AdminCustomerSettings,
+    AdminLanguagesSettings,
+    AdminCurrencySettings,
+} from "./admin-settings-tabs-registration";
 
 const AdminSettingsTabsConfig = [
     {

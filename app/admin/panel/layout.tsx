@@ -9,7 +9,9 @@ export const metadata: Metadata = {
     title: "Veles | Admin panel",
 };
 
-const DashboardRootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const DashboardRootLayout = ({
+    children,
+}: Readonly<{ children: React.ReactNode }>) => {
     return (
         <div className="page">
             <AdminPanelMenu />

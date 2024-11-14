@@ -28,11 +28,19 @@ const AdminLoginForm: React.FC = () => {
         const query = print(ADMIN_LOGIN_MUTATION);
 
         try {
-            const response = await GraphqlRequest<LoginResponse>({ query, variables: { login: username, password } }, "admin_login");
+            const response = await GraphqlRequest<LoginResponse>(
+                { query, variables: { login: username, password } },
+                "admin_login",
+            );
 
-            const loginData = response.data as GraphQLResponseInterface<LoginResponse>;
+            const loginData =
+                response.data as GraphQLResponseInterface<LoginResponse>;
 
-            if ("errors" in loginData && loginData.errors && loginData.errors.length > 0) {
+            if (
+                "errors" in loginData &&
+                loginData.errors &&
+                loginData.errors.length > 0
+            ) {
                 const error = loginData.errors[0].message;
                 console.log(error);
                 return error;
@@ -54,11 +62,21 @@ const AdminLoginForm: React.FC = () => {
             <h2 className={styles["admin-login-title"]}>Sign in</h2>
             <div className={styles["admin-login-row"]}>
                 <Label htmlFor="username">{_t("Username")}</Label>
-                <Input type="text" name="username" placeholder={_t("Username")} required />
+                <Input
+                    type="text"
+                    name="username"
+                    placeholder={_t("Username")}
+                    required
+                />
             </div>
             <div className={styles["admin-login-row"]}>
                 <Label htmlFor="password">{"Password"}</Label>
-                <Input type="password" name="password" placeholder={_t("Password")} required />
+                <Input
+                    type="password"
+                    name="password"
+                    placeholder={_t("Password")}
+                    required
+                />
             </div>
             <SubmitButton type="submit" pendingText={_t("Signing In...")}>
                 {_t("Sign in")}

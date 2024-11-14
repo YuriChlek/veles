@@ -18,7 +18,13 @@ const AdminSettingsTabs: React.FC = () => {
 
     return (
         <Box className={styles["admin-settings-tabs"]}>
-            <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} className={styles.tabs}>
+            <Tabs
+                orientation="vertical"
+                variant="scrollable"
+                value={value}
+                onChange={handleChange}
+                className={styles.tabs}
+            >
                 {AdminSettingsTabsConfig.map((item, index) => (
                     <Tab
                         label={_t(item.label)}

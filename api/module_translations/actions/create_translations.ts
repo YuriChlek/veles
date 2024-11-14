@@ -5,7 +5,10 @@ import csv_to_json from "./csv_to_json";
 import set_translations_data from "./set_translations_data";
 
 const create_translations = async (): Promise<void> => {
-    const translationsData: Record<string, Record<string, Record<string, string>>> = {
+    const translationsData: Record<
+        string,
+        Record<string, Record<string, string>>
+    > = {
         admin: {},
         frontend: {},
     };

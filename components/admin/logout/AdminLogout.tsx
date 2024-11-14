@@ -17,18 +17,29 @@ const AdminLogout: React.FC = () => {
     const logoutHandler = async () => {
         try {
             const query = print(ADMIN_LOGOUT_MUTATION);
-            const response = await GraphqlRequest<LogoutResponse>({ query, variables: {} }, "admin_logout");
+            const response = await GraphqlRequest<LogoutResponse>(
+                { query, variables: {} },
+                "admin_logout",
+            );
 
-            if ("errors" in response.data && response.data.errors && response.data.errors.length > 0) {
+            if (
+                "errors" in response.data &&
+                response.data.errors &&
+                response.data.errors.length > 0
+            ) {
                 const error = response.data.errors[0].message;
                 console.log(error);
 
                 return error;
             }
 
-            const logoutData = response.data as GraphQLResponseInterface<LogoutResponse>;
+            const logoutData =
+                response.data as GraphQLResponseInterface<LogoutResponse>;
 
-            if ("adminLogout" in logoutData.data && logoutData.data.adminLogout.logout) {
+            if (
+                "adminLogout" in logoutData.data &&
+                logoutData.data.adminLogout.logout
+            ) {
                 await router.push("/admin/panel/login");
             }
         } catch (error) {
@@ -39,8 +50,13 @@ const AdminLogout: React.FC = () => {
     };
     return (
         <button className={styles["admin-logout"]} onClick={logoutHandler}>
-            <span className={styles["admin-logout-article"]}>{_t("Logout")}</span>
-            <DynamicReactIcon iconName="AiOutlineLogout" className={styles["admin-logout-icon"]} />
+            <span className={styles["admin-logout-article"]}>
+                {_t("Logout")}
+            </span>
+            <DynamicReactIcon
+                iconName="AiOutlineLogout"
+                className={styles["admin-logout-icon"]}
+            />
         </button>
     );
 };

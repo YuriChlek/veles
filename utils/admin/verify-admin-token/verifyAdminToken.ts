@@ -4,7 +4,9 @@ import { print } from "graphql/index";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
 import type { VerifyAdminToken } from "@/interfaces/admin/verify-token/interfases";
 
-export const verifyAdminToken = async (request: NextRequest): Promise<boolean | string> => {
+export const verifyAdminToken = async (
+    request: NextRequest,
+): Promise<boolean | string> => {
     const adminTokenCookies = request.cookies.get("adminToken");
 
     if (!adminTokenCookies) {
@@ -15,7 +17,10 @@ export const verifyAdminToken = async (request: NextRequest): Promise<boolean | 
     const query = print(VERIFY_ADMIN_TOKEN_MUTATION);
 
     try {
-        const response = await GraphqlRequest<VerifyAdminToken>({ query, variables: { token } }, "admin_verify_token");
+        const response = await GraphqlRequest<VerifyAdminToken>(
+            { query, variables: { token } },
+            "admin_verify_token",
+        );
 
         if (Object.keys(response.data).includes("errors")) {
             const error = response.data.errors[0].message;

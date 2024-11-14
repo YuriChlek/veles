@@ -6,7 +6,9 @@ const csv_to_json = (filePath: string): Record<string, string> => {
     const jsonData: Record<string, string> = {};
 
     csvData.split("\n").forEach((line) => {
-        const [key, value] = line.split('",').map((v) => v.trim().replace(/^"|"$/g, ""));
+        const [key, value] = line
+            .split('",')
+            .map((v) => v.trim().replace(/^"|"$/g, ""));
 
         if (key && value) {
             jsonData[key] = value;

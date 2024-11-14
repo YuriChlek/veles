@@ -33,7 +33,9 @@ import { v4 as uuidv4 } from "uuid";
             process.exit(1);
         }
     } else {
-        console.error("Unable to create user because the fields login, password, and email are required.");
+        console.error(
+            "Unable to create user because the fields login, password, and email are required.",
+        );
         process.exit(1);
     }
 })();

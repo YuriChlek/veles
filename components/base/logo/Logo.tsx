@@ -16,7 +16,13 @@ const Logo: React.FC = ({ width, height }: logoProps): React.JSX.Element => {
     return (
         <div className={styles["logo-wrapper"]}>
             <Link className={styles.logo} href="#">
-                <Image src="/images/logo.png" width={logoWidth} height={logoHeight} alt={_t("Veles logo")} priority />
+                <Image
+                    src="/images/logo.png"
+                    width={logoWidth}
+                    height={logoHeight}
+                    alt={_t("Veles logo")}
+                    priority
+                />
             </Link>
         </div>
     );

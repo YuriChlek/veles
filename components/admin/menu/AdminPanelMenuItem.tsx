@@ -3,11 +3,19 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Drawer, List, ListItem } from "@mui/material";
-import type { AdminMenuItem, AdminMenuItemProps } from "@/interfaces/admin/menu/adminMenu";
+import type {
+    AdminMenuItem,
+    AdminMenuItemProps,
+} from "@/interfaces/admin/menu/adminMenu";
 import _t from "@/utils/translations/translation.ts";
 import styles from "./admin.panel.menu.module.scss";
 
-const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({ id, toggledId, items, setOpenItemId }) => {
+const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({
+    id,
+    toggledId,
+    items,
+    setOpenItemId,
+}) => {
     const [open, setOpen] = useState(false);
 
     const closeDrawer = (open: boolean) => () => {
@@ -24,7 +32,12 @@ const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({ id, toggledId, items
     }, [toggledId]);
 
     return (
-        <Drawer anchor="left" open={open} onClose={closeDrawer(false)} classes={{ paper: styles["drawer-paper"] }}>
+        <Drawer
+            anchor="left"
+            open={open}
+            onClose={closeDrawer(false)}
+            classes={{ paper: styles["drawer-paper"] }}
+        >
             <List>
                 {items.map((item: AdminMenuItem, index: number) => (
                     <ListItem key={`${index}_${item.id}`}>

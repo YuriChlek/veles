@@ -31,19 +31,42 @@ const AdminPanelMenu: React.FC = () => {
                 <Logo />
             </div>
             {adminMenuRouting.map((item: AdminMenuTopItem) => (
-                <div className={clsx(styles["menu-item-wrapper"], { [styles.active]: item.id === openItemId })} key={item.itemText}>
+                <div
+                    className={clsx(styles["menu-item-wrapper"], {
+                        [styles.active]: item.id === openItemId,
+                    })}
+                    key={item.itemText}
+                >
                     {item.linkHref ? (
-                        <Link onClick={toggleDrawer(item.id)} className={styles["menu-item"]} href={item.linkHref}>
+                        <Link
+                            onClick={toggleDrawer(item.id)}
+                            className={styles["menu-item"]}
+                            href={item.linkHref}
+                        >
                             <DynamicReactIcon iconName={item.icon} />
-                            <span className={styles["menu-item-text"]}>{_t(item.itemText)}</span>
+                            <span className={styles["menu-item-text"]}>
+                                {_t(item.itemText)}
+                            </span>
                         </Link>
                     ) : (
-                        <button className={styles["menu-item"]} onClick={toggleDrawer(item.id)}>
+                        <button
+                            className={styles["menu-item"]}
+                            onClick={toggleDrawer(item.id)}
+                        >
                             <DynamicReactIcon iconName={item.icon} />
-                            <span className={styles["menu-item-text"]}>{_t(item.itemText)}</span>
+                            <span className={styles["menu-item-text"]}>
+                                {_t(item.itemText)}
+                            </span>
                         </button>
                     )}
-                    {item.children.length > 0 && <AdminPanelMenuItem id={item.id} toggledId={openItemId} setOpenItemId={setOpenItemId} items={item.children} />}
+                    {item.children.length > 0 && (
+                        <AdminPanelMenuItem
+                            id={item.id}
+                            toggledId={openItemId}
+                            setOpenItemId={setOpenItemId}
+                            items={item.children}
+                        />
+                    )}
                 </div>
             ))}
         </nav>

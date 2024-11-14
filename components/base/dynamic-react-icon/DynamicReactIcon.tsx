@@ -11,7 +11,11 @@ import clsx from "clsx";
 
 const DynamicReactIcon: React.FC<FontIconProps> = ({ iconName, className }) => {
     const icon = iconName.trim();
-    const IconComponent = AiIcons[icon as keyof typeof AiIcons] || CiIcons[icon as keyof typeof CiIcons] || GoIcons[icon as keyof typeof GoIcons] || IoIcons[icon as keyof typeof IoIcons];
+    const IconComponent =
+        AiIcons[icon as keyof typeof AiIcons] ||
+        CiIcons[icon as keyof typeof CiIcons] ||
+        GoIcons[icon as keyof typeof GoIcons] ||
+        IoIcons[icon as keyof typeof IoIcons];
 
     if (!IconComponent) {
         return <span>Icon is not founded</span>;

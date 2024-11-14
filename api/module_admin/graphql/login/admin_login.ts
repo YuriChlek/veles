@@ -12,13 +12,20 @@ import { __API_DIR } from "../../../../constants/path/path_constants";
 import { TOKEN_SECRET_KEY } from "../../../../constants/env/env_constants";
 
 const create_admin_login_schema = async () => {
-    const schema: GraphQLSchema = await loadSchema(join(__API_DIR, "module_admin/graphql/login/schema.graphql"), {
-        loaders: [new GraphQLFileLoader()],
-    });
+    const schema: GraphQLSchema = await loadSchema(
+        join(__API_DIR, "module_admin/graphql/login/schema.graphql"),
+        {
+            loaders: [new GraphQLFileLoader()],
+        },
+    );
 
     const resolvers = {
         Mutation: {
-            login: async (_: object, args: { login: string; password: string }, context: GraphQLContext): Promise<AdminAuthPayload | Error> => {
+            login: async (
+                _: object,
+                args: { login: string; password: string },
+                context: GraphQLContext,
+            ): Promise<AdminAuthPayload | Error> => {
                 const { login, password } = args;
                 const secret_key = TOKEN_SECRET_KEY;
                 const user: AdminUser = await getAdminUser(login);
@@ -34,7 +41,11 @@ const create_admin_login_schema = async () => {
                     return new Error("Password is incorrect.");
                 }
 
-                const token = jwt.sign({ admin_id: user.admin_id, role: user.role }, secret_key, { expiresIn: "3d" });
+                const token = jwt.sign(
+                    { admin_id: user.admin_id, role: user.role },
+                    secret_key,
+                    { expiresIn: "3d" },
+                );
 
                 context.res.cookie("adminToken", token, {
                     httpOnly: true,

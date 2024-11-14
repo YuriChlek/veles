@@ -23,5 +23,7 @@ import adminGraphqlRouter from "./module_admin/controllers/admin_graphql_control
     /* Graphql routers */
     app.use(adminGraphqlRouter);
 
-    app.listen(PORT, () => console.log(`Server Connected to http://localhost:${PORT}`));
+    app.listen(PORT, () =>
+        console.log(`Server Connected to http://localhost:${PORT}`),
+    );
 })();

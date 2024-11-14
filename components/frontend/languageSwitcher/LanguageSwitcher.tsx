@@ -38,13 +38,23 @@ const LanguageSwitcher: React.FC = () => {
 
     return (
         <div>
-            <IconButton onClick={() => setDrawerOpen(true)} sx={{ fontSize: "1.2rem" }}>
+            <IconButton
+                onClick={() => setDrawerOpen(true)}
+                sx={{ fontSize: "1.2rem" }}
+            >
                 <DynamicReactIcon iconName="GoGlobe" />
             </IconButton>
 
-            <Drawer anchor="right" open={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+            <Drawer
+                anchor="right"
+                open={isDrawerOpen}
+                onClose={() => setDrawerOpen(false)}
+            >
                 <div className={styles["language-switcher-close"]}>
-                    <IconButton onClick={closeDrawer} sx={{ width: "30px", height: "30px", padding: 0 }}>
+                    <IconButton
+                        onClick={closeDrawer}
+                        sx={{ width: "30px", height: "30px", padding: 0 }}
+                    >
                         <DynamicReactIcon iconName="IoMdClose" />
                     </IconButton>
                 </div>

@@ -7,13 +7,20 @@ import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
 import type { GraphQLContext } from "../../interfaces/graph_ql";
 
 const create_logout_admin_schema = async () => {
-    const schema: GraphQLSchema = await loadSchema(join(__API_DIR, "module_admin/graphql/logout/schema.graphql"), {
-        loaders: [new GraphQLFileLoader()],
-    });
+    const schema: GraphQLSchema = await loadSchema(
+        join(__API_DIR, "module_admin/graphql/logout/schema.graphql"),
+        {
+            loaders: [new GraphQLFileLoader()],
+        },
+    );
 
     const resolvers = {
         Mutation: {
-            adminLogout: async (_: object, _args: {}, context: GraphQLContext): Promise<{ logout: Boolean }> => {
+            adminLogout: async (
+                _: object,
+                _args: {},
+                context: GraphQLContext,
+            ): Promise<{ logout: Boolean }> => {
                 context.res.clearCookie("adminToken", {
                     httpOnly: true,
                     secure: true,

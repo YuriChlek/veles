@@ -25,9 +25,13 @@ var __awaiter =
                 }
             }
             function step(result) {
-                result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+                result.done
+                    ? resolve(result.value)
+                    : adopt(result.value).then(fulfilled, rejected);
             }
-            step((generator = generator.apply(thisArg, _arguments || [])).next());
+            step(
+                (generator = generator.apply(thisArg, _arguments || [])).next(),
+            );
         });
     };
 var __importDefault =
@@ -39,9 +43,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const express_2 = require("graphql-http/lib/use/express");
-const env_token_secret_key_1 = __importDefault(require("./module_env/create/env_token_secret_key"));
+const env_token_secret_key_1 = __importDefault(
+    require("./module_env/create/env_token_secret_key"),
+);
 const env_constants_1 = require("../constants/env/env_constants");
-const admin_login_1 = __importDefault(require("./module_admin/graphql/login/admin_login"));
+const admin_login_1 = __importDefault(
+    require("./module_admin/graphql/login/admin_login"),
+);
 if (!env_constants_1.TOKEN_SECRET_KEY) {
     (0, env_token_secret_key_1.default)();
 }
@@ -56,7 +64,12 @@ const start_server = () =>
         const app = (0, express_1.default)();
         const admin_login_schema = yield admin_login_1.default;
         app.use((0, cors_1.default)(corsOptions));
-        app.all("/graphql/admin_login", (0, express_2.createHandler)({ schema: admin_login_schema }));
-        app.listen(PORT, () => console.log(`Server Connected to http://localhost:${PORT}`));
+        app.all(
+            "/graphql/admin_login",
+            (0, express_2.createHandler)({ schema: admin_login_schema }),
+        );
+        app.listen(PORT, () =>
+            console.log(`Server Connected to http://localhost:${PORT}`),
+        );
     });
 start_server();
