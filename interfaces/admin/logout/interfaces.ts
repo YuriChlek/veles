@@ -1,8 +1,8 @@
 export interface LogoutResponse {
     adminLogout: {
-        logout: boolean
-    },
+        logout: boolean;
+    };
     errors?: Array<{
         message: string;
-    }>
+    }>;
 }

@@ -1,8 +1,8 @@
 export interface VerifyAdminToken {
     verifyToken: {
-        verify: boolean
-    },
+        verify: boolean;
+    };
     errors?: Array<{
         message: string;
-    }>
+    }>;
 }

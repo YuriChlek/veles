@@ -1,6 +1,6 @@
 import * as dotenv from "dotenv";
 
-const isEdgeRuntime = (process.env.NEXT_RUNTIME === 'edge');
+const isEdgeRuntime = process.env.NEXT_RUNTIME === "edge";
 
 if (!isEdgeRuntime) {
     dotenv.config();

@@ -1,8 +1,8 @@
 import * as argon2 from "argon2";
 import dbConnection from "../../../module_db/actions/create/new_connection";
-import type {AdminUser} from "../../interfaces/admin_user";
+import type { AdminUser } from "../../interfaces/admin_user";
 import verifyAdminUserIsCreated from "../verify/admin_user_is_created";
-import {ADMIN_USER_DB} from "../../../module_db/constants/db_constants";
+import { ADMIN_USER_DB } from "../../../module_db/constants/db_constants";
 
 const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
     const query = `
@@ -20,7 +20,7 @@ const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
         userOptions.email,
         userOptions.first_name,
         userOptions.last_name,
-        userOptions.role
+        userOptions.role,
     ];
 
     try {
@@ -28,7 +28,9 @@ const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
 
         if (!userIsCreated) {
             await dbConnection.query(query, values);
-            console.log(`The ${userOptions.login} user has been successfully created.`);
+            console.log(
+                `The ${userOptions.login} user has been successfully created.`,
+            );
             return;
         }
 
@@ -36,6 +38,6 @@ const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
     } catch (error) {
         console.error(error);
     }
-}
+};
 
 export default createAdminUser;

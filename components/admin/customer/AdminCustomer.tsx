@@ -27,7 +27,10 @@ const AdminCustomer: React.FC = () => {
     const handleToggle = () => setOpen((prevOpen) => !prevOpen);
 
     const handleClose = (event: Event | React.SyntheticEvent) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target as HTMLElement)) {
+        if (
+            anchorRef.current &&
+            anchorRef.current.contains(event.target as HTMLElement)
+        ) {
             return;
         }
         setOpen(false);
@@ -58,7 +61,9 @@ const AdminCustomer: React.FC = () => {
                         borderBottomRightRadius: open ? 0 : "4px",
                         backgroundColor: "#FFFFFF",
                         position: "relative",
-                        boxShadow: open ? "0px -2px 5px rgba(0, 0, 0, 0.1), 2px 0px 5px rgba(0, 0, 0, 0.1), -2px 0px 5px rgba(0, 0, 0, 0.1)" : "none",
+                        boxShadow: open
+                            ? "0px -2px 5px rgba(0, 0, 0, 0.1), 2px 0px 5px rgba(0, 0, 0, 0.1), -2px 0px 5px rgba(0, 0, 0, 0.1)"
+                            : "none",
                         "&:before": {
                             content: "''",
                             position: "absolute",
@@ -67,9 +72,9 @@ const AdminCustomer: React.FC = () => {
                             right: 0,
                             height: "7px",
                             backgroundColor: "#FFFFFF",
-                            display: open ? "block" : "none"
-                        }
-                }}
+                            display: open ? "block" : "none",
+                        },
+                    }}
                 >
                     <span className={styles["admin-customer"]}>
                         <span className={styles["admin-customer-article"]}>
@@ -93,9 +98,14 @@ const AdminCustomer: React.FC = () => {
                     className={styles["admin-menu-paper"]}
                 >
                     <ClickAwayListener onClickAway={handleClose}>
-                        <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
+                        <MenuList
+                            autoFocusItem={open}
+                            onKeyDown={handleListKeyDown}
+                        >
                             <MenuItem className={styles["admin-customer-item"]}>
-                                <CustomerSettingsLink adminName={adminUser.login} />
+                                <CustomerSettingsLink
+                                    adminName={adminUser.login}
+                                />
                             </MenuItem>
                             <MenuItem className={styles["admin-customer-item"]}>
                                 <AdminLogout />

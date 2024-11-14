@@ -3,11 +3,7 @@
 import React from "react";
 
 const AdminCustomerSettings: React.FC = () => {
-    return (
-        <>
-            AdminCustomerSettings
-        </>
-    )
-}
+    return <>AdminCustomerSettings</>;
+};
 
 export default AdminCustomerSettings;

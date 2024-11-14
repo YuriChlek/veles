@@ -1,7 +1,7 @@
 import {
     AdminCustomerSettings,
     AdminLanguagesSettings,
-    AdminCurrencySettings
+    AdminCurrencySettings,
 } from "./admin-settings-tabs-registration";
 
 const AdminSettingsTabsConfig = [
@@ -9,20 +9,20 @@ const AdminSettingsTabsConfig = [
         id: "languages",
         label: "Languages",
         order: 0,
-        component: AdminLanguagesSettings
+        component: AdminLanguagesSettings,
     },
     {
         id: "admin-settings",
         label: "Admin Settings",
         order: 1,
-        component: AdminCustomerSettings
+        component: AdminCustomerSettings,
     },
     {
         id: "currency-settings",
         label: "Currency Settings",
         order: 1,
-        component: AdminCurrencySettings
-    }
-]
+        component: AdminCurrencySettings,
+    },
+];
 
 export default AdminSettingsTabsConfig;

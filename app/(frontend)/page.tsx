@@ -6,6 +6,6 @@ const Home = (): React.JSX.Element => {
             <h2>Home page</h2>
         </main>
     );
-}
+};
 
 export default Home;

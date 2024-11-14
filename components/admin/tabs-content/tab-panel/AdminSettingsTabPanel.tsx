@@ -21,11 +21,7 @@ const AdminSettingsTabPanel: React.FC<TabPanelProps> = (props) => {
             {...attributes}
             className={styles["admin-tab-content"]}
         >
-            {value === index && (
-                <Box sx={{ p: 3 }}>
-                    {children}
-                </Box>
-            )}
+            {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
         </div>
     );
 };

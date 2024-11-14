@@ -19,7 +19,6 @@ const verifyHasTable = async (tableName: string): Promise<boolean> => {
 
         return false;
     }
-
-}
+};
 
 export default verifyHasTable;

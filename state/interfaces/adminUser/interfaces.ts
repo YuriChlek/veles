@@ -1,5 +1,5 @@
 export interface AdminUserLogin {
-    login: string
+    login: string;
 }
 
 export interface AdminUserState {
