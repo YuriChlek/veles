@@ -1,7 +1,7 @@
 import path from "node:path";
 import fs from "node:fs";
 import crypto from "crypto";
-import { __ENV_FILE } from "../../../constants/path/path_constants";
+import { __ENV_FILE } from "@/constants/path/path_constants.ts";
 
 const createTokenEnvSecretKey = () => {
     const envPath = path.join(__dirname, "../../../.env");
