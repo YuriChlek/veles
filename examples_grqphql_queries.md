@@ -1,4 +1,4 @@
-# GraphQl mutations examples
+# GraphQl examples
 
 
 ## Login admin user
@@ -86,3 +86,23 @@ mutation {
     }
   }
 ```
+
+# Set language
+```bash
+mutation {
+  setLanguage(
+    language_view: "Español",
+    language_code: "es",
+    default_frontend_language: false,
+    default_admin_language: true
+  ) {
+    language_view
+    language_code
+    default_frontend_language
+    default_admin_language
+  }
+}
+```
+
+
+

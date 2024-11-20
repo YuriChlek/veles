@@ -20,7 +20,7 @@ const Logo: React.FC = ({ width, height }: logoProps): React.JSX.Element => {
                     src="/images/logo.png"
                     width={logoWidth}
                     height={logoHeight}
-                    alt={_t("Veles logo")}
+                    alt={_t("Veles")}
                     priority
                 />
             </Link>

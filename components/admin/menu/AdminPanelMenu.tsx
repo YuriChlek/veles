@@ -1,6 +1,6 @@
 "use client";
 
-import React, { lazy } from "react";
+import React from "react";
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "@/components/base/logo/Logo";
@@ -10,8 +10,14 @@ import type { AdminMenuTopItem } from "@/interfaces/admin/menu/adminMenu";
 import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactIcon";
 import clsx from "clsx";
 import _t from "@/utils/translations/translation.ts";
+import dynamic from "next/dynamic";
 
-const AdminPanelMenuItem = lazy(() => import("../menu/AdminPanelMenuItem"));
+export const AdminPanelMenuItem = dynamic(
+    () => import("@/components/admin/menu/AdminPanelMenuItem"),
+    {
+        ssr: false,
+    },
+);
 
 const AdminPanelMenu: React.FC = () => {
     const [openItemId, setOpenItemId] = useState("");

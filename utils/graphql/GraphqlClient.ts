@@ -13,16 +13,12 @@ const GraphqlRequest = async <T>(
     const GRAPHQL_ENDPOINT = `${API_HOST}:${API_PORT}/graphql/${queryUrl}`;
 
     try {
-        return await axios.post<GraphQLResponseInterface<T>>(
-            GRAPHQL_ENDPOINT,
-            request,
-            {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                withCredentials: true,
+        return await axios.post<GraphQLResponseInterface<T>>(GRAPHQL_ENDPOINT, request, {
+            headers: {
+                "Content-Type": "application/json",
             },
-        );
+            withCredentials: true,
+        });
     } catch (error) {
         const axiosError = error as AxiosError;
         throw new Error(axiosError.message);

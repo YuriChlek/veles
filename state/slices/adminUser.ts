@@ -13,10 +13,7 @@ const useAdminUserStore = create<AdminUserState & AdminActions>((set) => ({
             const updatedUser = { ...state.adminUser, ...newUser };
 
             if (typeof window !== "undefined") {
-                localStorage.setItem(
-                    "adminUserName",
-                    JSON.stringify(updatedUser),
-                ); // Збереження в localStorage
+                localStorage.setItem("adminUserName", JSON.stringify(updatedUser));
             }
 
             return { adminUser: updatedUser };

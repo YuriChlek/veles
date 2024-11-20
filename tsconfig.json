@@ -33,12 +33,6 @@
         },
         "incremental": true
     },
-    "include": [
-        "next-env.d.ts",
-        "app",
-        "api",
-        ".next/types/**/*.ts",
-        "./**/*.graphql"
-    ],
+    "include": ["next-env.d.ts", "app", "api", ".next/types/**/*.ts", "./**/*.graphql"],
     "exclude": ["node_modules"]
 }

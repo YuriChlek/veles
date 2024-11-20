@@ -11,8 +11,7 @@ import { TOKEN_SECRET_KEY } from "@/constants/env/env_constants.ts";
 import type { AdminAuthPayload, AdminUser } from "../../interfaces/admin_user";
 import type { GraphQLContext } from "@api/module_admin/interfaces/graph_ql.ts";
 
-
-const create_admin_login_schema = async () => {
+const createAdminLoginSchema = async (): Promise<GraphQLSchema> => {
     const schema: GraphQLSchema = await loadSchema(
         join(__API_DIR, "module_admin/graphql/login/schema.graphql"),
         {
@@ -70,6 +69,6 @@ const create_admin_login_schema = async () => {
     });
 };
 
-const admin_login = create_admin_login_schema();
+const admin_login = createAdminLoginSchema();
 
 export default admin_login;

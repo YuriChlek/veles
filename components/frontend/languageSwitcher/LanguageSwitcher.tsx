@@ -38,10 +38,7 @@ const LanguageSwitcher: React.FC = () => {
 
     return (
         <div>
-            <IconButton
-                onClick={() => setDrawerOpen(true)}
-                sx={{ fontSize: "1.2rem" }}
-            >
+            <IconButton onClick={() => setDrawerOpen(true)} sx={{ fontSize: "1.2rem" }}>
                 <DynamicReactIcon iconName="GoGlobe" />
             </IconButton>
 

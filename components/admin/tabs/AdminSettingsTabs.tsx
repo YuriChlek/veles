@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -10,7 +10,7 @@ import _t from "@/utils/translations/translation.ts";
 import styles from "./admin.settings.tabs.module.scss";
 
 const AdminSettingsTabs: React.FC = () => {
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
 
     const handleChange = (_: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);

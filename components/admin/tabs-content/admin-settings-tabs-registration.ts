@@ -1,20 +1,22 @@
-import { lazy } from "react";
+import dynamic from "next/dynamic";
 
-export const AdminLanguagesSettings = lazy(
-    () =>
-        import(
-            "@/components/admin/tabs-content/languages/AdminLanguagesSettings"
-        ),
+export const AdminLanguagesSettings = dynamic(
+    () => import("@/components/admin/tabs-content/languages/AdminLanguagesSettings"),
+    {
+        ssr: false,
+    },
 );
-export const AdminCustomerSettings = lazy(
-    () =>
-        import(
-            "@/components/admin/tabs-content/customer/AdminCustomerSettings"
-        ),
+
+export const AdminCustomerSettings = dynamic(
+    () => import("@/components/admin/tabs-content/customer/AdminCustomerSettings"),
+    {
+        ssr: false,
+    },
 );
-export const AdminCurrencySettings = lazy(
-    () =>
-        import(
-            "@/components/admin/tabs-content/currency/AdminCurrencySettings"
-        ),
+
+export const AdminCurrencySettings = dynamic(
+    () => import("@/components/admin/tabs-content/currency/AdminCurrencySettings"),
+    {
+        ssr: false,
+    },
 );

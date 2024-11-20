@@ -33,13 +33,9 @@ const AdminLogout: React.FC = () => {
                 return error;
             }
 
-            const logoutData =
-                response.data as GraphQLResponseInterface<LogoutResponse>;
+            const logoutData = response.data as GraphQLResponseInterface<LogoutResponse>;
 
-            if (
-                "adminLogout" in logoutData.data &&
-                logoutData.data.adminLogout.logout
-            ) {
+            if ("adminLogout" in logoutData.data && logoutData.data.adminLogout.logout) {
                 await router.push("/admin/panel/login");
             }
         } catch (error) {
@@ -50,9 +46,7 @@ const AdminLogout: React.FC = () => {
     };
     return (
         <button className={styles["admin-logout"]} onClick={logoutHandler}>
-            <span className={styles["admin-logout-article"]}>
-                {_t("Logout")}
-            </span>
+            <span className={styles["admin-logout-article"]}>{_t("Logout")}</span>
             <DynamicReactIcon
                 iconName="AiOutlineLogout"
                 className={styles["admin-logout-icon"]}

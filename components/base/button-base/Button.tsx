@@ -2,8 +2,7 @@ import * as React from "react";
 import clsx from "clsx";
 import styles from "./button.module.scss";
 
-export interface ButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     asChild?: boolean;
     blueColor?: boolean;
 }
@@ -14,9 +13,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <button
                 className={clsx(
                     styles["base-button"],
-                    blueColor
-                        ? styles["base-button-blue"]
-                        : styles["base-button-black"],
+                    blueColor ? styles["base-button-blue"] : styles["base-button-black"],
                     className,
                 )}
                 ref={ref}

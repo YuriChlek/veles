@@ -14,10 +14,14 @@ const createAdminUserTable = async (): Promise<void> => {
             role VARCHAR(32)
         )`;
 
+    const client = await dbConnection.connect();
+
     try {
-        await dbConnection.query(createAdminTableQuery);
+        await client.query(createAdminTableQuery);
     } catch (error) {
         console.error(error);
+    } finally {
+        await client.release();
     }
 };
 

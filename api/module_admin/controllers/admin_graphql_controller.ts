@@ -9,11 +9,7 @@ const adminGraphqlRouter = Router();
 adminGraphqlRouter.post(
     "/graphql/admin_login",
     (req: Request, res: Response, next: NextFunction) => {
-        return loginAdminHandler(
-            req as Request,
-            res as Response,
-            next as NextFunction,
-        );
+        return loginAdminHandler(req as Request, res as Response, next as NextFunction);
     },
 );
 
@@ -31,11 +27,7 @@ adminGraphqlRouter.post(
 adminGraphqlRouter.post(
     "/graphql/admin_logout",
     (req: Request, res: Response, next: NextFunction) => {
-        return adminLogoutHandler(
-            req as Request,
-            res as Response,
-            next as NextFunction,
-        );
+        return adminLogoutHandler(req as Request, res as Response, next as NextFunction);
     },
 );
 
