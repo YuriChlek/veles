@@ -7,8 +7,8 @@ import type {
     AdminMenuItem,
     AdminMenuItemProps,
 } from "@/interfaces/admin/menu/adminMenu";
-import _t from "@/utils/translations/translation.ts";
 import styles from "./admin.panel.menu.module.scss";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 
 const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({
     id,
@@ -16,6 +16,7 @@ const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({
     items,
     setOpenItemId,
 }) => {
+    const _t = useVelesTranslation();
     const [open, setOpen] = useState(false);
 
     const closeDrawer = (open: boolean) => () => {

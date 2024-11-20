@@ -9,8 +9,8 @@ import { adminMenuRouting } from "@/components/admin/menu/routing/adminMenuRouti
 import type { AdminMenuTopItem } from "@/interfaces/admin/menu/adminMenu";
 import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactIcon";
 import clsx from "clsx";
-import _t from "@/utils/translations/translation.ts";
 import dynamic from "next/dynamic";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 
 export const AdminPanelMenuItem = dynamic(
     () => import("@/components/admin/menu/AdminPanelMenuItem"),
@@ -20,6 +20,7 @@ export const AdminPanelMenuItem = dynamic(
 );
 
 const AdminPanelMenu: React.FC = () => {
+    const _t = useVelesTranslation();
     const [openItemId, setOpenItemId] = useState("");
 
     const toggleDrawer = (openId: string) => () => {

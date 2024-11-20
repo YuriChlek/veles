@@ -7,16 +7,8 @@ const useLanguagesStore = create<LanguagesStore>((set) => ({
         language_view: "",
         language_code: "",
     },
-    setCurrentLanguages: (data) => {
-        set(() => {
-            return { currentLanguages: data };
-        });
-    },
-    setSelectedLanguage: (data) => {
-        set(() => {
-            return { selectedLanguage: data };
-        });
-    },
+    setCurrentLanguages: (data) => set({ currentLanguages: data }),
+    setSelectedLanguage: (data) => set({ selectedLanguage: data }),
 }));
 
 export default useLanguagesStore;

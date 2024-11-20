@@ -10,12 +10,13 @@ import GraphqlRequest from "@/utils/graphql/GraphqlClient";
 import { ADMIN_LOGIN_MUTATION } from "@/components/admin/login-form/login-mutation.graphql.ts";
 import type { LoginResponse } from "@/interfaces/admin/login/interfaces";
 import useAdminUserStore from "@/state/slices/adminUser";
-import _t from "@/utils/translations/translation.ts";
 import styles from "./lofin.form.module.scss";
 import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 
 const AdminLoginForm: React.FC = () => {
     const router = useRouter();
+    const _t = useVelesTranslation();
     const { setAdminUser } = useAdminUserStore();
 
     const signInHandler = async (event: React.FormEvent<HTMLFormElement>) => {
