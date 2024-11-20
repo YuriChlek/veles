@@ -1,0 +1,10 @@
+type Query {
+    languages: [Language!]!
+}
+
+type Language {
+    language_view: String!
+    language_code: String!
+    default_frontend_language: Boolean!
+    default_admin_language: Boolean!
+}

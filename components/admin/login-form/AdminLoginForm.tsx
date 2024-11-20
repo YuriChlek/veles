@@ -33,8 +33,7 @@ const AdminLoginForm: React.FC = () => {
                 "admin_login",
             );
 
-            const loginData =
-                response.data as GraphQLResponseInterface<LoginResponse>;
+            const loginData = response.data as GraphQLResponseInterface<LoginResponse>;
 
             if (
                 "errors" in loginData &&

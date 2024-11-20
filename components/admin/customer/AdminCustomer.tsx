@@ -4,7 +4,6 @@ import React, { useEffect, useState, useRef } from "react";
 import useAdminUserStore from "@/state/slices/adminUser";
 import AdminLogout from "@/components/admin/logout/AdminLogout.tsx";
 import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactIcon.tsx";
-import styles from "./admin.customer.module.scss";
 import Menu from "@mui/material/Menu";
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
@@ -12,6 +11,7 @@ import Button from "@mui/material/Button";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
 import Stack from "@mui/material/Stack";
 import CustomerSettingsLink from "@/components/admin/customer-settings-link/CustomerSettingsLink.tsx";
+import styles from "./admin.customer.module.scss";
 
 const AdminCustomer: React.FC = () => {
     const { adminUser, getAdminUser } = useAdminUserStore();
@@ -98,14 +98,9 @@ const AdminCustomer: React.FC = () => {
                     className={styles["admin-menu-paper"]}
                 >
                     <ClickAwayListener onClickAway={handleClose}>
-                        <MenuList
-                            autoFocusItem={open}
-                            onKeyDown={handleListKeyDown}
-                        >
+                        <MenuList autoFocusItem={open} onKeyDown={handleListKeyDown}>
                             <MenuItem className={styles["admin-customer-item"]}>
-                                <CustomerSettingsLink
-                                    adminName={adminUser.login}
-                                />
+                                <CustomerSettingsLink adminName={adminUser.login} />
                             </MenuItem>
                             <MenuItem className={styles["admin-customer-item"]}>
                                 <AdminLogout />

@@ -13,12 +13,7 @@ const CustomerSettingsLink = React.forwardRef<
     CustomerSettingsLinkProps
 >(({ adminName }, ref) => {
     return (
-        <Link
-            className={styles["admin-settings-link"]}
-            href="#"
-            passHref
-            ref={ref}
-        >
+        <Link className={styles["admin-settings-link"]} href="#" passHref ref={ref}>
             <span>{`${_t("Account Settings")} (${adminName})`}</span>
         </Link>
     );

@@ -29,9 +29,7 @@ var __awaiter =
                     ? resolve(result.value)
                     : adopt(result.value).then(fulfilled, rejected);
             }
-            step(
-                (generator = generator.apply(thisArg, _arguments || [])).next(),
-            );
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     };
 var __importDefault =

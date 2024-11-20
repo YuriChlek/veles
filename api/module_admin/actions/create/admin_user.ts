@@ -23,20 +23,22 @@ const createAdminUser = async (userOptions: AdminUser): Promise<void> => {
         userOptions.role,
     ];
 
+    const client = await dbConnection.connect();
+
     try {
         const userIsCreated = await verifyAdminUserIsCreated(userOptions.login);
 
         if (!userIsCreated) {
-            await dbConnection.query(query, values);
-            console.log(
-                `The ${userOptions.login} user has been successfully created.`,
-            );
+            await client.query(query, values);
+            console.log(`The ${userOptions.login} user has been successfully created.`);
             return;
         }
 
         console.log(`The ${userOptions.login} user already exists.`);
     } catch (error) {
         console.error(error);
+    } finally {
+        await client.release();
     }
 };
 

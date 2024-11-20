@@ -1,6 +1,6 @@
 export interface GraphQLRequestInterface {
     query: string;
-    variables: Record<string, any>;
+    variables?: Record<string, any>;
 }
 
 export interface GraphQLResponseInterface<T> {

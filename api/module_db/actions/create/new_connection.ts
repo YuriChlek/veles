@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { Client } from "pg";
+import { Pool } from "pg";
 import type { ConnectionType } from "@api/module_db/types/connection_type.ts";
 
 dotenv.config();
@@ -12,10 +12,6 @@ const connectionOptions: ConnectionType = {
     database: process.env.DATABASE || "",
 };
 
-const dbConnection = new Client(connectionOptions);
-
-(async () => {
-    await dbConnection.connect();
-})();
+const dbConnection = new Pool(connectionOptions);
 
 export default dbConnection;
