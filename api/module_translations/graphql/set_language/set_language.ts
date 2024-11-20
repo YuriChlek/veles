@@ -25,18 +25,11 @@ const setLanguagesSchema = async (): Promise<GraphQLSchema> => {
                     default_admin_language: boolean;
                 },
             ) => {
-                const {
-                    language_view,
-                    language_code,
-                    default_admin_language,
-                    default_frontend_language,
-                } = args;
-
                 const result = await setSelectedLanguage({
-                    language_view,
-                    language_code,
-                    default_admin_language,
-                    default_frontend_language,
+                    language_view: args.language_view,
+                    language_code: args.language_code ,
+                    default_admin_language: args.default_admin_language,
+                    default_frontend_language: args.default_frontend_language,
                 });
 
                 if (!Array.isArray(result)) {
