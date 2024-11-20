@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
-import _t from "@/utils/translations/translation.ts";
 import { SelectProps } from "@/interfaces/admin/select/interfaces.ts";
 import styles from "./select.module.scss";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 
 const Select: React.FC<SelectProps> = ({
     options,
@@ -12,6 +12,7 @@ const Select: React.FC<SelectProps> = ({
     className,
     hasError,
 }) => {
+    const _t = useVelesTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef<HTMLDivElement>(null);
 

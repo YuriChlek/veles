@@ -1,3 +1,17 @@
 {
-    "hello": "Hallo"
+    "hello": "Hallo",
+    "Settings": "Einstellungen",
+    "Yes": "Ja",
+    "No": "NEIN",
+    "Add Language":"Sprache hinzufügen",
+    "Add Languages": "Sprachen hinzufügen",
+    "Set as default for frontend": "Als Standard für das Frontend festlegen",
+    "Set as default for admin panel": "Als Standard für das Admin-Panel festlegen",
+    "Edit Languages view": "Ansicht Sprachen bearbeiten",
+    "Language view": "Sprachansicht",
+    "Language Code": "Sprachcode",
+    "Default Frontend": "Standard-Frontend",
+    "Default Admin": "Standardadministrator",
+    "Action": "Aktion",
+    "Choose language": "Sprache wählen"
 }

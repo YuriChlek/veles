@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import _t from "@/utils/translations/translation.ts";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 import Button from "@/components/base/button-base/Button";
 import styles from "@/components/admin/tabs-content/add-language/add.alnguage.module.scss";
 import Select from "@/components/base/select/Select.tsx";
@@ -19,6 +19,7 @@ import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 import type { SelectOption } from "@/interfaces/admin/select/interfaces.ts";
 
 const AddLanguage: React.FC = () => {
+    const _t = useVelesTranslation();
     const [selectedValue, setSelectedValue] = useState<string | undefined>();
     const [selectOptions, setSelectOptions] = useState<Array<SelectOption>>([]);
     const [selectHasError, setSelectHasError] = useState<boolean>(false);
@@ -113,7 +114,7 @@ const AddLanguage: React.FC = () => {
     const createSwitcherData = () => {
         const switcherLang = defaultLanguages.filter(
             (lang) =>
-                !currentLanguages.some(
+                !(currentLanguages || []).some(
                     (lang_2) => lang.language_code === lang_2.language_code,
                 ),
         );

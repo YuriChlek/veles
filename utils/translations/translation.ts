@@ -1,14 +1,17 @@
 import type { MessageKeys } from "next-intl";
 import { useTranslations } from "next-intl";
 
-const _t = <T, K extends MessageKeys<T, string>>(key: K, dynamicArg?: object) => {
+const useVelesTranslation = () => {
     const t = useTranslations();
 
-    if (t.has(key)) {
-        return t(key, { ...dynamicArg });
-    }
+    return <T, K extends MessageKeys<T, string>>(key: K, dynamicArg?: object) => {
 
-    return key;
+        if (t.has(key)) {
+            return t(key, { ...dynamicArg });
+        }
+
+        return key;
+    };
 };
 
-export default _t;
+export default useVelesTranslation;

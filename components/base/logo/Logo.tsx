@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import _t from "@/utils/translations/translation.ts";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 import styles from "./logo.module.scss";
 
 interface logoProps {
@@ -10,6 +10,7 @@ interface logoProps {
 }
 
 const Logo: React.FC = ({ width, height }: logoProps): React.JSX.Element => {
+    const _t = useVelesTranslation();
     const logoWidth = width || 50;
     const logoHeight = height || 50;
 

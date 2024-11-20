@@ -6,10 +6,11 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import AdminSettingsTabPanel from "@/components/admin/tabs-content/tab-panel/AdminSettingsTabPanel.tsx";
 import AdminSettingsTabsConfig from "@/components/admin/tabs-content/admin-settings-tabs-config.ts";
-import _t from "@/utils/translations/translation.ts";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 import styles from "./admin.settings.tabs.module.scss";
 
 const AdminSettingsTabs: React.FC = () => {
+    const _t = useVelesTranslation();
     const [value, setValue] = useState(0);
 
     const handleChange = (_: React.SyntheticEvent, newValue: number) => {

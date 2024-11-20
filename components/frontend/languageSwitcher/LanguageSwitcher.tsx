@@ -7,9 +7,9 @@ import MenuItem from "@mui/material/MenuItem";
 import List from "@mui/material/List";
 import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactIcon.tsx";
 import { setUserLocale, getUserLocale } from "@/utils/translations/locale.ts";
-import _t from "@/utils/translations/translation.ts";
 import styles from "./language.switcher.module.scss";
 import type { Locale } from "@/i18n/config.ts";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 
 const locales = {
     en: { label: "English" },
@@ -17,6 +17,7 @@ const locales = {
 };
 
 const LanguageSwitcher: React.FC = () => {
+    const _t = useVelesTranslation();
     const [isDrawerOpen, setDrawerOpen] = useState(false);
 
     useEffect(() => {

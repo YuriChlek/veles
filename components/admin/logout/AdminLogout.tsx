@@ -7,11 +7,12 @@ import { ADMIN_LOGOUT_MUTATION } from "@/components/admin/logout/logout-mutation
 import { print } from "graphql/index";
 import type { LogoutResponse } from "@/interfaces/admin/logout/interfaces.ts";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
-import _t from "@/utils/translations/translation.ts";
 import styles from "./admin.logout.module.scss";
 import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 
 const AdminLogout: React.FC = () => {
+    const _t = useVelesTranslation();
     const router = useRouter();
 
     const logoutHandler = async () => {

@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import _t from "@/utils/translations/translation";
+import React, { useEffect } from "react";
 import {
     Table,
     TableBody,
@@ -13,102 +12,145 @@ import {
 import Paper from "@mui/material/Paper";
 import styles from "./admin.languages.table.module.scss";
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
+import useLanguagesStore from "@/state/slices/languages.ts";
+import { print } from "graphql/index";
+import { GET_LANGUAGES_QUERY } from "@/components/admin/tabs-content/languages/get-languages-query.graphql.ts";
+import { AxiosResponse } from "axios";
+import { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
+import GraphqlRequest from "@/utils/graphql/GraphqlClient.ts";
+import useSWR from "swr";
+import useVelesTranslation from "@/utils/translations/translation";
 
-const LanguagesTable: React.FC<{ rows: Array<LanguageType> }> = ({ rows = [] }) => {
+const query = print(GET_LANGUAGES_QUERY);
+const fetcher = async () => {
+    try {
+        const response: AxiosResponse<GraphQLResponseInterface<Record<string, unknown>>> =
+            await GraphqlRequest({ query }, "get_languages");
+
+        const languagesData = response.data.data as {
+            languages: Array<LanguageType>;
+        };
+
+        return languagesData.languages;
+    } catch (error) {
+        console.error("Error fetching languages:", error);
+        return [];
+    }
+};
+
+const LanguagesTable: React.FC = () => {
+    const _t = useVelesTranslation();
+    const { data, error } = useSWR("get_languages", fetcher);
+    const { currentLanguages, setCurrentLanguages } = useLanguagesStore();
+
+    useEffect(() => {
+        const langData: Array<LanguageType> = data ? data : [];
+
+        if (langData.length) {
+            setCurrentLanguages(langData);
+        }
+    }, [data]);
+
+    if (error) {
+        return (
+            <div className={styles["admin-languages-settings-row"]}>
+                <p>{_t("Error loading languages.")}</p>
+            </div>
+        );
+    }
+
     return (
-        rows.length > 0 && (
-            <TableContainer
-                sx={{
-                    borderRadius: 0,
-                    boxShadow: 0,
-                    border: "1px solid #0000001E",
-                    width: "100%",
-                }}
-                component={Paper}
-            >
-                <Table size="small" aria-label="a dense table">
-                    <TableHead>
-                        <TableRow>
+        <TableContainer
+            sx={{
+                borderRadius: 0,
+                boxShadow: 0,
+                border: "1px solid #0000001E",
+                width: "100%",
+            }}
+            component={Paper}
+        >
+            <Table size="small" aria-label="a dense table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell
+                            className={styles["admin-languages-header"]}
+                            align="center"
+                        >
+                            {_t("Language view")}
+                        </TableCell>
+                        <TableCell
+                            className={styles["admin-languages-header"]}
+                            align="center"
+                        >
+                            {_t("Language Code")}
+                        </TableCell>
+                        <TableCell
+                            className={styles["admin-languages-header"]}
+                            align="center"
+                        >
+                            {_t("Default Frontend")}
+                        </TableCell>
+                        <TableCell
+                            className={styles["admin-languages-header"]}
+                            align="center"
+                        >
+                            {_t("Default Admin")}
+                        </TableCell>
+                        <TableCell
+                            className={styles["admin-languages-header"]}
+                            align="center"
+                        >
+                            {_t("Action")}
+                        </TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {currentLanguages.map((row) => (
+                        <TableRow
+                            key={row.language_code}
+                            sx={{
+                                "&:last-child td, &:last-child th": {
+                                    border: 0,
+                                },
+                            }}
+                        >
                             <TableCell
-                                className={styles["admin-languages-header"]}
+                                className={styles["admin-languages-cell"]}
                                 align="center"
+                                component="th"
+                                scope="row"
                             >
-                                {_t("Language view")}
+                                {row.language_view}
                             </TableCell>
                             <TableCell
-                                className={styles["admin-languages-header"]}
+                                className={styles["admin-languages-cell"]}
                                 align="center"
                             >
-                                {_t("Language Code")}
+                                {row.language_code}
                             </TableCell>
                             <TableCell
-                                className={styles["admin-languages-header"]}
+                                className={styles["admin-languages-cell"]}
                                 align="center"
                             >
-                                {_t("Default Frontend")}
+                                {row.default_frontend_language ? _t("Yes") : _t("No")}
                             </TableCell>
                             <TableCell
-                                className={styles["admin-languages-header"]}
+                                className={styles["admin-languages-cell"]}
                                 align="center"
                             >
-                                {_t("Default Admin")}
+                                {row.default_admin_language ? _t("Yes") : _t("No")}
                             </TableCell>
                             <TableCell
-                                className={styles["admin-languages-header"]}
+                                className={styles["admin-languages-cell"]}
                                 align="center"
                             >
-                                {_t("Action")}
+                                <button>{_t("Settings")}</button>
                             </TableCell>
                         </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {rows.map((row) => (
-                            <TableRow
-                                key={row.language_code}
-                                sx={{
-                                    "&:last-child td, &:last-child th": {
-                                        border: 0,
-                                    },
-                                }}
-                            >
-                                <TableCell
-                                    className={styles["admin-languages-cell"]}
-                                    align="center"
-                                    component="th"
-                                    scope="row"
-                                >
-                                    {row.language_view}
-                                </TableCell>
-                                <TableCell
-                                    className={styles["admin-languages-cell"]}
-                                    align="center"
-                                >
-                                    {row.language_code}
-                                </TableCell>
-                                <TableCell
-                                    className={styles["admin-languages-cell"]}
-                                    align="center"
-                                >
-                                    {row.default_frontend_language ? "Yes" : "No"}
-                                </TableCell>
-                                <TableCell
-                                    className={styles["admin-languages-cell"]}
-                                    align="center"
-                                >
-                                    {row.default_admin_language ? "Yes" : "No"}
-                                </TableCell>
-                                <TableCell
-                                    className={styles["admin-languages-cell"]}
-                                    align="center"
-                                >
-                                    <button>{"Settings"}</button>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        )
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
     );
 };
 
