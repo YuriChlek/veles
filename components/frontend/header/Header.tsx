@@ -5,15 +5,18 @@ import Search from "@/components/frontend/search/Search.tsx";
 import style from "./header.module.scss";
 import Customer from "@/components/frontend/customer/Customer.tsx";
 import MiniCart from "@/components/frontend/minicart/Minicart.tsx";
+import { getSwitcherData } from "@/i18n/utils/getLocalesData.ts";
 
-const FrontendHeader: React.FC = () => {
+const FrontendHeader: React.FC = async () => {
+    const locales = await getSwitcherData();
+
     return (
         <header className={style.header}>
             <div className={style["header-menu-wrapper"]}></div>
             <Logo />
             <div className={style["header-panel"]}>
                 <Search />
-                <LanguageSwitcher />
+                <LanguageSwitcher locales={locales} />
                 <Customer />
                 <MiniCart />
             </div>

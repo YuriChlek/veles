@@ -1,9 +1,9 @@
 {
-    "hello": "Hallo",
+    "Message by english": "Die Nachricht ist auf Deutsch",
     "Settings": "Einstellungen",
     "Yes": "Ja",
     "No": "NEIN",
-    "Add Language":"Sprache hinzufügen",
+    "Add Language": "Sprache hinzufügen",
     "Add Languages": "Sprachen hinzufügen",
     "Set as default for frontend": "Als Standard für das Frontend festlegen",
     "Set as default for admin panel": "Als Standard für das Admin-Panel festlegen",
