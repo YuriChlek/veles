@@ -4,11 +4,11 @@ import defaultLanguages from "@/components/admin/tabs-content/add-language/defau
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 
 const createTranslationsDefaultValue = async (): Promise<void> => {
-    const query: string = `INSERT INTO ${TRANSLATIONS_DB} (language_view, language_code, default_frontend_language, default_admin_language)
+    const query: string = `INSERT INTO ${TRANSLATIONS_DB} (language_view, language_code, frontend_language, admin_language)
             VALUES ($1, $2, $3, $4)`;
 
     const defaultLang: LanguageType | undefined = defaultLanguages.find(
-        (lang) => lang.default_frontend_language && lang.default_admin_language,
+        (lang) => lang.frontend_language && lang.admin_language,
     );
 
     if (!defaultLang) {
@@ -19,8 +19,8 @@ const createTranslationsDefaultValue = async (): Promise<void> => {
     const values = [
         defaultLang.language_view,
         defaultLang.language_code,
-        defaultLang.default_frontend_language,
-        defaultLang.default_admin_language,
+        defaultLang.frontend_language,
+        defaultLang.admin_language,
     ];
 
     const client = await dbConnection.connect();

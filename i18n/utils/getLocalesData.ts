@@ -32,7 +32,7 @@ export const getLocales = (): Array<string> => {
 
 export const getDefaultFrontendLocale = (): Locale => {
     const defaultLocale = localesData.find(
-        (item: LanguageType) => item.default_frontend_language,
+        (item: LanguageType) => item.frontend_language,
     );
     return defaultLocale ? defaultLocale.language_code : "en";
 };

@@ -93,13 +93,13 @@ mutation {
   setLanguage(
     language_view: "Español",
     language_code: "es",
-    default_frontend_language: false,
-    default_admin_language: true
+    frontend_language: false,
+    admin_language: true
   ) {
     language_view
     language_code
-    default_frontend_language
-    default_admin_language
+    frontend_language
+    admin_language
   }
 }
 ```

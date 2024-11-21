@@ -40,8 +40,8 @@ const AddLanguage: React.FC = () => {
 
         if (selectedLang) {
             setSelectedLanguage(selectedLang);
-            setDefaultFrontend(selectedLang.default_frontend_language as boolean);
-            setDefaultAdmin(selectedLang.default_admin_language as boolean);
+            setDefaultFrontend(selectedLang.frontend_language as boolean);
+            setDefaultAdmin(selectedLang.admin_language as boolean);
         }
 
         setSelectedValue(value);
@@ -52,13 +52,13 @@ const AddLanguage: React.FC = () => {
         const { name, checked } = event.target;
         const lang: LanguageType = { ...selectedLanguage };
 
-        if (name === "default_frontend_language") {
-            lang.default_frontend_language = checked;
+        if (name === "frontend_language") {
+            lang.frontend_language = checked;
             setDefaultFrontend(checked);
         }
 
-        if (name === "default_admin_language") {
-            lang.default_admin_language = checked;
+        if (name === "admin_language") {
+            lang.admin_language = checked;
             setDefaultAdmin(checked);
         }
 
@@ -81,9 +81,9 @@ const AddLanguage: React.FC = () => {
                     variables: {
                         language_view: selectedLanguage.language_view,
                         language_code: selectedLanguage.language_code,
-                        default_frontend_language:
-                            selectedLanguage.default_frontend_language,
-                        default_admin_language: selectedLanguage.default_admin_language,
+                        frontend_language:
+                            selectedLanguage.frontend_language,
+                        admin_language: selectedLanguage.admin_language,
                     },
                 },
                 "set_language",
@@ -143,24 +143,24 @@ const AddLanguage: React.FC = () => {
                 />
                 <Label className={styles["add-language-input-label"]}>
                     <Input
-                        name="default_frontend_language"
+                        name="frontend_language"
                         type="checkbox"
                         onChange={inputHandler}
                         checked={defaultFrontend}
                     />
                     <span className={styles["add-language-input-label-title"]}>
-                        {_t("Set as default for frontend")}
+                        {_t("Add to frontend")}
                     </span>
                 </Label>
                 <Label className={styles["add-language-input-label"]}>
                     <Input
-                        name="default_admin_language"
+                        name="admin_language"
                         type="checkbox"
                         onChange={inputHandler}
                         checked={defaultAdmin}
                     />
                     <span className={styles["add-language-input-label-title"]}>
-                        {_t("Set as default for admin panel")}
+                        {_t("Add to admin panel")}
                     </span>
                 </Label>
             </div>

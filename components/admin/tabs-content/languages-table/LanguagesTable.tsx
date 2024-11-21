@@ -132,13 +132,13 @@ const LanguagesTable: React.FC = () => {
                                 className={styles["admin-languages-cell"]}
                                 align="center"
                             >
-                                {row.default_frontend_language ? _t("Yes") : _t("No")}
+                                {row.frontend_language ? _t("Yes") : _t("No")}
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-cell"]}
                                 align="center"
                             >
-                                {row.default_admin_language ? _t("Yes") : _t("No")}
+                                {row.admin_language ? _t("Yes") : _t("No")}
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-cell"]}
