@@ -21,6 +21,7 @@ const LanguageSwitcher: React.FC = () => {
     const [isDrawerOpen, setDrawerOpen] = useState(false);
 
     useEffect(() => {
+        console.log("switcher")
         try {
             getUserLocale();
         } catch (error) {

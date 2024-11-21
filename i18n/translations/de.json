@@ -13,5 +13,8 @@
     "Default Frontend": "Standard-Frontend",
     "Default Admin": "Standardadministrator",
     "Action": "Aktion",
-    "Choose language": "Sprache wählen"
+    "Choose language": "Sprache wählen",
+    "Sign in": "Anmelden",
+    "Username": "Benutzername",
+    "Password": "Passwort"
 }

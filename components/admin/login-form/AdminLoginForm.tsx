@@ -59,7 +59,7 @@ const AdminLoginForm: React.FC = () => {
 
     return (
         <form className={styles["admin-login-form"]} onSubmit={signInHandler}>
-            <h2 className={styles["admin-login-title"]}>Sign in</h2>
+            <h2 className={styles["admin-login-title"]}>{_t("Sign in")}</h2>
             <div className={styles["admin-login-row"]}>
                 <Label htmlFor="username">{_t("Username")}</Label>
                 <Input
@@ -70,7 +70,7 @@ const AdminLoginForm: React.FC = () => {
                 />
             </div>
             <div className={styles["admin-login-row"]}>
-                <Label htmlFor="password">{"Password"}</Label>
+                <Label htmlFor="password">{_t("Password")}</Label>
                 <Input
                     type="password"
                     name="password"
