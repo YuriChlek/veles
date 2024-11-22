@@ -31,15 +31,16 @@ export const getLocales = (): Array<string> => {
 };
 
 export const getDefaultFrontendLocale = (): Locale => {
-    const defaultLocale = localesData.find(
-        (item: LanguageType) => item.frontend_language,
-    );
-    return defaultLocale ? defaultLocale.language_code : "en";
+    return  "en";
 };
 
-export const getSwitcherData = async (): Promise<Array<LanguageType>> => {
-    return localesData.map(({ language_code, language_view }) => ({
-        language_code,
-        language_view,
-    }));
+export const getFrontendSwitcherData = async (): Promise<Array<LanguageType>> => {
+    const data = localesData
+        .filter(({ frontend_language }) => frontend_language)
+        .map(({ language_code, language_view }) => ({
+            language_code,
+            language_view,
+        }));
+
+    return data.length ? data : [];
 };

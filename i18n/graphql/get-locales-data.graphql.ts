@@ -6,7 +6,6 @@ export const GET_LOCALES_DATA_QUERY = gql`
             language_view
             language_code
             frontend_language
-            admin_language
         }
     }
 `;

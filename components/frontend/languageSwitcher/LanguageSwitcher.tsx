@@ -20,10 +20,6 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales }) => {
     const _t = useVelesTranslation();
     const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-    useEffect(() => {
-        console.log(locales);
-    }, []);
-
     const handleChange = async (locale: Locale) => {
         await setUserLocale(locale);
         setDrawerOpen(false);
