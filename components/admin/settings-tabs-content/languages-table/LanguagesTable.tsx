@@ -14,15 +14,16 @@ import styles from "./admin.languages.table.module.scss";
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 import useLanguagesStore from "@/state/slices/languages.ts";
 import { print } from "graphql/index";
-import { GET_LANGUAGES_QUERY } from "@/components/admin/tabs-content/languages/get-languages-query.graphql.ts";
+import { GET_LANGUAGES_QUERY } from "../languages/get-languages-query.graphql.ts";
 import { AxiosResponse } from "axios";
 import { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient.ts";
 import useSWR from "swr";
 import useVelesTranslation from "@/utils/translations/translation";
+import RemoveLanguageButton from "@/components/admin/settings-tabs-content/remove-language/RemoveLanguage.tsx";
 
 const query = print(GET_LANGUAGES_QUERY);
-const fetcher = async () => {
+const fetchLanguagesData = async () => {
     try {
         const response: AxiosResponse<GraphQLResponseInterface<Record<string, unknown>>> =
             await GraphqlRequest({ query }, "get_languages");
@@ -40,7 +41,7 @@ const fetcher = async () => {
 
 const LanguagesTable: React.FC = () => {
     const _t = useVelesTranslation();
-    const { data, error } = useSWR("get_languages", fetcher);
+    const { data, error } = useSWR("get_languages", fetchLanguagesData);
     const { currentLanguages, setCurrentLanguages } = useLanguagesStore();
 
     useEffect(() => {
@@ -50,6 +51,10 @@ const LanguagesTable: React.FC = () => {
             setCurrentLanguages(langData);
         }
     }, [data]);
+
+    const removeLanguageHandler = (lang: string) => {
+        console.log(lang);
+    };
 
     if (error) {
         return (
@@ -69,7 +74,7 @@ const LanguagesTable: React.FC = () => {
             }}
             component={Paper}
         >
-            <Table size="small" aria-label="a dense table">
+            <Table size="small" aria-label="languages table">
                 <TableHead>
                     <TableRow>
                         <TableCell
@@ -88,13 +93,13 @@ const LanguagesTable: React.FC = () => {
                             className={styles["admin-languages-header"]}
                             align="center"
                         >
-                            {_t("Default Frontend")}
+                            {_t("Frontend language")}
                         </TableCell>
                         <TableCell
                             className={styles["admin-languages-header"]}
                             align="center"
                         >
-                            {_t("Default Admin")}
+                            {_t("Admin language")}
                         </TableCell>
                         <TableCell
                             className={styles["admin-languages-header"]}
@@ -144,7 +149,7 @@ const LanguagesTable: React.FC = () => {
                                 className={styles["admin-languages-cell"]}
                                 align="center"
                             >
-                                <button>{_t("Settings")}</button>
+                                <RemoveLanguageButton language_code={row.language_code} isDisable={currentLanguages.length === 1}/>
                             </TableCell>
                         </TableRow>
                     ))}

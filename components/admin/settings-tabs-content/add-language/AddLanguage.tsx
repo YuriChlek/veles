@@ -3,14 +3,14 @@
 import React, { useEffect, useState } from "react";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 import Button from "@/components/base/button-base/Button";
-import styles from "@/components/admin/tabs-content/add-language/add.alnguage.module.scss";
+import styles from "../add-language/add.alnguage.module.scss";
 import Select from "@/components/base/select/Select.tsx";
-import defaultLanguages from "@/components/admin/tabs-content/add-language/defaultLanguages.ts";
+import defaultLanguages from "../add-language/defaultLanguages.ts";
 import useLanguagesStore from "@/state/slices/languages.ts";
 import Label from "@/components/base/label/Label.tsx";
 import Input from "@/components/base/input/Input.tsx";
 import { print } from "graphql/index";
-import { SET_LANGUAGE_MUTATION } from "@/components/admin/tabs-content/add-language/set-language-mutation.graphql.ts";
+import { SET_LANGUAGE_MUTATION } from "../add-language/set-language-mutation.graphql.ts";
 import { AxiosResponse } from "axios";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient.ts";
 import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
@@ -81,8 +81,7 @@ const AddLanguage: React.FC = () => {
                     variables: {
                         language_view: selectedLanguage.language_view,
                         language_code: selectedLanguage.language_code,
-                        frontend_language:
-                            selectedLanguage.frontend_language,
+                        frontend_language: selectedLanguage.frontend_language,
                         admin_language: selectedLanguage.admin_language,
                     },
                 },

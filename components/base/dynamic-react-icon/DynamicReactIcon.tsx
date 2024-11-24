@@ -8,8 +8,10 @@ import * as IoIcons from "react-icons/io";
 import styles from "./font.icons.module.scss";
 import type { FontIconProps } from "@/interfaces/admin/font-icons/interfaces";
 import clsx from "clsx";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 
 const DynamicReactIcon: React.FC<FontIconProps> = ({ iconName, className }) => {
+    const _t = useVelesTranslation();
     const icon = iconName.trim();
     const IconComponent =
         AiIcons[icon as keyof typeof AiIcons] ||
@@ -18,7 +20,7 @@ const DynamicReactIcon: React.FC<FontIconProps> = ({ iconName, className }) => {
         IoIcons[icon as keyof typeof IoIcons];
 
     if (!IconComponent) {
-        return <span>Icon is not founded</span>;
+        return <span>{_t("Icon is not founded")}</span>;
     }
 
     return <IconComponent className={clsx(styles["font-icon"], className)} />;

@@ -1,7 +1,7 @@
-.select-wrapper {
+.selectWrapper {
     position: relative;
-    width: 200px;
     height: 100%;
+    width: 200px;
 
     .label {
         position: absolute;
@@ -11,7 +11,6 @@
         transition: all 0.2s ease;
         background-color: white;
         padding: 0 4px;
-        font-size: 1.4rem;
         color: #aaa;
         pointer-events: none;
     }
@@ -67,6 +66,41 @@
         .selectedOption {
             background-color: #e0e0e0;
             font-weight: bold;
+        }
+    }
+
+    &.select-border-node {
+        .selected {
+            border-radius: 4px 4px 0 0;
+            border: none;
+        }
+
+        .selected-active {
+            box-shadow:
+                0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+            &:after {
+                display: block;
+                content: "";
+                position: absolute;
+                height: 10px;
+                top: 80%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                z-index: 1001;
+            }
+        }
+
+        .dropdown {
+            border: none;
+            border-radius: 0 0 4px 4px;
+            box-shadow:
+                0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
         }
     }
 }

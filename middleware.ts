@@ -1,5 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import { verifyAdminToken } from "./utils/admin/verify-admin-token/verifyAdminToken";
+import { ADMIN_AREA } from "./constants/locales/locales_constants";
 
 export async function middleware(request: NextRequest) {
     const { pathname } = new URL(request.url);
@@ -20,7 +21,10 @@ export async function middleware(request: NextRequest) {
         }
     }
 
-    return NextResponse.next();
+    const response = NextResponse.next();
+    response.headers.set("area", ADMIN_AREA);
+
+    return response;
 }
 
 export const config = {

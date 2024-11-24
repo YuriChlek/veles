@@ -8,3 +8,12 @@ export interface LanguageType {
 export interface SetLanguageResponse {
     setLanguage: Array<LanguageType>;
 }
+
+export interface RemoveLanguageResponse {
+    removeLanguage: Array<LanguageType>;
+}
+
+export interface LanguageSwitcherProps {
+    langData?: Array<LanguageType>;
+    lang?: string;
+}
