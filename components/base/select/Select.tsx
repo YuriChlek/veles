@@ -84,6 +84,6 @@ const Select: React.FC<SelectProps> = ({
     );
 };
 
-Select.displayName = "Label";
+Select.displayName = "Select";
 
 export default Select;
