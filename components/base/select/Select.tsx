@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactIcon.tsx";
 import clsx from "clsx";
 import { SelectProps } from "@/interfaces/admin/select/interfaces.ts";
 import useVelesTranslation from "@/utils/translations/translation.ts";

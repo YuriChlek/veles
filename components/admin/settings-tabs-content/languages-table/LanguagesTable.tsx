@@ -52,10 +52,6 @@ const LanguagesTable: React.FC = () => {
         }
     }, [data]);
 
-    const removeLanguageHandler = (lang: string) => {
-        console.log(lang);
-    };
-
     if (error) {
         return (
             <div className={styles["admin-languages-settings-row"]}>

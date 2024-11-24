@@ -40,7 +40,7 @@ const RemoveLanguageButton: React.FC<RemoveLanguageProps> = ({ language_code, is
                 "remove_language",
             );
 
-            const data: Record<string, RemoveLanguageResponse> = response.data.data;
+            const data: Record<string, RemoveLanguageResponse | unknown> = response.data.data;
 
             if ("removeLanguage" in data && Array.isArray(data.removeLanguage)) {
                 setCurrentLanguages(data.removeLanguage as Array<LanguageType>);
