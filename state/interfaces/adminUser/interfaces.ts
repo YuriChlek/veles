@@ -4,9 +4,6 @@ export interface AdminUserLogin {
 
 export interface AdminUserState {
     adminUser: AdminUserLogin;
-}
-
-export interface AdminActions {
     setAdminUser: (newUser: AdminUserLogin) => void;
     getAdminUser: () => void;
 }

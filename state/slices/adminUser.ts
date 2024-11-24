@@ -1,10 +1,7 @@
 import { create } from "zustand";
-import type {
-    AdminUserState,
-    AdminActions,
-} from "@/state/interfaces/adminUser/interfaces";
+import type { AdminUserState } from "@/state/interfaces/adminUser/interfaces";
 
-const useAdminUserStore = create<AdminUserState & AdminActions>((set) => ({
+const useAdminUserStore = create<AdminUserState>((set) => ({
     adminUser: {
         login: "",
     },
