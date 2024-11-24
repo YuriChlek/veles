@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import AdminSettingsTabPanel from "@/components/admin/tabs-content/tab-panel/AdminSettingsTabPanel.tsx";
-import AdminSettingsTabsConfig from "@/components/admin/tabs-content/admin-settings-tabs-config.ts";
+import AdminSettingsTabPanel from "@/components/admin/settings-tabs-content/tab-panel/AdminSettingsTabPanel.tsx";
+import AdminSettingsTabsConfig from "@/components/admin/settings-tabs-content/admin-settings-tabs-config.ts";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 import styles from "./admin.settings.tabs.module.scss";
 

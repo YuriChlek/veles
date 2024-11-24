@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
@@ -20,7 +20,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales }) => {
     const _t = useVelesTranslation();
     const [isDrawerOpen, setDrawerOpen] = useState(false);
 
-    const handleChange = async (locale: Locale) => {
+    const handleChange = async (locale: Locale): Promise<void> => {
         await setUserLocale(locale);
         setDrawerOpen(false);
     };

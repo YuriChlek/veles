@@ -5,6 +5,7 @@ import GraphqlRequest from "@/utils/graphql/GraphqlClient";
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 import GET_LOCALES_DATA_QUERY from "@/i18n/graphql/get-locales-data.graphql";
 import { Locale } from "@/i18n/config.ts";
+import { ADMIN_AREA } from "@/constants/locales/locales_constants.ts";
 
 const query = print(GET_LOCALES_DATA_QUERY);
 
@@ -24,19 +25,29 @@ const getLocalesData = async () => {
     }
 };
 
-const localesData = (await getLocalesData()) as Array<LanguageType>;
+let localesData = (await getLocalesData()) as Array<LanguageType>;
+
+export const resetLocalesData = async () => {
+    localesData = (await getLocalesData()) as Array<LanguageType>;
+
+    return localesData;
+};
 
 export const getLocales = (): Array<string> => {
     return localesData.map((item) => item.language_code);
 };
 
 export const getDefaultFrontendLocale = (): Locale => {
-    return  "en";
+    return "en";
 };
 
-export const getFrontendSwitcherData = async (): Promise<Array<LanguageType>> => {
+export const getSwitcherData = async (
+    area?: string | null,
+): Promise<Array<LanguageType>> => {
     const data = localesData
-        .filter(({ frontend_language }) => frontend_language)
+        .filter(({ frontend_language, admin_language }) =>
+            area === ADMIN_AREA ? admin_language : frontend_language,
+        )
         .map(({ language_code, language_view }) => ({
             language_code,
             language_view,

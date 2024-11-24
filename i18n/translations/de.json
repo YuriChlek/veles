@@ -10,11 +10,17 @@
     "Edit Languages view": "Ansicht Sprachen bearbeiten",
     "Language view": "Sprachansicht",
     "Language Code": "Sprachcode",
-    "Default Frontend": "Standard-Frontend",
-    "Default Admin": "Standardadministrator",
+    "Frontend language": "Frontend-Sprache",
+    "Admin language": "Admin-Sprache",
     "Action": "Aktion",
     "Choose language": "Sprache wählen",
     "Sign in": "Anmelden",
     "Username": "Benutzername",
-    "Password": "Passwort"
+    "Password": "Passwort",
+    "Dashboard": "Armaturenbrett",
+    "Customers": "Kunden",
+    "Languages": "Sprachen",
+    "Admin Settings": "Admin-Einstellungen",
+    "Currency Settings": "Währungseinstellungen",
+    "Remove": "Entfernen"
 }

@@ -1,0 +1,16 @@
+type Query {
+    removeLanguage: [Language!]!
+}
+
+type Mutation {
+    removeLanguage(
+        language_code: String!,
+    ): [Language!]!
+}
+
+type Language {
+    language_view: String!
+    language_code: String!
+    frontend_language: Boolean!
+    admin_language: Boolean!
+}

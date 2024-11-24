@@ -10,4 +10,6 @@ export interface SelectProps {
     label?: string;
     className?: string;
     hasError?: boolean;
+    width?: string;
+    borderNone?: boolean;
 }

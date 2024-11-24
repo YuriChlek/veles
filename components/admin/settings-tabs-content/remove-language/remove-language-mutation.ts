@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
-export const GET_LOCALES_DATA_QUERY = gql`
-    query GetLanguages {
-        languages {
+export const REMOVE_LANGUAGE_MUTATION = gql`
+    mutation RemoveLanguage($language_code: String!) {
+        removeLanguage(language_code: $language_code) {
             language_view
             language_code
             frontend_language
@@ -10,5 +10,3 @@ export const GET_LOCALES_DATA_QUERY = gql`
         }
     }
 `;
-
-export default GET_LOCALES_DATA_QUERY;

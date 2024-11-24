@@ -4,5 +4,11 @@
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid $admin_border_color;
+
+        &-cel {
+            display: flex;
+            width: 50%;
+            justify-content: right;
+        }
     }
 }

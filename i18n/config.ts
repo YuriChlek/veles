@@ -1,4 +1,7 @@
-import { getLocales, getDefaultFrontendLocale } from "@/i18n/utils/getLocalesData.ts";
+import {
+    getLocales,
+    getDefaultFrontendLocale,
+} from "@/utils/translations/getLocalesData.ts";
 export type Locale = (typeof locales)[number];
 
 export const locales = getLocales();

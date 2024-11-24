@@ -1,6 +1,6 @@
 import dbConnection from "@api/module_db/actions/create/new_connection.ts";
 import { TRANSLATIONS_DB } from "@api/module_db/constants/db_constants.ts";
-import defaultLanguages from "@/components/admin/tabs-content/add-language/defaultLanguages.ts";
+import defaultLanguages from "@/components/admin/settings-tabs-content/add-language/defaultLanguages.ts";
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 
 const createTranslationsDefaultValue = async (): Promise<void> => {

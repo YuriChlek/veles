@@ -5,10 +5,10 @@ import Search from "@/components/frontend/search/Search.tsx";
 import style from "./header.module.scss";
 import Customer from "@/components/frontend/customer/Customer.tsx";
 import MiniCart from "@/components/frontend/minicart/Minicart.tsx";
-import { getFrontendSwitcherData } from "@/i18n/utils/getLocalesData.ts";
+import { getSwitcherData } from "@/utils/translations/getLocalesData.ts";
 
 const FrontendHeader: React.FC = async () => {
-    const locales = await getFrontendSwitcherData();
+    const locales = await getSwitcherData();
 
     return (
         <header className={style.header}>

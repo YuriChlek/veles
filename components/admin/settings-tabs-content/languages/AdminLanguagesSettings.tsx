@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import AddLanguage from "@/components/admin/tabs-content/add-language/AddLanguage.tsx";
-import LanguagesTable from "@/components/admin/tabs-content/languages-table/LanguagesTable.tsx";
+import AddLanguage from "../add-language/AddLanguage.tsx";
+import LanguagesTable from "../languages-table/LanguagesTable.tsx";
 import styles from "./admin.languages.settings.module.scss";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 
