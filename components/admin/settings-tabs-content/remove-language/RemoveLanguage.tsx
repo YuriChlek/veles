@@ -15,15 +15,18 @@ import { RemoveLanguageResponse } from "@/interfaces/admin/languages/interfaces.
 
 type RemoveLanguageProps = {
     language_code: string;
-    isDisable?: boolean
+    isDisable?: boolean;
 };
 
-const RemoveLanguageButton: React.FC<RemoveLanguageProps> = ({ language_code, isDisable }) => {
+const RemoveLanguageButton: React.FC<RemoveLanguageProps> = ({
+    language_code,
+    isDisable,
+}) => {
     const _t = useVelesTranslation();
     const { setCurrentLanguages } = useLanguagesStore();
 
     const removeLanguageHandler = async () => {
-        console.log(language_code)
+        console.log(language_code);
         if (!language_code) {
             return;
         }
@@ -40,7 +43,8 @@ const RemoveLanguageButton: React.FC<RemoveLanguageProps> = ({ language_code, is
                 "remove_language",
             );
 
-            const data: Record<string, RemoveLanguageResponse | unknown> = response.data.data;
+            const data: Record<string, RemoveLanguageResponse | unknown> =
+                response.data.data;
 
             if ("removeLanguage" in data && Array.isArray(data.removeLanguage)) {
                 setCurrentLanguages(data.removeLanguage as Array<LanguageType>);

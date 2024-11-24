@@ -145,7 +145,10 @@ const LanguagesTable: React.FC = () => {
                                 className={styles["admin-languages-cell"]}
                                 align="center"
                             >
-                                <RemoveLanguageButton language_code={row.language_code} isDisable={currentLanguages.length === 1}/>
+                                <RemoveLanguageButton
+                                    language_code={row.language_code}
+                                    isDisable={currentLanguages.length === 1}
+                                />
                             </TableCell>
                         </TableRow>
                     ))}

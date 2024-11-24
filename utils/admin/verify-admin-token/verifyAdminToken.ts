@@ -22,16 +22,15 @@ export const verifyAdminToken = async (
             "admin_verify_token",
         );
 
-        if (Object.keys(response.data).includes("errors")) {
+        if (response.data.errors && response.data.errors.length > 0) {
             const error = response.data.errors[0].message;
             console.log(error);
-
             return error;
         }
 
         return response.data.data.verifyToken.verify;
-    } catch (error: Error) {
-        console.log(error.message);
+    } catch (error) {
+        console.log(error);
 
         return false;
     }
