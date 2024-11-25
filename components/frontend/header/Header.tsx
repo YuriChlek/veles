@@ -1,14 +1,16 @@
 import React from "react";
 import Logo from "@/components/base/logo/Logo";
-import LanguageSwitcher from "@/components/frontend/languageSwitcher/LanguageSwitcher.tsx";
+import LanguageSwitcher from "@/components/frontend/language-switcher/LanguageSwitcher.tsx";
 import Search from "@/components/frontend/search/Search.tsx";
 import style from "./header.module.scss";
 import Customer from "@/components/frontend/customer/Customer.tsx";
 import MiniCart from "@/components/frontend/minicart/Minicart.tsx";
-import { getSwitcherData } from "@/utils/translations/getLocalesData.ts";
+import { getLocalesData } from "@/utils/translations/getLocalesData.ts";
+import { getSwitcherData } from "@/utils/translations/getSwitcherData.ts";
 
 const FrontendHeader: React.FC = async () => {
-    const locales = await getSwitcherData();
+    const localesData = await getLocalesData();
+    const frontendLocales = getSwitcherData(localesData);
 
     return (
         <header className={style.header}>
@@ -16,7 +18,7 @@ const FrontendHeader: React.FC = async () => {
             <Logo />
             <div className={style["header-panel"]}>
                 <Search />
-                <LanguageSwitcher locales={locales} />
+                <LanguageSwitcher locales={frontendLocales} />
                 <Customer />
                 <MiniCart />
             </div>

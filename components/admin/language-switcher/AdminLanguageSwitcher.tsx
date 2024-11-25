@@ -11,6 +11,8 @@ import { setUserLocale } from "@/utils/translations/locale.ts";
 import { ADMIN_AREA } from "@/constants/locales/locales_constants.ts";
 import type { Locale } from "@/i18n/config.ts";
 import styles from "@/components/admin/language-switcher/admin.language.switcher.module.scss";
+import { getSwitcherData } from "@/utils/translations/getSwitcherData.ts";
+import useLanguagesStore from "@/state/slices/languages.ts";
 
 const AdminLanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     langData = [],
@@ -18,16 +20,28 @@ const AdminLanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 }) => {
     const [language, setLanguage] = useState<Locale>("");
     const [languagesData, setLanguagesData] = useState<Array<SelectOption>>([]);
+    const { currentLanguages, setCurrentLanguages } = useLanguagesStore();
 
     useEffect(() => {
-        const data: Array<SelectOption> = langData.map((language: LanguageType) => ({
-            label: language.language_view,
-            value: language.language_code,
-        }));
+        createSwitcherData();
+    }, [currentLanguages]);
 
-        setLanguagesData(data);
+    const createSwitcherData = () => {
+        if (!currentLanguages.length) {
+            setCurrentLanguages(langData);
+        }
+        const currentData = currentLanguages.length ? currentLanguages : langData;
+        const adminLocales = getSwitcherData(currentData, ADMIN_AREA);
+        const switcherData: Array<SelectOption> = adminLocales.map(
+            (language: LanguageType) => ({
+                label: language.language_view,
+                value: language.language_code,
+            }),
+        );
+
+        setLanguagesData(switcherData);
         setLanguage(lang);
-    }, []);
+    };
 
     const selectHandler = async (locale: Locale): Promise<void> => {
         setLanguage(locale);

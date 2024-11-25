@@ -6,13 +6,13 @@ import { getUserLocale } from "@/utils/translations/locale.ts";
 import { ADMIN_AREA } from "@/constants/locales/locales_constants.ts";
 import {
     getDefaultFrontendLocale,
-    getSwitcherData,
+    getLocalesData,
 } from "@/utils/translations/getLocalesData.ts";
 import { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 
 const AdminPanelHeader: React.FC = async () => {
     const lang: string = (await getUserLocale(ADMIN_AREA)) || getDefaultFrontendLocale();
-    const localesData: Array<LanguageType> = (await getSwitcherData(ADMIN_AREA)) || [];
+    const localesData: Array<LanguageType> = (await getLocalesData()) || [];
 
     return (
         <header className={styles["admin-panel-header"]}>
