@@ -14,10 +14,11 @@ import styles from "./admin.languages.table.module.scss";
 import useLanguagesStore from "@/state/slices/languages.ts";
 import useVelesTranslation from "@/utils/translations/translation";
 import RemoveLanguageButton from "@/components/admin/settings-tabs-content/remove-language/RemoveLanguage.tsx";
+import SetLanguageView from "@/components/admin/settings-tabs-content/set-language-view/SetLanguageView.tsx";
 
 const LanguagesTable: React.FC = () => {
     const _t = useVelesTranslation();
-    const { currentLanguages } = useLanguagesStore();
+    const { customerLanguage, currentLanguages } = useLanguagesStore();
 
     return (
         <>
@@ -96,13 +97,16 @@ const LanguagesTable: React.FC = () => {
                                     className={styles["admin-languages-cell"]}
                                     align="center"
                                 >
-                                    {row.frontend_language ? _t("Yes") : _t("No")}
+                                    <SetLanguageView
+                                        lang={row}
+                                        view="frontend_language"
+                                    />
                                 </TableCell>
                                 <TableCell
                                     className={styles["admin-languages-cell"]}
                                     align="center"
                                 >
-                                    {row.admin_language ? _t("Yes") : _t("No")}
+                                    <SetLanguageView lang={row} view="admin_language" />
                                 </TableCell>
                                 <TableCell
                                     className={styles["admin-languages-cell"]}
@@ -110,7 +114,10 @@ const LanguagesTable: React.FC = () => {
                                 >
                                     <RemoveLanguageButton
                                         language_code={row.language_code}
-                                        isDisable={currentLanguages.length === 1}
+                                        isDisable={
+                                            currentLanguages.length === 1 ||
+                                            customerLanguage === row.language_code
+                                        }
                                     />
                                 </TableCell>
                             </TableRow>

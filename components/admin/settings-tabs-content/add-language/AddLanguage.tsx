@@ -17,7 +17,6 @@ import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interf
 import type { SetLanguageResponse } from "@/interfaces/admin/languages/interfaces.ts";
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 import type { SelectOption } from "@/interfaces/admin/select/interfaces.ts";
-import Row from "@/components/admin/settings-row/SettingsRow.tsx"
 
 const AddLanguage: React.FC = () => {
     const _t = useVelesTranslation();
@@ -134,7 +133,9 @@ const AddLanguage: React.FC = () => {
     if (selectOptions.length) {
         return (
             <>
-                <h2 className={styles["admin-languages-article"]}>{_t("Add language")}</h2>
+                <h2 className={styles["admin-languages-article"]}>
+                    {_t("Add language")}
+                </h2>
                 <div className={styles["add-language-wrapper"]}>
                     <Select
                         options={selectOptions}

@@ -1,7 +1,7 @@
 import dbConnection from "@api/module_db/actions/create/new_connection.ts";
 import getLanguagesData from "@api/module_translations/graphql/get_languages/get_languages_data.ts";
 import { TRANSLATIONS_DB } from "@api/module_db/constants/db_constants.ts";
-import { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
+import type { LanguageType } from "@api/module_translations/interfaces/languages.ts";
 
 const setSelectedLanguage = async (data: LanguageType): Promise<Array<LanguageType>> => {
     const query: string = `INSERT INTO ${TRANSLATIONS_DB} (language_view, language_code, frontend_language, admin_language)

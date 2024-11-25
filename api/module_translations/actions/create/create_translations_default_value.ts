@@ -1,7 +1,7 @@
 import dbConnection from "@api/module_db/actions/create/new_connection.ts";
 import { TRANSLATIONS_DB } from "@api/module_db/constants/db_constants.ts";
 import defaultLanguages from "@/components/admin/settings-tabs-content/add-language/defaultLanguages.ts";
-import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
+import type { LanguageType } from "@api/module_translations/interfaces/languages.ts";
 
 const createTranslationsDefaultValue = async (): Promise<void> => {
     const query: string = `INSERT INTO ${TRANSLATIONS_DB} (language_view, language_code, frontend_language, admin_language)

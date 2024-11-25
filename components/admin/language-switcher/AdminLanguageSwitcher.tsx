@@ -18,9 +18,14 @@ const AdminLanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     langData = [],
     lang = "",
 }) => {
-    const [language, setLanguage] = useState<Locale>("");
+    //const [language, setLanguage] = useState<Locale>("");
     const [languagesData, setLanguagesData] = useState<Array<SelectOption>>([]);
-    const { currentLanguages, setCurrentLanguages } = useLanguagesStore();
+    const {
+        customerLanguage,
+        setCustomerLanguage,
+        currentLanguages,
+        setCurrentLanguages,
+    } = useLanguagesStore();
 
     useEffect(() => {
         createSwitcherData();
@@ -40,18 +45,18 @@ const AdminLanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         );
 
         setLanguagesData(switcherData);
-        setLanguage(lang);
+        setCustomerLanguage(lang);
     };
 
     const selectHandler = async (locale: Locale): Promise<void> => {
-        setLanguage(locale);
+        setCustomerLanguage(locale);
         await setUserLocale(locale, ADMIN_AREA);
     };
 
     return (
         <Select
             options={languagesData}
-            value={language}
+            value={customerLanguage}
             onChange={selectHandler}
             borderNone={true}
             className={styles["admin-language-switcher"]}

@@ -1,17 +1,26 @@
+import { TRANSLATIONS_DB } from "@api/module_db/constants/db_constants.ts";
 import dbConnection from "@api/module_db/actions/create/new_connection.ts";
 import getLanguagesData from "@api/module_translations/graphql/get_languages/get_languages_data.ts";
-import { TRANSLATIONS_DB } from "@api/module_db/constants/db_constants.ts";
-import type { LanguageType } from "@api/module_translations/interfaces/languages.ts";
+import type {
+    LanguageType,
+    LangViewData,
+} from "@api/module_translations/interfaces/languages.ts";
 
-const removeSelectedLanguage = async (
-    languageCode: string,
+const setSelectedLanguageView = async (
+    data: LangViewData,
 ): Promise<Array<LanguageType>> => {
-    const query: string = `DELETE FROM ${TRANSLATIONS_DB} WHERE language_code = $1`;
+    const query: string = `
+        UPDATE ${TRANSLATIONS_DB}
+        SET ${data.view} = $1
+        WHERE language_code = $2
+    `;
+
+    const values = [data.value, data.language_code];
 
     const client = await dbConnection.connect();
 
     try {
-        await client.query(query, [languageCode]);
+        await client.query(query, values);
         const languages = await getLanguagesData();
 
         if (!Array.isArray(languages)) {
@@ -22,11 +31,11 @@ const removeSelectedLanguage = async (
 
         return languages;
     } catch (error) {
-        console.error(error);
         await client.release();
+        console.log(error);
 
         return [];
     }
 };
 
-export default removeSelectedLanguage;
+export default setSelectedLanguageView;

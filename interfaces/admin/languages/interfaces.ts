@@ -9,6 +9,10 @@ export interface SetLanguageResponse {
     setLanguage: Array<LanguageType>;
 }
 
+export interface SetLanguageViewResponse {
+    setLanguageView: Array<LanguageType>;
+}
+
 export interface RemoveLanguageResponse {
     removeLanguage: Array<LanguageType>;
 }
