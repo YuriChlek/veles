@@ -19,10 +19,16 @@ $button_primary_background: $color-azure-blue;
 $button_primary_color: $color-white;
 
 /* borders */
-$header_border-color: $color-black;
+$header_border-color: $color-opacity-black;
 $border_divider_color: $color-azure-blue;
 $admin_border_color: $color-opacity-black;
+$footer_border_color: $color-opacity-black;
 
 /* Backgrounds */
 $admin_nav_background: $color-gray;
 $table_header_background: $color-gray;
+$black_background: $color-black;
+$admin_languages-header_background: $color-gray;
+
+/* Fonts */
+$font_color_base: $color-black;
