@@ -7,8 +7,10 @@ import Customer from "@/components/frontend/customer/Customer.tsx";
 import MiniCart from "@/components/frontend/minicart/Minicart.tsx";
 import { getLocalesData } from "@/utils/translations/getLocalesData.ts";
 import { getSwitcherData } from "@/utils/translations/getSwitcherData.ts";
+import { getUserLocale } from "@/utils/translations/locale.ts";
 
 const FrontendHeader: React.FC = async () => {
+    const userLocale = await getUserLocale();
     const localesData = await getLocalesData();
     const frontendLocales = getSwitcherData(localesData);
 
@@ -18,7 +20,7 @@ const FrontendHeader: React.FC = async () => {
             <Logo />
             <div className={style["header-panel"]}>
                 <Search />
-                <LanguageSwitcher locales={frontendLocales} />
+                <LanguageSwitcher locales={frontendLocales} userLocale={userLocale} />
                 <Customer />
                 <MiniCart />
             </div>

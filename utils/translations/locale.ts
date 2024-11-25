@@ -9,7 +9,7 @@ import {
     ADMIN_AREA,
 } from "@/constants/locales/locales_constants.ts";
 
-export const getUserLocale = async (area: string | null) => {
+export const getUserLocale = async (area?: string | null) => {
     const cookiesName = area === ADMIN_AREA ? COOKIE_ADMIN_LANG : COOKIE_USER_LANG;
     return cookies().get(cookiesName)?.value || defaultLocale;
 };

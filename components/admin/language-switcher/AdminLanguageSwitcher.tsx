@@ -18,7 +18,6 @@ const AdminLanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     langData = [],
     lang = "",
 }) => {
-    //const [language, setLanguage] = useState<Locale>("");
     const [languagesData, setLanguagesData] = useState<Array<SelectOption>>([]);
     const {
         customerLanguage,

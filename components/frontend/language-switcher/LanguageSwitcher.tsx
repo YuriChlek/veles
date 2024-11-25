@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
@@ -11,23 +11,31 @@ import styles from "./language.switcher.module.scss";
 import type { Locale } from "@/i18n/config.ts";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
+import clsx from "clsx";
 
 interface LanguageSwitcherProps {
     locales: Array<LanguageType>;
+    userLocale: Locale
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales }) => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales, userLocale }) => {
     const _t = useVelesTranslation();
-    const [isDrawerOpen, setDrawerOpen] = useState(false);
+    const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
+    const [selectedLanguageCode, setSelectedLanguageCode] = useState<string>('');
 
     const handleChange = async (locale: Locale): Promise<void> => {
         await setUserLocale(locale);
+        setSelectedLanguageCode(locale);
         setDrawerOpen(false);
     };
 
     const closeDrawer = () => {
         setDrawerOpen(false);
     };
+
+    useEffect(() => {
+        setSelectedLanguageCode(userLocale);
+    }, []);
 
     return (
         <div>
@@ -51,6 +59,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales }) => {
                 <List sx={{ width: 250, padding: 2 }}>
                     {locales.map((item) => (
                         <MenuItem
+                            className={clsx({ [styles.active]: item.language_code === selectedLanguageCode })}
                             key={item.language_code}
                             onClick={() => handleChange(item.language_code as Locale)}
                             sx={{

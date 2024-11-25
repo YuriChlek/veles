@@ -49,7 +49,9 @@ const SetLanguageView: React.FC<SetLanguageViewProps> = ({ view, lang }) => {
     return (
         <Input
             type="checkbox"
-            disabled={lang.language_code === customerLanguage && view === "admin_language"}
+            disabled={
+                lang.language_code === customerLanguage && view === "admin_language"
+            }
             checked={lang[view]}
             onChange={setLanguageViewHandler}
         />

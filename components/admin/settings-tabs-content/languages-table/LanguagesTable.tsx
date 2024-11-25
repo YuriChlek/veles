@@ -34,7 +34,10 @@ const LanguagesTable: React.FC = () => {
                 }}
                 component={Paper}
             >
-                <Table size="small" aria-label="languages table">
+                <Table
+                    size="small"
+                    aria-label="languages table"
+                >
                     <TableHead>
                         <TableRow>
                             <TableCell
