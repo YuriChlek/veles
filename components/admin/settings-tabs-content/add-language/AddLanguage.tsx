@@ -3,14 +3,14 @@
 import React, { useEffect, useState } from "react";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 import Button from "@/components/base/button-base/Button";
-import styles from "@/components/admin/tabs-content/add-language/add.alnguage.module.scss";
+import styles from "../add-language/add.alnguage.module.scss";
 import Select from "@/components/base/select/Select.tsx";
-import defaultLanguages from "@/components/admin/tabs-content/add-language/defaultLanguages.ts";
+import defaultLanguages from "../add-language/defaultLanguages.ts";
 import useLanguagesStore from "@/state/slices/languages.ts";
 import Label from "@/components/base/label/Label.tsx";
 import Input from "@/components/base/input/Input.tsx";
 import { print } from "graphql/index";
-import { SET_LANGUAGE_MUTATION } from "@/components/admin/tabs-content/add-language/set-language-mutation.graphql.ts";
+import { SET_LANGUAGE_MUTATION } from "../add-language/set-language-mutation.graphql.ts";
 import { AxiosResponse } from "axios";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient.ts";
 import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
@@ -40,8 +40,8 @@ const AddLanguage: React.FC = () => {
 
         if (selectedLang) {
             setSelectedLanguage(selectedLang);
-            setDefaultFrontend(selectedLang.default_frontend_language as boolean);
-            setDefaultAdmin(selectedLang.default_admin_language as boolean);
+            setDefaultFrontend(selectedLang.frontend_language as boolean);
+            setDefaultAdmin(selectedLang.admin_language as boolean);
         }
 
         setSelectedValue(value);
@@ -52,13 +52,13 @@ const AddLanguage: React.FC = () => {
         const { name, checked } = event.target;
         const lang: LanguageType = { ...selectedLanguage };
 
-        if (name === "default_frontend_language") {
-            lang.default_frontend_language = checked;
+        if (name === "frontend_language") {
+            lang.frontend_language = checked;
             setDefaultFrontend(checked);
         }
 
-        if (name === "default_admin_language") {
-            lang.default_admin_language = checked;
+        if (name === "admin_language") {
+            lang.admin_language = checked;
             setDefaultAdmin(checked);
         }
 
@@ -81,9 +81,8 @@ const AddLanguage: React.FC = () => {
                     variables: {
                         language_view: selectedLanguage.language_view,
                         language_code: selectedLanguage.language_code,
-                        default_frontend_language:
-                            selectedLanguage.default_frontend_language,
-                        default_admin_language: selectedLanguage.default_admin_language,
+                        frontend_language: selectedLanguage.frontend_language,
+                        admin_language: selectedLanguage.admin_language,
                     },
                 },
                 "set_language",
@@ -131,44 +130,49 @@ const AddLanguage: React.FC = () => {
         createSwitcherData();
     }, [currentLanguages]);
 
-    return (
-        <>
-            <div className={styles["add-language-wrapper"]}>
-                <Select
-                    options={selectOptions}
-                    onChange={selectHandler}
-                    value={selectedValue}
-                    label={_t("Choose language")}
-                    hasError={selectHasError}
-                />
-                <Label className={styles["add-language-input-label"]}>
-                    <Input
-                        name="default_frontend_language"
-                        type="checkbox"
-                        onChange={inputHandler}
-                        checked={defaultFrontend}
+    if (selectOptions.length) {
+        return (
+            <>
+                <h2 className={styles["admin-languages-article"]}>
+                    {_t("Add language")}
+                </h2>
+                <div className={styles["add-language-wrapper"]}>
+                    <Select
+                        options={selectOptions}
+                        onChange={selectHandler}
+                        value={selectedValue}
+                        label={_t("Choose language")}
+                        hasError={selectHasError}
                     />
-                    <span className={styles["add-language-input-label-title"]}>
-                        {_t("Set as default for frontend")}
-                    </span>
-                </Label>
-                <Label className={styles["add-language-input-label"]}>
-                    <Input
-                        name="default_admin_language"
-                        type="checkbox"
-                        onChange={inputHandler}
-                        checked={defaultAdmin}
-                    />
-                    <span className={styles["add-language-input-label-title"]}>
-                        {_t("Set as default for admin panel")}
-                    </span>
-                </Label>
-            </div>
-            <Button onClick={setLanguageHandler} blueColor={true}>
-                {_t("Add Language")}
-            </Button>
-        </>
-    );
+                    <Label className={styles["add-language-input-label"]}>
+                        <Input
+                            name="frontend_language"
+                            type="checkbox"
+                            onChange={inputHandler}
+                            checked={defaultFrontend}
+                        />
+                        <span className={styles["add-language-input-label-title"]}>
+                            {_t("Add to frontend")}
+                        </span>
+                    </Label>
+                    <Label className={styles["add-language-input-label"]}>
+                        <Input
+                            name="admin_language"
+                            type="checkbox"
+                            onChange={inputHandler}
+                            checked={defaultAdmin}
+                        />
+                        <span className={styles["add-language-input-label-title"]}>
+                            {_t("Add to admin panel")}
+                        </span>
+                    </Label>
+                </div>
+                <Button onClick={setLanguageHandler} blueColor={true}>
+                    {_t("Add Language")}
+                </Button>
+            </>
+        );
+    }
 };
 
 export default AddLanguage;

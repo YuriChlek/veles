@@ -1,0 +1,18 @@
+type Query {
+    setLanguage: [Language!]!
+}
+
+type Mutation {
+    setLanguageView (
+        view: String,
+        value: Boolean,
+        language_code: String!
+    ): [Language!]!
+}
+
+type Language {
+    language_view: String!
+    language_code: String!
+    frontend_language: Boolean!
+    admin_language: Boolean!
+}

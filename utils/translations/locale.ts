@@ -3,14 +3,18 @@
 import { cookies } from "next/headers";
 import type { Locale } from "@/i18n/config";
 import { defaultLocale } from "@/i18n/config";
+import {
+    COOKIE_ADMIN_LANG,
+    COOKIE_USER_LANG,
+    ADMIN_AREA,
+} from "@/constants/locales/locales_constants.ts";
 
-const COOKIE_USER_LANG = "customer_locale";
-//const COOKIE_ADMIN_LANG = 'admin_locale';
-
-export const getUserLocale = async () => {
-    return cookies().get(COOKIE_USER_LANG)?.value || defaultLocale;
+export const getUserLocale = async (area?: string | null) => {
+    const cookiesName = area === ADMIN_AREA ? COOKIE_ADMIN_LANG : COOKIE_USER_LANG;
+    return cookies().get(cookiesName)?.value || defaultLocale;
 };
 
-export const setUserLocale = async (locale: Locale) => {
-    cookies().set(COOKIE_USER_LANG, locale);
+export const setUserLocale = async (locale: Locale, area?: string | null) => {
+    const cookiesName = area === ADMIN_AREA ? COOKIE_ADMIN_LANG : COOKIE_USER_LANG;
+    cookies().set(cookiesName, locale);
 };

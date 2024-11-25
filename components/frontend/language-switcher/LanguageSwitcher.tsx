@@ -6,36 +6,36 @@ import IconButton from "@mui/material/IconButton";
 import MenuItem from "@mui/material/MenuItem";
 import List from "@mui/material/List";
 import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactIcon.tsx";
-import { setUserLocale, getUserLocale } from "@/utils/translations/locale.ts";
+import { setUserLocale } from "@/utils/translations/locale.ts";
 import styles from "./language.switcher.module.scss";
 import type { Locale } from "@/i18n/config.ts";
 import useVelesTranslation from "@/utils/translations/translation.ts";
+import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
+import clsx from "clsx";
 
-const locales = {
-    en: { label: "English" },
-    de: { label: "German" },
-};
+interface LanguageSwitcherProps {
+    locales: Array<LanguageType>;
+    userLocale: Locale
+}
 
-const LanguageSwitcher: React.FC = () => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales, userLocale }) => {
     const _t = useVelesTranslation();
-    const [isDrawerOpen, setDrawerOpen] = useState(false);
+    const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
+    const [selectedLanguageCode, setSelectedLanguageCode] = useState<string>('');
 
-    useEffect(() => {
-        try {
-            getUserLocale();
-        } catch (error) {
-            console.error(error);
-        }
-    }, []);
-
-    const handleChange = (locale: Locale) => {
-        setUserLocale(locale);
+    const handleChange = async (locale: Locale): Promise<void> => {
+        await setUserLocale(locale);
+        setSelectedLanguageCode(locale);
         setDrawerOpen(false);
     };
 
     const closeDrawer = () => {
         setDrawerOpen(false);
     };
+
+    useEffect(() => {
+        setSelectedLanguageCode(userLocale);
+    }, []);
 
     return (
         <div>
@@ -57,10 +57,11 @@ const LanguageSwitcher: React.FC = () => {
                     </IconButton>
                 </div>
                 <List sx={{ width: 250, padding: 2 }}>
-                    {Object.keys(locales).map((key) => (
+                    {locales.map((item) => (
                         <MenuItem
-                            key={key}
-                            onClick={() => handleChange(key as Locale)}
+                            className={clsx({ [styles.active]: item.language_code === selectedLanguageCode })}
+                            key={item.language_code}
+                            onClick={() => handleChange(item.language_code as Locale)}
                             sx={{
                                 display: "flex",
                                 alignItems: "center",
@@ -71,7 +72,7 @@ const LanguageSwitcher: React.FC = () => {
                                 },
                             }}
                         >
-                            {_t(locales[key as keyof typeof locales].label)}
+                            {_t(item.language_view)}
                         </MenuItem>
                     ))}
                 </List>

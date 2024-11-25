@@ -1,0 +1,3 @@
+export const COOKIE_USER_LANG = "VELES_CUSTOMER_LOCALE";
+export const COOKIE_ADMIN_LANG = "VELES_ADMIN_LOCALE";
+export const ADMIN_AREA = "ADMIN";

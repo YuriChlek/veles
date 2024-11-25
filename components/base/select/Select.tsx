@@ -1,8 +1,10 @@
+"use client";
+
 import React, { useState, useRef, useEffect } from "react";
 import clsx from "clsx";
 import { SelectProps } from "@/interfaces/admin/select/interfaces.ts";
-import styles from "./select.module.scss";
 import useVelesTranslation from "@/utils/translations/translation.ts";
+import styles from "./select.module.scss";
 
 const Select: React.FC<SelectProps> = ({
     options,
@@ -11,6 +13,7 @@ const Select: React.FC<SelectProps> = ({
     label,
     className,
     hasError,
+    borderNone,
 }) => {
     const _t = useVelesTranslation();
     const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +38,12 @@ const Select: React.FC<SelectProps> = ({
     };
 
     return (
-        <div ref={selectRef} className={clsx(styles["select-wrapper"], className)}>
+        <div
+            ref={selectRef}
+            className={clsx(styles.selectWrapper, className, {
+                [styles["select-border-node"]]: borderNone,
+            })}
+        >
             {label && (
                 <label
                     className={clsx(styles.label, {
@@ -76,6 +84,6 @@ const Select: React.FC<SelectProps> = ({
     );
 };
 
-Select.displayName = "Label";
+Select.displayName = "Select";
 
 export default Select;

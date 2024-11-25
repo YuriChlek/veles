@@ -1,0 +1,11 @@
+.admin {
+    &-remove-language {
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-azure-blue;
+        }
+    }
+}

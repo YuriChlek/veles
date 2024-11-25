@@ -25,7 +25,7 @@ const RootLayout = async ({
 
     return (
         <html lang={locale} style={{ fontSize: "62.5%" }}>
-            <body className={roboto.className} data-attr="test">
+            <body className={roboto.className}>
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     {children}
                 </NextIntlClientProvider>
