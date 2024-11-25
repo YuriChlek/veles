@@ -17,6 +17,7 @@ import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interf
 import type { SetLanguageResponse } from "@/interfaces/admin/languages/interfaces.ts";
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 import type { SelectOption } from "@/interfaces/admin/select/interfaces.ts";
+import Row from "@/components/admin/settings-row/SettingsRow.tsx"
 
 const AddLanguage: React.FC = () => {
     const _t = useVelesTranslation();
@@ -130,44 +131,47 @@ const AddLanguage: React.FC = () => {
         createSwitcherData();
     }, [currentLanguages]);
 
-    return (
-        <>
-            <div className={styles["add-language-wrapper"]}>
-                <Select
-                    options={selectOptions}
-                    onChange={selectHandler}
-                    value={selectedValue}
-                    label={_t("Choose language")}
-                    hasError={selectHasError}
-                />
-                <Label className={styles["add-language-input-label"]}>
-                    <Input
-                        name="frontend_language"
-                        type="checkbox"
-                        onChange={inputHandler}
-                        checked={defaultFrontend}
+    if (selectOptions.length) {
+        return (
+            <>
+                <h2 className={styles["admin-languages-article"]}>{_t("Add language")}</h2>
+                <div className={styles["add-language-wrapper"]}>
+                    <Select
+                        options={selectOptions}
+                        onChange={selectHandler}
+                        value={selectedValue}
+                        label={_t("Choose language")}
+                        hasError={selectHasError}
                     />
-                    <span className={styles["add-language-input-label-title"]}>
-                        {_t("Add to frontend")}
-                    </span>
-                </Label>
-                <Label className={styles["add-language-input-label"]}>
-                    <Input
-                        name="admin_language"
-                        type="checkbox"
-                        onChange={inputHandler}
-                        checked={defaultAdmin}
-                    />
-                    <span className={styles["add-language-input-label-title"]}>
-                        {_t("Add to admin panel")}
-                    </span>
-                </Label>
-            </div>
-            <Button onClick={setLanguageHandler} blueColor={true}>
-                {_t("Add Language")}
-            </Button>
-        </>
-    );
+                    <Label className={styles["add-language-input-label"]}>
+                        <Input
+                            name="frontend_language"
+                            type="checkbox"
+                            onChange={inputHandler}
+                            checked={defaultFrontend}
+                        />
+                        <span className={styles["add-language-input-label-title"]}>
+                            {_t("Add to frontend")}
+                        </span>
+                    </Label>
+                    <Label className={styles["add-language-input-label"]}>
+                        <Input
+                            name="admin_language"
+                            type="checkbox"
+                            onChange={inputHandler}
+                            checked={defaultAdmin}
+                        />
+                        <span className={styles["add-language-input-label-title"]}>
+                            {_t("Add to admin panel")}
+                        </span>
+                    </Label>
+                </div>
+                <Button onClick={setLanguageHandler} blueColor={true}>
+                    {_t("Add Language")}
+                </Button>
+            </>
+        );
+    }
 };
 
 export default AddLanguage;
