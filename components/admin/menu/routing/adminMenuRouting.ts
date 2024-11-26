@@ -1,5 +1,8 @@
 import type { AdminMenuTopItem } from "@/interfaces/admin/menu/adminMenu";
-import { NEXT_PUBLIC_FRONTEND_HOST, NEXT_PUBLIC_FRONTEND_PORT } from "@/constants/env/env_constants.ts";
+import {
+    NEXT_PUBLIC_FRONTEND_HOST,
+    NEXT_PUBLIC_FRONTEND_PORT,
+} from "@/constants/env/env_constants.ts";
 
 const baseUrl = `${NEXT_PUBLIC_FRONTEND_HOST}:${NEXT_PUBLIC_FRONTEND_PORT}`;
 export const adminMenuRouting: Array<AdminMenuTopItem> = [

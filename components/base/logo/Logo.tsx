@@ -14,7 +14,7 @@ interface logoProps {
     width?: number | 50;
     height?: number | 50;
     href?: string;
-    area: ADMIN_AREA | FRONTEND_AREA;
+    area: typeof ADMIN_AREA | typeof FRONTEND_AREA;
 }
 
 const Logo: React.FC<logoProps> = ({ width, height, href, area }): React.JSX.Element => {

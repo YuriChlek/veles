@@ -7,7 +7,6 @@ export const metadata: Metadata = {
     description: "Step-by-step CV builder",
 };
 
-
 const MakeCvBasePage: React.FC = (): React.JSX.Element => {
     const _t = useVelesTranslation();
 

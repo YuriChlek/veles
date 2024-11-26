@@ -1,18 +1,22 @@
 import React from "react";
+import CvLayout from "@/components/frontend/cv-editor-app/layout/CvLayout.tsx";
+import useVelesTranslation from "@/utils/translations/translation.ts";
 
-interface CVPageProps {
+interface MakeCvProps {
     params: {
-        data: string[] | [] | undefined;
+        template_id: string;
     };
 }
 
-const MakeCvBasePage: React.FC<CVPageProps> = ({ params }): React.JSX.Element => {
-    console.log(params);
+const MakeCv: React.FC<MakeCvProps> = ({ params }): React.JSX.Element => {
+    const _t = useVelesTranslation();
+
     return (
         <main>
-            <h1>Cv Page with params</h1>
+            <h1>{_t("Create Your CV")}</h1>
+            <CvLayout templateId={params.template_id}/>
         </main>
     );
 };
 
-export default MakeCvBasePage;
+export default MakeCv;
