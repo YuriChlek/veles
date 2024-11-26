@@ -7,7 +7,14 @@ import IconButton from "@mui/material/IconButton";
 const Search: React.FC = () => {
     return (
         <div>
-            <IconButton sx={{ fontSize: "1.2rem" }}>
+            <IconButton
+                sx={{
+                    fontSize: "1.2rem",
+                    "&:hover": {
+                        backgroundColor: "transparent",
+                    },
+                }}
+            >
                 <DynamicReactIcon iconName="GoSearch" />
             </IconButton>
         </div>

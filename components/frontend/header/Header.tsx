@@ -4,10 +4,10 @@ import LanguageSwitcher from "@/components/frontend/language-switcher/LanguageSw
 import Search from "@/components/frontend/search/Search.tsx";
 import style from "./header.module.scss";
 import Customer from "@/components/frontend/customer/Customer.tsx";
-import MiniCart from "@/components/frontend/minicart/Minicart.tsx";
 import { getLocalesData } from "@/utils/translations/getLocalesData.ts";
 import { getSwitcherData } from "@/utils/translations/getSwitcherData.ts";
 import { getUserLocale } from "@/utils/translations/locale.ts";
+import { FRONTEND_AREA } from "@/constants/locales/locales_constants.ts";
 
 const FrontendHeader: React.FC = async () => {
     const userLocale = await getUserLocale();
@@ -16,13 +16,11 @@ const FrontendHeader: React.FC = async () => {
 
     return (
         <header className={style.header}>
-            <div className={style["header-menu-wrapper"]}></div>
-            <Logo />
+            <Logo href={"/"} area={FRONTEND_AREA} />
             <div className={style["header-panel"]}>
-                <Search />
                 <LanguageSwitcher locales={frontendLocales} userLocale={userLocale} />
                 <Customer />
-                <MiniCart />
+                <Search />
             </div>
         </header>
     );

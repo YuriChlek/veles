@@ -1,30 +1,32 @@
 import type { AdminMenuTopItem } from "@/interfaces/admin/menu/adminMenu";
+import { NEXT_PUBLIC_FRONTEND_HOST, NEXT_PUBLIC_FRONTEND_PORT } from "@/constants/env/env_constants.ts";
 
+const baseUrl = `${NEXT_PUBLIC_FRONTEND_HOST}:${NEXT_PUBLIC_FRONTEND_PORT}`;
 export const adminMenuRouting: Array<AdminMenuTopItem> = [
     {
         id: "menu-admin-dashboard",
         icon: "AiOutlineDashboard",
         itemText: "Dashboard",
-        linkHref: "/admin/panel/dashboard",
+        linkHref: `${baseUrl}/admin/panel/dashboard`,
         children: [],
     },
     {
-        id: "menu-admin-catalog",
+        id: "menu-admin-content",
         icon: "AiOutlineProduct",
-        itemText: "Catalog",
+        itemText: "Content",
         linkHref: "",
         children: [
             {
-                id: "menu-admin-products",
-                icon: "test",
-                itemText: "Products",
-                linkHref: "/admin/panel/products",
+                id: "menu-admin-pages",
+                icon: "",
+                itemText: "Pages",
+                linkHref: `${baseUrl}/admin/panel/pages`,
             },
             {
-                id: "menu-admin-catalog",
-                icon: "test",
-                itemText: "Categories",
-                linkHref: "/admin/panel/categories",
+                id: "menu-admin-cv-templates",
+                icon: "",
+                itemText: "CV templates",
+                linkHref: `${baseUrl}/admin/panel/cv-templates`,
             },
         ],
     },
@@ -52,7 +54,7 @@ export const adminMenuRouting: Array<AdminMenuTopItem> = [
         id: "menu-admin-settings",
         icon: "AiOutlineSetting ",
         itemText: "Settings",
-        linkHref: "/admin/panel/settings",
+        linkHref: `${baseUrl}/admin/panel/settings`,
         children: [],
     },
 ];

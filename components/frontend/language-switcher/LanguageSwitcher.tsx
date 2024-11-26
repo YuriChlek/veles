@@ -15,13 +15,13 @@ import clsx from "clsx";
 
 interface LanguageSwitcherProps {
     locales: Array<LanguageType>;
-    userLocale: Locale
+    userLocale: Locale;
 }
 
 const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales, userLocale }) => {
     const _t = useVelesTranslation();
     const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
-    const [selectedLanguageCode, setSelectedLanguageCode] = useState<string>('');
+    const [selectedLanguageCode, setSelectedLanguageCode] = useState<string>("");
 
     const handleChange = async (locale: Locale): Promise<void> => {
         await setUserLocale(locale);
@@ -39,8 +39,17 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales, userLocale
 
     return (
         <div>
-            <IconButton onClick={() => setDrawerOpen(true)} sx={{ fontSize: "1.2rem" }}>
+            <IconButton
+                onClick={() => setDrawerOpen(true)}
+                sx={{
+                    fontSize: "1.2rem",
+                    "&:hover": {
+                        backgroundColor: "transparent",
+                    },
+                }}
+            >
                 <DynamicReactIcon iconName="GoGlobe" />
+                <span className={styles.label}>{_t("Language")}</span>
             </IconButton>
 
             <Drawer
@@ -59,7 +68,10 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales, userLocale
                 <List sx={{ width: 250, padding: 2 }}>
                     {locales.map((item) => (
                         <MenuItem
-                            className={clsx({ [styles.active]: item.language_code === selectedLanguageCode })}
+                            className={clsx({
+                                [styles.active]:
+                                    item.language_code === selectedLanguageCode,
+                            })}
                             key={item.language_code}
                             onClick={() => handleChange(item.language_code as Locale)}
                             sx={{
