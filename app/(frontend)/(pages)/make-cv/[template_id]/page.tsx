@@ -14,7 +14,7 @@ const MakeCv: React.FC<MakeCvProps> = ({ params }): React.JSX.Element => {
     return (
         <main>
             <h1>{_t("Create Your CV")}</h1>
-            <CvLayout templateId={params.template_id}/>
+            <CvLayout templateId={params.template_id} />
         </main>
     );
 };
