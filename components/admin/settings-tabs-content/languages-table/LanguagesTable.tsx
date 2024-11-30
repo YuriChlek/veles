@@ -16,7 +16,7 @@ import useVelesTranslation from "@/utils/translations/translation";
 import RemoveLanguageButton from "@/components/admin/settings-tabs-content/remove-language/RemoveLanguage.tsx";
 import SetLanguageView from "@/components/admin/settings-tabs-content/set-language-view/SetLanguageView.tsx";
 
-const LanguagesTable: React.FC = () => {
+const LanguagesTable: React.FC = (): React.JSX.Element => {
     const _t = useVelesTranslation();
     const { customerLanguage, currentLanguages } = useLanguagesStore();
 

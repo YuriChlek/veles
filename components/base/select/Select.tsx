@@ -14,7 +14,7 @@ const Select: React.FC<SelectProps> = ({
     className,
     hasError,
     borderNone,
-}) => {
+}): React.JSX.Element => {
     const _t = useVelesTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const selectRef = useRef<HTMLDivElement>(null);

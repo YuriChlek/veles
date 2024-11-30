@@ -10,7 +10,10 @@ import type { FontIconProps } from "@/interfaces/admin/font-icons/interfaces";
 import clsx from "clsx";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 
-const DynamicReactIcon: React.FC<FontIconProps> = ({ iconName, className }) => {
+const DynamicReactIcon: React.FC<FontIconProps> = ({
+    iconName,
+    className,
+}): React.JSX.Element => {
     const _t = useVelesTranslation();
     const icon = iconName.trim();
     const IconComponent =

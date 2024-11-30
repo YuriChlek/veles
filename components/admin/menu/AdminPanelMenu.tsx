@@ -20,7 +20,7 @@ export const AdminPanelMenuItem = dynamic(
     },
 );
 
-const AdminPanelMenu: React.FC = () => {
+const AdminPanelMenu: React.FC = (): React.JSX.Element => {
     const _t = useVelesTranslation();
     const [openItemId, setOpenItemId] = useState("");
 

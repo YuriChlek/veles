@@ -18,7 +18,10 @@ interface LanguageSwitcherProps {
     userLocale: Locale;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ locales, userLocale }) => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
+    locales,
+    userLocale,
+}): React.JSX.Element => {
     const _t = useVelesTranslation();
     const [isDrawerOpen, setDrawerOpen] = useState<boolean>(false);
     const [selectedLanguageCode, setSelectedLanguageCode] = useState<string>("");

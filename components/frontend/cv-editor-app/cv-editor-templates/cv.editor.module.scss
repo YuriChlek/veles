@@ -1,51 +1,12 @@
 .card {
     background-color: #fff;
 
-    &-header {
-        padding: 1.5rem;
-        background-color: #007bff;
-        color: #fff;
-    }
-
-    &-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
-
     &-body {
         padding: 1.5rem;
     }
 }
 
 .tab {
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-align: center;
-    font-weight: 500;
-    cursor: pointer;
-    transition:
-        background-color 0.3s,
-        color 0.3s;
-
-    &.active {
-        background-color: #fff;
-        color: #000;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-
-    &:hover {
-        background-color: #eaeaea;
-    }
-
-    &-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-        background-color: #f5f5f5;
-        padding: 0.5rem;
-        border-radius: 4px;
-    }
-
     &-container {
         display: flex;
         flex-direction: column;
@@ -56,86 +17,5 @@
 .tab-content {
     &.active {
         margin-top: 1rem;
-    }
-}
-
-.form {
-    &-section {
-        margin-bottom: 2rem;
-        display: grid;
-        gap: 10px;
-    }
-
-    &-grid {
-        display: grid;
-        grid-template-columns: 128px 1fr;
-        gap: 20px;
-    }
-
-    &-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-
-        &-section {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px 15px;
-
-            &-top {
-                display: grid;
-                gap: 10px;
-            }
-        }
-    }
-}
-
-.section-title {
-    font-weight: 600;
-    padding-bottom: 20px;
-}
-
-.label {
-    font-weight: 500;
-    padding: 0;
-}
-
-.input {
-    height: 40px;
-    padding: 0.5rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    transition: border-color 0.3s;
-    width: 100%;
-
-    &:focus {
-        outline: none;
-        border-color: #007bff;
-    }
-}
-
-.actions {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.btn {
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition:
-        background-color 0.3s,
-        color 0.3s;
-
-    &.primary {
-        background-color: #007bff;
-        color: #fff;
-
-        &:hover {
-            background-color: #0056b3;
-        }
     }
 }

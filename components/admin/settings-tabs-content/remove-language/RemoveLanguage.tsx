@@ -21,7 +21,7 @@ type RemoveLanguageProps = {
 const RemoveLanguageButton: React.FC<RemoveLanguageProps> = ({
     language_code,
     isDisable,
-}) => {
+}): React.JSX.Element => {
     const _t = useVelesTranslation();
     const { setCurrentLanguages } = useLanguagesStore();
 

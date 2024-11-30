@@ -9,7 +9,7 @@ import AdminSettingsTabsConfig from "@/components/admin/settings-tabs-content/ad
 import useVelesTranslation from "@/utils/translations/translation.ts";
 import styles from "./admin.settings.tabs.module.scss";
 
-const AdminSettingsTabs: React.FC = () => {
+const AdminSettingsTabs: React.FC = (): React.JSX.Element => {
     const _t = useVelesTranslation();
     const [value, setValue] = useState(0);
 

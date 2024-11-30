@@ -9,7 +9,7 @@ import { getSwitcherData } from "@/utils/translations/getSwitcherData.ts";
 import { getUserLocale } from "@/utils/translations/locale.ts";
 import { FRONTEND_AREA } from "@/constants/locales/locales_constants.ts";
 
-const FrontendHeader: React.FC = async () => {
+const FrontendHeader: React.FC = async (): Promise<React.JSX.Element> => {
     const userLocale = await getUserLocale();
     const localesData = await getLocalesData();
     const frontendLocales = getSwitcherData(localesData);

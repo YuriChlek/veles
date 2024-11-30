@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Label from "@/components/base/label/Label.tsx";
 import style from "./cv.load.image.module.scss";
 
-const CvLoadImage: React.FC = () => {
+const CvLoadImage: React.FC = (): React.JSX.Element => {
     const [base64, setBase64] = useState<string | null>(null);
     const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];

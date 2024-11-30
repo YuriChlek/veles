@@ -17,7 +17,7 @@ import useLanguagesStore from "@/state/slices/languages.ts";
 const AdminLanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     langData = [],
     lang = "",
-}) => {
+}): React.JSX.Element => {
     const [languagesData, setLanguagesData] = useState<Array<SelectOption>>([]);
     const {
         customerLanguage,
