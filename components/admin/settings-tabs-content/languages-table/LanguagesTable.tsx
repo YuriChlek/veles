@@ -41,31 +41,31 @@ const LanguagesTable: React.FC = (): React.JSX.Element => {
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                {_t("Language view")}
+                                <span className={styles["admin-languages-header-text"]}>{_t("Language view")}</span>
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                {_t("Language Code")}
+                                <span className={styles["admin-languages-header-text"]}>{_t("Language Code")}</span>
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                {_t("Frontend language")}
+                                <span className={styles["admin-languages-header-text"]}>{_t("Frontend language")}</span>
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                {_t("Admin language")}
+                                <span className={styles["admin-languages-header-text"]}>{_t("Admin language")}</span>
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                {_t("Action")}
+                                <span className={styles["admin-languages-header-text"]}>{_t("Action")}</span>
                             </TableCell>
                         </TableRow>
                     </TableHead>
@@ -85,13 +85,13 @@ const LanguagesTable: React.FC = (): React.JSX.Element => {
                                     component="th"
                                     scope="row"
                                 >
-                                    {row.language_view}
+                                    <span className={styles["admin-languages-cell-text"]}>{row.language_view}</span>
                                 </TableCell>
                                 <TableCell
                                     className={styles["admin-languages-cell"]}
                                     align="center"
                                 >
-                                    {row.language_code}
+                                    <span className={styles["admin-languages-cell-text"]}>{row.language_code}</span>
                                 </TableCell>
                                 <TableCell
                                     className={styles["admin-languages-cell"]}

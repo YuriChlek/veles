@@ -1,14 +1,20 @@
 .admin {
     &-languages-header {
-        font-size: 1.4rem;
-        font-weight: 600;
         background: $admin_languages-header_background;
         width: 20%;
+
+        &-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
     }
 
     &-languages-cell {
-        font-size: 1.4rem;
         width: 20%;
+
+        &-text {
+            font-size: 1.4rem;
+        }
     }
 
     &-languages-article {
