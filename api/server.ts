@@ -16,7 +16,7 @@ import createDbTables from "@api/module_db/actions/create/create_db_tables.ts";
 
     const corsOptions = {
         origin: "http://localhost:3000",
-        methods: ["GET", "POST"],
+        methods: ["POST"],
         credentials: true,
     };
     const PORT: string = API_PORT || "5000";
