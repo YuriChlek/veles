@@ -5,6 +5,7 @@ import { loadSchema } from "@graphql-tools/load";
 import { __API_DIR } from "@/constants/path/path_constants.ts";
 import { GraphQLFileLoader } from "@graphql-tools/graphql-file-loader";
 import type { GraphQLContext } from "@api/module_admin/interfaces/graph_ql.ts";
+import { ADMIN_TOKEN } from "@/constants/admin/admin_constants.ts";
 
 const create_logout_admin_schema = async () => {
     const schema: GraphQLSchema = await loadSchema(
@@ -21,7 +22,7 @@ const create_logout_admin_schema = async () => {
                 _args: {},
                 context: GraphQLContext,
             ): Promise<{ logout: Boolean }> => {
-                context.res.clearCookie("adminToken", {
+                context.res.clearCookie(ADMIN_TOKEN, {
                     httpOnly: true,
                     secure: true,
                     sameSite: "lax",

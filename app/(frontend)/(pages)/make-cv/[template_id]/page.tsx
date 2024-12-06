@@ -1,20 +1,21 @@
 import React from "react";
 import CvLayout from "@/components/frontend/cv-editor-app/layout/CvLayout.tsx";
-import useVelesTranslation from "@/utils/translations/translation.ts";
+import PageTitle from "@/components/base/page-title/PageTitle.tsx";
 
 interface MakeCvProps {
-    params: {
+    params: Promise<{
         template_id: string;
-    };
+    }>;
 }
 
-const MakeCv: React.FC<MakeCvProps> = ({ params }): React.JSX.Element => {
-    const _t = useVelesTranslation();
+const MakeCv: React.FC<MakeCvProps> = async (props): Promise<React.JSX.Element> => {
+    const { template_id } = await props.params;
+    const templateId = typeof template_id === "string" ? template_id : "";
 
     return (
         <main>
-            <h1>{_t("Create Your CV")}</h1>
-            <CvLayout templateId={params.template_id} />
+            <PageTitle pageTitle="Create Your CV" />
+            <CvLayout templateId={templateId} />
         </main>
     );
 };

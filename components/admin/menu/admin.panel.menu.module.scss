@@ -1,3 +1,6 @@
+@use "web/styles/base/variables" as *;
+@use "web/styles/admin/variables" as *;
+
 .menu {
     width: 115px;
     position: fixed;

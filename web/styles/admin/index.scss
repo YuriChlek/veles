@@ -1,6 +1,5 @@
 /* Base */
-@import "../base/variables";
-@import "../base/global";
+@forward "../base/global";
 
 /* Admin */
-@import "./global";
+@forward"./adminGlobal";

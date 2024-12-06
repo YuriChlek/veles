@@ -3,11 +3,12 @@ import { VERIFY_ADMIN_TOKEN_MUTATION } from "./verify-admin-token.graphql";
 import { print } from "graphql/index";
 import GraphqlRequest from "@/utils/graphql/GraphqlClient";
 import type { VerifyAdminToken } from "@/interfaces/admin/verify-token/interfases";
+import { ADMIN_TOKEN } from "@/constants/admin/admin_constants.ts";
 
 export const verifyAdminToken = async (
     request: NextRequest,
 ): Promise<boolean | string> => {
-    const adminTokenCookies = request.cookies.get("adminToken");
+    const adminTokenCookies = request.cookies.get(ADMIN_TOKEN);
 
     if (!adminTokenCookies) {
         return false;

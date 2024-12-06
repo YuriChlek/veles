@@ -41,31 +41,41 @@ const LanguagesTable: React.FC = (): React.JSX.Element => {
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                <span className={styles["admin-languages-header-text"]}>{_t("Language view")}</span>
+                                <span className={styles["admin-languages-header-text"]}>
+                                    {_t("Language view")}
+                                </span>
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                <span className={styles["admin-languages-header-text"]}>{_t("Language Code")}</span>
+                                <span className={styles["admin-languages-header-text"]}>
+                                    {_t("Language Code")}
+                                </span>
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                <span className={styles["admin-languages-header-text"]}>{_t("Frontend language")}</span>
+                                <span className={styles["admin-languages-header-text"]}>
+                                    {_t("Frontend language")}
+                                </span>
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                <span className={styles["admin-languages-header-text"]}>{_t("Admin language")}</span>
+                                <span className={styles["admin-languages-header-text"]}>
+                                    {_t("Admin language")}
+                                </span>
                             </TableCell>
                             <TableCell
                                 className={styles["admin-languages-header"]}
                                 align="center"
                             >
-                                <span className={styles["admin-languages-header-text"]}>{_t("Action")}</span>
+                                <span className={styles["admin-languages-header-text"]}>
+                                    {_t("Action")}
+                                </span>
                             </TableCell>
                         </TableRow>
                     </TableHead>
@@ -85,13 +95,17 @@ const LanguagesTable: React.FC = (): React.JSX.Element => {
                                     component="th"
                                     scope="row"
                                 >
-                                    <span className={styles["admin-languages-cell-text"]}>{row.language_view}</span>
+                                    <span className={styles["admin-languages-cell-text"]}>
+                                        {row.language_view}
+                                    </span>
                                 </TableCell>
                                 <TableCell
                                     className={styles["admin-languages-cell"]}
                                     align="center"
                                 >
-                                    <span className={styles["admin-languages-cell-text"]}>{row.language_code}</span>
+                                    <span className={styles["admin-languages-cell-text"]}>
+                                        {row.language_code}
+                                    </span>
                                 </TableCell>
                                 <TableCell
                                     className={styles["admin-languages-cell"]}

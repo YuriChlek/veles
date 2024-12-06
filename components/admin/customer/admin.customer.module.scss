@@ -1,3 +1,5 @@
+@use "web/styles/base/variables" as *;
+
 .admin {
     &-logout-wrapper {
         display: flex;

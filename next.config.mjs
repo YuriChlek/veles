@@ -20,10 +20,8 @@ const nextConfig = {
     },
     sassOptions: {
         includePaths: [path.join(__dirname, "web/styles")],
-        additionalData: `
-            @import "base/variables.scss";
-            @import "admin/variables.scss";
-        `,
+        additionalData: `$var: red;`,
+        silenceDeprecations: ['legacy-js-api'],
     },
 };
 

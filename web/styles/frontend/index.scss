@@ -1,6 +1,6 @@
 /* Base */
-@import "../base/variables";
-@import "../base/global";
+@use "../base/variables" as *;
+@use "../base/global" as *;
 
 /* Frontend */
-@import "./global";
+@use "./global" as *;

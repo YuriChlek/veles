@@ -1,3 +1,5 @@
+@use "web/styles/base/variables" as *;
+
 .admin {
     &-languages-header {
         background: $admin_languages-header_background;

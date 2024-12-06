@@ -1,3 +1,5 @@
+@use "web/styles/base/variables" as *;
+
 .header {
     border-bottom: 2px solid $color-opacity-black;
     padding: 10px 20px;

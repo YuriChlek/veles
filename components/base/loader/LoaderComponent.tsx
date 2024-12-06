@@ -1,7 +1,8 @@
+import React from "react";
 import { CircularProgress } from "@mui/material";
 import styles from "./loader.component.module.scss";
 
-const LoaderComponent = () => {
+const LoaderComponent: React.FC = (): React.JSX.Element => {
     return (
         <div className={styles["main-container"]}>
             <CircularProgress />

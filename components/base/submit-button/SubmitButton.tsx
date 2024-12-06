@@ -2,20 +2,18 @@
 
 import React from "react";
 import Button from "../button-base/Button.tsx";
-import { useFormStatus } from "react-dom";
 import type { ButtonProps } from "../button-base/Button.tsx";
 
 export interface SubmitButtonProps extends ButtonProps {
     pendingText?: string;
+    children: React.ReactNode | string;
 }
 
 const SubmitButton = React.forwardRef<HTMLButtonElement, SubmitButtonProps>(
-    ({ children, pendingText = "Submitting...", ...props }, ref) => {
-        const { pending } = useFormStatus();
-
+    ({ children, ...props }, ref): React.JSX.Element => {
         return (
-            <Button type="submit" aria-disabled={pending} ref={ref} {...props}>
-                {pending ? pendingText : children}
+            <Button type="submit" ref={ref} {...props}>
+                {children}
             </Button>
         );
     },

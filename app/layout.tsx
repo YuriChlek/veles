@@ -2,6 +2,7 @@ import React from "react";
 import { Mulish } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import "quill/dist/quill.snow.css";
 
 const mulish = Mulish({
     weight: ["300", "400", "500", "700"],

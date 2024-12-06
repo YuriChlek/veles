@@ -78,7 +78,7 @@ const AdminLoginForm: React.FC = (): React.JSX.Element => {
                     required
                 />
             </div>
-            <SubmitButton type="submit" pendingText={_t("Signing In...")}>
+            <SubmitButton type="submit">
                 {_t("Sign in")}
             </SubmitButton>
         </form>

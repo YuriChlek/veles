@@ -45,7 +45,7 @@ const SetLanguageView: React.FC<SetLanguageViewProps> = ({
                 setCurrentLanguages(data.setLanguageView as Array<LanguageType>);
             }
         } catch (error) {
-            console.log("error");
+            console.log(error);
         }
     };
 
