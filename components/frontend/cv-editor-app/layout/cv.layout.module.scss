@@ -13,6 +13,10 @@
         max-height: calc(100vh - 197px);
         overflow: auto;
 
+        &:last-child {
+            background: #f5f6f7;
+        }
+
         &::-webkit-scrollbar-thumb:hover {
             background: rgba(23, 43, 196, 0.7);
         }

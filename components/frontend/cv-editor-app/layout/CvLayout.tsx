@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import CvTemplatesLoader from "@/components/frontend/cv-editor-app/cv-templates-loader/CvTemplatesLoader.tsx";
 import CvEditorComponent from "@/components/frontend/cv-editor-app/cv-editor-templates/CvEditorComponent.tsx";

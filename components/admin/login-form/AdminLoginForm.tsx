@@ -78,9 +78,7 @@ const AdminLoginForm: React.FC = (): React.JSX.Element => {
                     required
                 />
             </div>
-            <SubmitButton type="submit">
-                {_t("Sign in")}
-            </SubmitButton>
+            <SubmitButton type="submit">{_t("Sign in")}</SubmitButton>
         </form>
     );
 };

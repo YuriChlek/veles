@@ -28,9 +28,7 @@ const TextEditor = () => {
             editor.setContents(delta);
 
             editor.on("text-change", () => {
-                /*const content: Delta | undefined =
-                        delta?.editor?.getDelta();
-                    console.log(content);*/
+                console.log("text", editor.getContents());
             });
         }
     }, []);

@@ -21,7 +21,7 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, "web/styles")],
         additionalData: `$var: red;`,
-        silenceDeprecations: ['legacy-js-api'],
+        silenceDeprecations: ["legacy-js-api"],
     },
 };
 
