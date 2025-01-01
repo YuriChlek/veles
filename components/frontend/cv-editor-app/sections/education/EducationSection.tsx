@@ -5,9 +5,8 @@ import useVelesTranslation from "@/utils/translations/translation.ts";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import CvDatePicker from "@/components/frontend/cv-editor-app/components/CvDatePicker.tsx";
-//import dayjs, { Dayjs } from "dayjs";
-import styles from "./sections.module.scss";
 import Button from "@/components/base/button-base/Button.tsx";
+import styles from "../sections.module.scss";
 
 const EducationSection: React.FC = (): React.JSX.Element => {
     //const [value, setValue] = useState<Dayjs | null>(dayjs('2022-04-17'));

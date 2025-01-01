@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import svg_pages from "@/utils/cv_factory/create_page.ts";
+import React, { useRef } from "react";
+import svg_pages from "@/components/frontend/cv-editor-app/cv-templates/tech-visionary/utils/create_page.ts";
 import cvStore from "@/state/slices/cv.ts";
 import styles from "./CvMaker.module.scss";
 import { Selection } from "d3";
+import useStableEffect from "@/hooks/useStableEffect.ts";
 
-export default function TechVisionary() {
+const TechVisionary: React.FC = () => {
     const {
         photo,
-        firstName,
-        lastName,
+        givenName,
+        familyName,
         headline,
         email,
         phoneNumber,
@@ -19,9 +20,13 @@ export default function TechVisionary() {
     } = cvStore();
     const cvWrapper = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        generateCvTemplate();
-    }, [firstName, photo, lastName, headline, email, phoneNumber, location, linkedin]);
+    useStableEffect(
+        () => {
+            generateCvTemplate();
+        },
+        [givenName, photo, familyName, headline, email, phoneNumber, location, linkedin],
+        250,
+    );
 
     const generateCvTemplate = () => {
         if (cvWrapper.current) {
@@ -29,8 +34,8 @@ export default function TechVisionary() {
                 cvWrapper.current,
                 {
                     photo,
-                    firstName,
-                    lastName,
+                    givenName,
+                    familyName,
                     headline,
                     email,
                     phoneNumber,
@@ -39,7 +44,8 @@ export default function TechVisionary() {
                 },
             );
 
-            console.log(svg);
+            if (svg) {
+            }
         }
     };
 
@@ -48,4 +54,6 @@ export default function TechVisionary() {
             <div ref={cvWrapper}></div>
         </div>
     );
-}
+};
+
+export default TechVisionary;

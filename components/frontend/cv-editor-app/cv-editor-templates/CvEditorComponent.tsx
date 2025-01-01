@@ -2,10 +2,10 @@
 
 import React from "react";
 import clsx from "clsx";
-import EducationSection from "@/components/frontend/cv-editor-app/sections/EducationSection.tsx";
+import EducationSection from "@/components/frontend/cv-editor-app/sections/education/EducationSection.tsx";
 import styles from "./cv.editor.module.scss";
-import PersonalInformationSection from "@/components/frontend/cv-editor-app/sections/PersonalInformationSection.tsx";
-import WorkExperienceSection from "@/components/frontend/cv-editor-app/sections/WorkExperienceSection.tsx";
+import PersonalInformationSection from "@/components/frontend/cv-editor-app/sections/personal-information/PersonalInformationSection.tsx";
+import WorkExperienceSection from "@/components/frontend/cv-editor-app/sections/work-experiance/WorkExperienceSection.tsx";
 
 const CvEditorComponent: React.FC = (): React.JSX.Element => {
     return (

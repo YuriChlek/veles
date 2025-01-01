@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Express } from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import createTokenEnvSecretKey from "@api/module_env/create/env_token_secret_key";
@@ -20,7 +20,7 @@ import createDbTables from "@api/module_db/actions/create/create_db_tables.ts";
         credentials: true,
     };
     const PORT: string = API_PORT || "5000";
-    const app = express();
+    const app: Express = express();
 
     app.use(cookieParser()); //???
     app.use(cors(corsOptions));
@@ -28,5 +28,7 @@ import createDbTables from "@api/module_db/actions/create/create_db_tables.ts";
     app.use(adminGraphqlRouter);
     app.use(languagesGraphqlRouter);
 
-    app.listen(PORT, () => console.log(`Server Connected to http://localhost:${PORT}`));
+    app.listen(PORT, (): void =>
+        console.log(`Server Connected to http://localhost:${PORT}`),
+    );
 })();

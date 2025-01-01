@@ -24,9 +24,3 @@ const CvTemplatesLoader: React.FC<Props> = ({ templateId }) => {
 };
 
 export default CvTemplatesLoader;
-
-/*
-<PDFDownloadLink document={<MyDocument />} fileName="document.pdf">
-                Download now
-            </PDFDownloadLink>
- */

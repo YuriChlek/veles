@@ -1,15 +1,15 @@
 export interface CvStore {
     photo: string;
-    firstName: string;
-    lastName: string;
+    givenName: string;
+    familyName: string;
     headline: string;
     phoneNumber: string;
     email: string;
     location: string;
     linkedin: string;
     setCvPhoto: (data: string) => void;
-    setFirstName: (data: string) => void;
-    setLastName: (data: string) => void;
+    setGivenName: (data: string) => void;
+    setFamilyName: (data: string) => void;
     setHeadline: (data: string) => void;
     setPhoneNumber: (data: string) => void;
     setEmail: (data: string) => void;

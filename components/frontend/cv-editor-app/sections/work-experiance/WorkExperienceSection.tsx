@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import styles from "./sections.module.scss";
+import styles from "../sections.module.scss";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import Label from "@/components/base/label/Label.tsx";
 import Input from "@/components/base/input/Input.tsx";
