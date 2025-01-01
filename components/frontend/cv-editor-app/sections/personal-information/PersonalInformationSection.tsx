@@ -2,6 +2,7 @@ import React, { ChangeEvent } from "react";
 import CvLoadImage from "@/components/frontend/cv-editor-app/cv-load-image/CvLoadImage.tsx";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 import CvFormGroup from "@/components/frontend/cv-editor-app/sections/form-group/FormGroup.tsx";
+import { CvDataState } from "@/state/interfaces/cvEditor/interfaces.ts";
 import cvStore from "@/state/slices/cv.ts";
 import styles from "../sections.module.scss";
 
@@ -9,33 +10,11 @@ const PersonalInformationSection: React.FC = (): React.JSX.Element => {
     const _t = useVelesTranslation();
     const { cvData, setCvField } = cvStore();
 
-    const setFirstNameHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setCvField("givenName", e.target.value);
-    };
-
-    const setLastNameHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setCvField("familyName", e.target.value);
-    };
-
-    const setHeadlineHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setCvField("headline", e.target.value);
-    };
-
-    const setPhoneHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setCvField("phoneNumber", e.target.value);
-    };
-
-    const setEmailHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setCvField("email", e.target.value);
-    };
-
-    const setLocationHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setCvField("location", e.target.value);
-    };
-
-    const setLinkedinHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setCvField("linkedin", e.target.value);
-    };
+    const setCvDataHandler =
+        (key: keyof CvDataState) =>
+            (e: ChangeEvent<HTMLInputElement>) => {
+                setCvField(key, e.target.value);
+            };
 
     return (
         <section className={styles["form-section"]}>
@@ -47,18 +26,18 @@ const PersonalInformationSection: React.FC = (): React.JSX.Element => {
                         <CvFormGroup
                             inputLabel={"Given name"}
                             inputValue={cvData.givenName}
-                            inputHandler={setFirstNameHandler}
+                            inputHandler={setCvDataHandler("givenName")}
                         />
                         <CvFormGroup
                             inputLabel={"Family name"}
                             inputValue={cvData.familyName}
-                            inputHandler={setLastNameHandler}
+                            inputHandler={setCvDataHandler("familyName")}
                         />
                     </div>
                     <CvFormGroup
                         inputLabel={"Headline"}
                         inputValue={cvData.headline}
-                        inputHandler={setHeadlineHandler}
+                        inputHandler={setCvDataHandler("headline")}
                     />
                 </div>
             </div>
@@ -66,23 +45,23 @@ const PersonalInformationSection: React.FC = (): React.JSX.Element => {
                 <CvFormGroup
                     inputLabel={"Email"}
                     inputValue={cvData.email}
-                    inputHandler={setEmailHandler}
+                    inputHandler={setCvDataHandler("email")}
                 />
                 <CvFormGroup
                     inputLabel={"Phone"}
                     inputValue={cvData.phoneNumber}
-                    inputHandler={setPhoneHandler}
+                    inputHandler={setCvDataHandler("phoneNumber")}
                 />
             </div>
             <CvFormGroup
                 inputLabel={"Location"}
                 inputValue={cvData.location}
-                inputHandler={setLocationHandler}
+                inputHandler={setCvDataHandler("location")}
             />
             <CvFormGroup
                 inputLabel={"Linkedin"}
                 inputValue={cvData.linkedin}
-                inputHandler={setLinkedinHandler}
+                inputHandler={setCvDataHandler("linkedin")}
             />
         </section>
     );
