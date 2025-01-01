@@ -14,7 +14,10 @@ type SetLanguageViewProps = {
     lang: LanguageType;
 };
 
-const SetLanguageView: React.FC<SetLanguageViewProps> = ({ view, lang }) => {
+const SetLanguageView: React.FC<SetLanguageViewProps> = ({
+    view,
+    lang,
+}): React.JSX.Element => {
     const { customerLanguage, setCurrentLanguages } = useLanguagesStore();
     const setLanguageViewHandler = async () => {
         try {
@@ -42,7 +45,7 @@ const SetLanguageView: React.FC<SetLanguageViewProps> = ({ view, lang }) => {
                 setCurrentLanguages(data.setLanguageView as Array<LanguageType>);
             }
         } catch (error) {
-            console.log("error");
+            console.log(error);
         }
     };
 

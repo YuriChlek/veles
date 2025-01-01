@@ -10,6 +10,10 @@ if (!isEdgeRuntime) {
 export const API_PORT: string = process.env.NEXT_PUBLIC_API_PORT as string;
 export const API_HOST: string = process.env.NEXT_PUBLIC_API_HOST as string;
 
+//FRONTEND
+export const NEXT_PUBLIC_FRONTEND_PORT = process.env.NEXT_PUBLIC_FRONTEND_PORT as string;
+export const NEXT_PUBLIC_FRONTEND_HOST = process.env.NEXT_PUBLIC_FRONTEND_HOST as string;
+
 //DB
 export const DB_HOST: string = process.env.DB_HOST as string;
 export const DB_PORT: string = process.env.DB_PORT as string;

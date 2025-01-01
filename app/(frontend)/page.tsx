@@ -1,5 +1,10 @@
 import React from "react";
 import useVelesTranslation from "@/utils/translations/translation.ts";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Create Your Professional CV | Veles Online CV Service",
+};
 
 const Home = (): React.JSX.Element => {
     const _t = useVelesTranslation();

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "@/app/(frontend)/page.module.scss";
-import "@/web/styles/frontend/index.scss";
 import FrontendHeader from "@/components/frontend/header/Header.tsx";
+import FrontendFooter from "@/components/frontend/footer/Footer.tsx";
+import "@/web/styles/frontend/index.scss";
 
 const FrontendRootLayout = ({
     children,
@@ -12,9 +12,7 @@ const FrontendRootLayout = ({
         <div className="page">
             <FrontendHeader />
             {children}
-            <footer className={styles.footer}>
-                <h2>Footer</h2>
-            </footer>
+            <FrontendFooter />
         </div>
     );
 };

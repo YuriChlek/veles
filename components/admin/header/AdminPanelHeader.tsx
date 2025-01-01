@@ -9,14 +9,15 @@ import {
     getLocalesData,
 } from "@/utils/translations/getLocalesData.ts";
 import { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
+import PageTitle from "@/components/base/page-title/PageTitle.tsx";
 
-const AdminPanelHeader: React.FC = async () => {
+const AdminPanelHeader: React.FC = async (): Promise<React.JSX.Element> => {
     const lang: string = (await getUserLocale(ADMIN_AREA)) || getDefaultFrontendLocale();
     const localesData: Array<LanguageType> = (await getLocalesData()) || [];
 
     return (
         <header className={styles["admin-panel-header"]}>
-            <h1 className="admin-panel-title">Page title</h1>
+            <PageTitle pageTitle="Page title" className="admin-panel-title" />
             <div className={styles["admin-panel-header-cel"]}>
                 <AdminLanguageSwitcher langData={localesData} lang={lang} />
                 <AdminCustomer />

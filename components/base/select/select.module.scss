@@ -1,7 +1,8 @@
 .selectWrapper {
     position: relative;
-    height: 100%;
+    height: 40px;
     width: 200px;
+    box-sizing: border-box;
 
     .label {
         position: absolute;

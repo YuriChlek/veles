@@ -1,0 +1,6 @@
+@use "web/styles/base/variables" as *;
+
+.cv-container {
+    display: flex;
+    flex-direction: column;
+}

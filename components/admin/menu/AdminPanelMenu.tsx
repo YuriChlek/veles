@@ -11,6 +11,7 @@ import DynamicReactIcon from "@/components/base/dynamic-react-icon/DynamicReactI
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import useVelesTranslation from "@/utils/translations/translation.ts";
+import { ADMIN_AREA } from "@/constants/locales/locales_constants.ts";
 
 export const AdminPanelMenuItem = dynamic(
     () => import("@/components/admin/menu/AdminPanelMenuItem"),
@@ -19,7 +20,7 @@ export const AdminPanelMenuItem = dynamic(
     },
 );
 
-const AdminPanelMenu: React.FC = () => {
+const AdminPanelMenu: React.FC = (): React.JSX.Element => {
     const _t = useVelesTranslation();
     const [openItemId, setOpenItemId] = useState("");
 
@@ -35,7 +36,7 @@ const AdminPanelMenu: React.FC = () => {
     return (
         <nav className={styles.menu}>
             <div className={styles["menu-logo-wrapper"]}>
-                <Logo />
+                <Logo href={"/admin/panel/dashboard"} area={ADMIN_AREA} />
             </div>
             {adminMenuRouting.map((item: AdminMenuTopItem) => (
                 <div

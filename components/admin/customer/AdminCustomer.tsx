@@ -13,7 +13,7 @@ import Stack from "@mui/material/Stack";
 import CustomerSettingsLink from "@/components/admin/customer-settings-link/CustomerSettingsLink.tsx";
 import styles from "./admin.customer.module.scss";
 
-const AdminCustomer: React.FC = () => {
+const AdminCustomer: React.FC = (): React.JSX.Element => {
     const { adminUser, getAdminUser } = useAdminUserStore();
     const [open, setOpen] = useState(false);
     const anchorRef = useRef<HTMLButtonElement>(null);

@@ -11,7 +11,7 @@ import styles from "./admin.logout.module.scss";
 import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 
-const AdminLogout: React.FC = () => {
+const AdminLogout: React.FC = (): React.JSX.Element => {
     const _t = useVelesTranslation();
     const router = useRouter();
 

@@ -11,10 +11,10 @@ import {
 
 export const getUserLocale = async (area?: string | null) => {
     const cookiesName = area === ADMIN_AREA ? COOKIE_ADMIN_LANG : COOKIE_USER_LANG;
-    return cookies().get(cookiesName)?.value || defaultLocale;
+    return (await cookies()).get(cookiesName)?.value || defaultLocale;
 };
 
 export const setUserLocale = async (locale: Locale, area?: string | null) => {
     const cookiesName = area === ADMIN_AREA ? COOKIE_ADMIN_LANG : COOKIE_USER_LANG;
-    cookies().set(cookiesName, locale);
+    (await cookies()).set(cookiesName, locale);
 };

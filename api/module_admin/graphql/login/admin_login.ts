@@ -10,6 +10,7 @@ import { __API_DIR } from "@/constants/path/path_constants.ts";
 import { TOKEN_SECRET_KEY } from "@/constants/env/env_constants.ts";
 import type { AdminAuthPayload, AdminUser } from "../../interfaces/admin_user";
 import type { GraphQLContext } from "@api/module_admin/interfaces/graph_ql.ts";
+import { ADMIN_TOKEN } from "@/constants/admin/admin_constants.ts";
 
 const createAdminLoginSchema = async (): Promise<GraphQLSchema> => {
     const schema: GraphQLSchema = await loadSchema(
@@ -47,7 +48,7 @@ const createAdminLoginSchema = async (): Promise<GraphQLSchema> => {
                     { expiresIn: "3d" },
                 );
 
-                context.res.cookie("adminToken", token, {
+                context.res.cookie(ADMIN_TOKEN, token, {
                     httpOnly: true,
                     secure: true,
                     maxAge: 3 * 24 * 60 * 60 * 1000,

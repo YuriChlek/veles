@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 import Button from "@/components/base/button-base/Button";
-import styles from "../add-language/add.alnguage.module.scss";
 import Select from "@/components/base/select/Select.tsx";
 import defaultLanguages from "../add-language/defaultLanguages.ts";
 import useLanguagesStore from "@/state/slices/languages.ts";
@@ -17,6 +16,7 @@ import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interf
 import type { SetLanguageResponse } from "@/interfaces/admin/languages/interfaces.ts";
 import type { LanguageType } from "@/interfaces/admin/languages/interfaces.ts";
 import type { SelectOption } from "@/interfaces/admin/select/interfaces.ts";
+import styles from "../add-language/add.language.module.scss";
 
 const AddLanguage: React.FC = () => {
     const _t = useVelesTranslation();

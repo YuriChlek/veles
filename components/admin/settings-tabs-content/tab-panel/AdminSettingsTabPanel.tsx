@@ -9,7 +9,7 @@ interface TabPanelProps {
     key?: number | string;
 }
 
-const AdminSettingsTabPanel: React.FC<TabPanelProps> = (props) => {
+const AdminSettingsTabPanel: React.FC<TabPanelProps> = (props): React.JSX.Element => {
     const { children, value, index, ...attributes } = props;
 
     return (

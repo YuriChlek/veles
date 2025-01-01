@@ -15,7 +15,7 @@ const AdminPanelMenuItem: React.FC<AdminMenuItemProps> = ({
     toggledId,
     items,
     setOpenItemId,
-}) => {
+}): React.JSX.Element => {
     const _t = useVelesTranslation();
     const [open, setOpen] = useState(false);
 

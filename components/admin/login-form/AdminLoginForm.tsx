@@ -14,7 +14,7 @@ import styles from "./lofin.form.module.scss";
 import type { GraphQLResponseInterface } from "@/interfaces/admin/graphql/interfaces.ts";
 import useVelesTranslation from "@/utils/translations/translation.ts";
 
-const AdminLoginForm: React.FC = () => {
+const AdminLoginForm: React.FC = (): React.JSX.Element => {
     const router = useRouter();
     const _t = useVelesTranslation();
     const { setAdminUser } = useAdminUserStore();
@@ -78,9 +78,7 @@ const AdminLoginForm: React.FC = () => {
                     required
                 />
             </div>
-            <SubmitButton type="submit" pendingText={_t("Signing In...")}>
-                {_t("Sign in")}
-            </SubmitButton>
+            <SubmitButton type="submit">{_t("Sign in")}</SubmitButton>
         </form>
     );
 };
