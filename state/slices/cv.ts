@@ -3,22 +3,26 @@ import { CvStore } from "../interfaces/cvEditor/interfaces";
 
 const cvStore: UseBoundStore<StoreApi<CvStore>> = create<CvStore>(
     (set): CvStore => ({
-        photo: "",
-        givenName: "",
-        familyName: "",
-        headline: "",
-        phoneNumber: "",
-        email: "",
-        location: "",
-        linkedin: "",
-        setCvPhoto: (data: string) => set({ photo: data }),
-        setGivenName: (data: string) => set({ givenName: data }),
-        setFamilyName: (data: string) => set({ familyName: data }),
-        setHeadline: (data: string) => set({ headline: data }),
-        setPhoneNumber: (data: string) => set({ phoneNumber: data }),
-        setEmail: (data: string) => set({ email: data }),
-        setLocation: (data: string) => set({ location: data }),
-        setLinkedin: (data: string) => set({ linkedin: data }),
+        cvData: {
+            photo: "",
+            givenName: "",
+            familyName: "",
+            headline: "",
+            phoneNumber: "",
+            email: "",
+            location: "",
+            linkedin: "",
+        },
+        setCvField: <K extends keyof CvStore["cvData"]>(
+            field: K,
+            value: CvStore["cvData"][K],
+        ) =>
+            set((state) => ({
+                cvData: {
+                    ...state.cvData,
+                    [field]: value,
+                },
+            })),
     }),
 );
 

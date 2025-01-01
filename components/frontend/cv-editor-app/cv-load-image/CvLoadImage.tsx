@@ -6,7 +6,7 @@ import cvStore from "@/state/slices/cv.ts";
 import style from "./cv.load.image.module.scss";
 
 const CvLoadImage: React.FC = (): React.JSX.Element => {
-    const { photo, setCvPhoto } = cvStore();
+    const { cvData, setCvField } = cvStore();
 
     const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -16,7 +16,7 @@ const CvLoadImage: React.FC = (): React.JSX.Element => {
 
             reader.onload = () => {
                 if (reader.result) {
-                    setCvPhoto(reader.result.toString());
+                    setCvField("photo", reader.result.toString());
                 }
             };
 
@@ -37,7 +37,7 @@ const CvLoadImage: React.FC = (): React.JSX.Element => {
                     accept="image/*"
                     onChange={handleFileUpload}
                 />
-                {photo && (
+                {cvData.photo && (
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 128 128"
@@ -50,7 +50,7 @@ const CvLoadImage: React.FC = (): React.JSX.Element => {
                             y="0"
                             width="128"
                             height="128"
-                            href={photo}
+                            href={cvData.photo}
                             imageRendering="optimizeSpeed"
                             clipPath="url(#6051bb85-f53c-4185-85a4-2c7686eb6813)"
                         />

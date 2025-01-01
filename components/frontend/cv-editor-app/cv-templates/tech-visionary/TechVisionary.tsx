@@ -8,23 +8,14 @@ import { Selection } from "d3";
 import useStableEffect from "@/hooks/useStableEffect.ts";
 
 const TechVisionary: React.FC = () => {
-    const {
-        photo,
-        givenName,
-        familyName,
-        headline,
-        email,
-        phoneNumber,
-        location,
-        linkedin,
-    } = cvStore();
+    const { cvData } = cvStore();
     const cvWrapper = useRef<HTMLDivElement>(null);
 
     useStableEffect(
         () => {
             generateCvTemplate();
         },
-        [givenName, photo, familyName, headline, email, phoneNumber, location, linkedin],
+        [cvData],
         250,
     );
 
@@ -32,16 +23,7 @@ const TechVisionary: React.FC = () => {
         if (cvWrapper.current) {
             const svg: Selection<SVGSVGElement, unknown, null, undefined> = svg_pages(
                 cvWrapper.current,
-                {
-                    photo,
-                    givenName,
-                    familyName,
-                    headline,
-                    email,
-                    phoneNumber,
-                    location,
-                    linkedin,
-                },
+                cvData,
             );
 
             if (svg) {
